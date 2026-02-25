@@ -111,6 +111,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <script
+          id="vtag-ai-js"
+          async
+          src="https://r2.leadsy.ai/tag.js"
+          data-pid="ci2KKkZ70Yi7Ww68"
+          data-version="062024"
+        ></script>
+        <script
           dangerouslySetInnerHTML={{
             __html: `(function(){if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark')}})()`,
           }}
