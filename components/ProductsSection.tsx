@@ -1,6 +1,6 @@
 "use client";
 
-import { Filter, MessageSquare, Settings2, Star, Check } from "lucide-react";
+import { Filter, FileText, MessageSquare, Settings2, Check } from "lucide-react";
 import RevealOnScroll from "./RevealOnScroll";
 import Actions from "./Actions";
 
@@ -21,22 +21,36 @@ const PRODUCTS = [
       "Reduz a carga de suporte em até 70%. Respostas em segundos, a qualquer hora.",
   },
   {
-    Icon: Filter,
+    Icon: FileText,
     number: "02",
-    title: "Geração & Qualificação de Leads",
+    title: "Agente de Orçamentos com IA",
     description:
-      "Sistemas automatizados que captam, filtram e qualificam leads em tempo real — sem intervenção humana. O teu funil trabalha 24/7.",
+      "Agente de IA que recolhe os requisitos do cliente e gera orçamentos personalizados em segundos — via WhatsApp, Instagram, e-mail ou ligação. Sem intervenção manual, sem demoras.",
     useCases: [
-      "Formulários inteligentes com qualificação imediata",
-      "Qualificação por critérios de negócio personalizados",
-      "Encaminhamento automático para a equipa certa",
+      "Disponível via WhatsApp, Instagram, e-mail e ligação",
+      "Cálculo de preços com base em regras de negócio personalizadas",
+      "Geração e envio automático de propostas em PDF",
     ],
     benefit:
-      "Só chega ao teu CRM quem realmente tem potencial. Zero tempo desperdiçado com leads frios.",
+      "Orçamentos enviados em minutos, não dias. Mais rapidez, mais conversões.",
+  },
+  {
+    Icon: Filter,
+    number: "03",
+    title: "Qualificação & Enriquecimento de Leads",
+    description:
+      "Sistemas automatizados que qualificam e enriquecem leads em tempo real — adicionando contexto, dados da empresa e score de potencial antes de chegarem ao teu CRM.",
+    useCases: [
+      "Qualificação automática por critérios de negócio personalizados",
+      "Enriquecimento de dados com informação da empresa e contacto",
+      "Encaminhamento inteligente para a equipa certa",
+    ],
+    benefit:
+      "Leads mais completos, mais qualificados e prontos para converter. Zero tempo desperdiçado com contactos frios.",
   },
   {
     Icon: Settings2,
-    number: "03",
+    number: "04",
     title: "Automação de Processos Internos",
     description:
       "Fluxos de trabalho automatizados que eliminam tarefas repetitivas — desde relatórios e faturação até gestão de dados e notificações.",
@@ -78,8 +92,8 @@ export default function ProductsSection() {
         </RevealOnScroll>
       </div>
 
-      {/* Cards de produto — grid 1→3 colunas */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl">
+      {/* Cards de produto — grid 1→2 colunas */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-5xl">
         {PRODUCTS.map((product, i) => (
           <RevealOnScroll key={i} delay={0.1 + i * 0.1}>
             <div

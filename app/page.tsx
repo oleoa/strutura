@@ -1,6 +1,6 @@
 import RevealOnScroll from "@/components/RevealOnScroll";
 import Actions from "@/components/Actions";
-import ElevenLabs from "@/components/ElevenLabs";
+// import ElevenLabs from "@/components/ElevenLabs";
 import ProductsSection from "@/components/ProductsSection";
 import HowItWorks from "@/components/HowItWorks";
 
@@ -12,7 +12,7 @@ export default function Home() {
         className="relative flex flex-col items-center justify-center gap-8 min-h-screen"
         style={{ background: "var(--section-hero-bg)" }}
       >
-        <ElevenLabs />
+        {/* <ElevenLabs /> */}
 
         <div className="relative z-10 flex flex-col items-center gap-8 md:px-32 px-6">
           <RevealOnScroll delay={0}>
