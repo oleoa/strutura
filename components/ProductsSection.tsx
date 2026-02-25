@@ -1,6 +1,6 @@
 "use client";
 
-import { Filter, FileText, MessageSquare, Settings2, Check } from "lucide-react";
+import { Star, FileText, MessageSquare, Settings2, Check } from "lucide-react";
 import RevealOnScroll from "./RevealOnScroll";
 import Actions from "./Actions";
 
@@ -35,18 +35,18 @@ const PRODUCTS = [
       "Orçamentos enviados em minutos, não dias. Mais rapidez, mais conversões.",
   },
   {
-    Icon: Filter,
+    Icon: Star,
     number: "03",
-    title: "Qualificação & Enriquecimento de Leads",
+    title: "Agente de Google Reviews com IA",
     description:
-      "Sistemas automatizados que qualificam e enriquecem leads em tempo real — adicionando contexto, dados da empresa e score de potencial antes de chegarem ao teu CRM.",
+      "Agente de IA que envia automaticamente pedidos de review aos clientes após o fecho do negócio — e alerta-te em tempo real sempre que aparece uma avaliação negativa para agires antes que cause dano.",
     useCases: [
-      "Qualificação automática por critérios de negócio personalizados",
-      "Enriquecimento de dados com informação da empresa e contacto",
-      "Encaminhamento inteligente para a equipa certa",
+      "Envio automático de pedidos de review após negócio fechado",
+      "Alertas imediatos por WhatsApp ou email em reviews negativas",
+      "Mensagens personalizadas por cliente para maior taxa de resposta",
     ],
     benefit:
-      "Leads mais completos, mais qualificados e prontos para converter. Zero tempo desperdiçado com contactos frios.",
+      "Mais reviews 5 estrelas no piloto automático. Nenhuma avaliação negativa passa despercebida. Resultado direto: melhor posicionamento orgânico no Google.",
   },
   {
     Icon: Settings2,

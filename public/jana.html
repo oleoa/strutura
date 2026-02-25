@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reunião Janaína — Guia Rápido</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0f0f12;
+  --card: #1a1a22;
+  --accent: #c8a86e;
+  --accent2: #e8d5a8;
+  --text: #e8e8ec;
+  --muted: #8a8a96;
+  --green: #4ade80;
+  --blue: #60a5fa;
+  --orange: #fb923c;
+  --red: #f87171;
+  --purple: #a78bfa;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  padding: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.header {
+  text-align: center;
+  padding: 32px 0 24px;
+  border-bottom: 1px solid rgba(200,168,110,0.2);
+  margin-bottom: 32px;
+}
+
+.header .label {
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent2);
+  margin-bottom: 4px;
+}
+
+.header .sub {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-title .icon {
+  font-size: 1.2rem;
+}
+
+/* Cards */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+  border-left: 3px solid var(--accent);
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: translateX(4px); }
+
+.card h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+.card p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.card .tag {
+  display: inline-block;
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.tag.green { background: rgba(74,222,128,0.15); color: var(--green); }
+.tag.blue { background: rgba(96,165,250,0.15); color: var(--blue); }
+.tag.orange { background: rgba(251,146,60,0.15); color: var(--orange); }
+.tag.purple { background: rgba(167,139,250,0.15); color: var(--purple); }
+
+/* Grid */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .grid-2 { grid-template-columns: 1fr; }
+  .header h1 { font-size: 1.6rem; }
+}
+
+/* Script flow */
+.flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.flow-step {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px 20px;
+  position: relative;
+  margin-bottom: 0;
+}
+
+.flow-step:not(:last-child)::after {
+  content: '↓';
+  display: block;
+  text-align: center;
+  color: var(--accent);
+  font-size: 18px;
+  padding: 6px 0;
+}
+
+.flow-step .step-num {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.flow-step h3 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.flow-step p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.flow-step .time {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+/* Alert box */
+.alert {
+  background: rgba(200,168,110,0.08);
+  border: 1px solid rgba(200,168,110,0.25);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 28px;
+}
+
+.alert h3 {
+  font-size: 14px;
+  color: var(--accent2);
+  margin-bottom: 8px;
+}
+
+.alert p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Phrases */
+.phrase {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--accent2);
+  border-left: 3px solid var(--accent);
+}
+
+.phrase .context {
+  font-style: normal;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: rgba(200,168,110,0.15);
+  margin: 32px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="label">Guia de Reunião — Strutura</div>
+  <h1>Janaína · Mentores de Elite</h1>
+  <div class="sub">Formação em desenvolvimento humano · 68h · Reconhecida MEC · Instagram + Eventos</div>
+</div>
+
+<!-- CONTEXTO -->
+<div class="alert">
+  <h3>🎯 Quem é a Janaína</h3>
+  <p>Líder da <strong>Formação Mentores de Elite</strong> — forma mentores comportamentais, terapeutas e coaches em desbloqueio emocional e reprogramação mental. Posiciona-se contra cursos rasos e infoprodutos vazios. Tem eventos presenciais (congressos, imersões), formação online estruturada, e usa Instagram como canal principal. O negócio está em crescimento desde 2024.</p>
+</div>
+
+<!-- DORES & OPORTUNIDADES -->
+<div class="section">
+  <div class="section-title"><span class="icon">🔍</span> Dores prováveis que podes resolver</div>
+  <div class="grid-2">
+    <div class="card">
+      <h3>Atendimento a leads no Instagram</h3>
+      <p>Responder DMs de interessados na formação 24/7, qualificar leads e agendar chamadas — provavelmente faz isto manualmente.</p>
+      <span class="tag green">Impacto alto</span>
+    </div>
+    <div class="card">
+      <h3>Follow-up de leads que não fecharam</h3>
+      <p>Pessoas que mostraram interesse mas não compraram. Sequências automáticas de reativação por email/WhatsApp.</p>
+      <span class="tag green">Impacto alto</span>
+    </div>
+    <div class="card">
+      <h3>Onboarding de novos alunos</h3>
+      <p>Automatizar boas-vindas, envio de materiais, acesso à plataforma, orientações iniciais — tudo sem intervenção manual.</p>
+      <span class="tag blue">Eficiência</span>
+    </div>
+    <div class="card">
+      <h3>Gestão de eventos e inscrições</h3>
+      <p>Congressos, imersões, masterclasses — automatizar inscrições, lembretes, confirmações e pós-evento.</p>
+      <span class="tag blue">Eficiência</span>
+    </div>
+    <div class="card">
+      <h3>Funil perpétuo de vendas</h3>
+      <p>Captar leads com lead magnet → sequência de aquecimento → oferta com prazo individual → vender todos os dias sem lançamento.</p>
+      <span class="tag orange">Crescimento</span>
+    </div>
+    <div class="card">
+      <h3>Suporte a alunos com AI</h3>
+      <p>Chatbot treinado no método dela que responde dúvidas dos alunos sobre conteúdo, agendamentos e certificação.</p>
+      <span class="tag purple">Diferencial</span>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SCRIPT DA REUNIÃO -->
+<div class="section">
+  <div class="section-title"><span class="icon">🗣️</span> Script da reunião (20-30 min)</div>
+  <div class="flow">
+    <div class="flow-step">
+      <span class="time">0-5 min</span>
+      <div class="step-num">Fase 1 — Rapport & Contexto</div>
+      <h3>Ouvir antes de falar</h3>
+      <p>Pergunta: "Janaína, conta-me como funciona hoje o processo desde que alguém te descobre no Instagram até se tornar aluno. Quero entender bem antes de sugerir qualquer coisa."</p>
+    </div>
+    <div class="flow-step">
+      <span class="time">5-10 min</span>
+      <div class="step-num">Fase 2 — Identificar dores</div>
+      <h3>Aprofundar nos gargalos</h3>
+      <p>Perguntas-chave: "O que te toma mais tempo hoje que gostarias de não fazer?" · "Quantos leads chegam por mês e quantos convertem?" · "Tens alguém a responder DMs ou fazes tu?"</p>
+    </div>
+    <div class="flow-step">
+      <span class="time">10-18 min</span>
+      <div class="step-num">Fase 3 — Apresentar soluções</div>
+      <h3>Conectar dores a soluções concretas</h3>
+      <p>Não vendas "automação" — vende o resultado: "Imagina que cada pessoa que te manda DM recebe uma resposta inteligente em 30 segundos, é qualificada, e recebe um link para agendar contigo — sem precisares de tocar em nada."</p>
+    </div>
+    <div class="flow-step">
+      <span class="time">18-25 min</span>
+      <div class="step-num">Fase 4 — Proposta de próximo passo</div>
+      <h3>Fechar com ação concreta</h3>
+      <p>"Posso montar um protótipo em 5 dias para testares — assim vês a funcionar antes de decidir. Que achas?" Oferece um piloto pequeno (ex: automação de DMs ou follow-up) para gerar confiança.</p>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SOLUÇÕES N8N + AI -->
+<div class="section">
+  <div class="section-title"><span class="icon">⚡</span> Soluções N8N + AI que podes propor</div>
+
+  <div class="card" style="border-left-color: var(--green);">
+    <h3>1. Agente AI para Instagram DMs</h3>
+    <p>Responde automaticamente a DMs de interessados, qualifica (pergunta objetivos, experiência, disponibilidade), e agenda chamada de vendas. Funciona 24/7. Integra com Google Calendar + CRM.</p>
+    <span class="tag green">Quick win — propõe como piloto</span>
+  </div>
+
+  <div class="card" style="border-left-color: var(--blue);">
+    <h3>2. Funil Perpétuo Automatizado</h3>
+    <p>Lead magnet (ex: aula gratuita) → Sequência de emails/WhatsApp com conteúdo de valor → Oferta com deadline individual → Remarketing para quem não fechou. Tudo automático via N8N.</p>
+    <span class="tag orange">Crescimento contínuo</span>
+  </div>
+
+  <div class="card" style="border-left-color: var(--orange);">
+    <h3>3. Sistema de Follow-up Inteligente</h3>
+    <p>AI analisa em que fase o lead parou (viu página? abriu email? respondeu DM?) e envia mensagem personalizada. Reativa leads frios com abordagem humana, não spam.</p>
+    <span class="tag green">Recupera vendas perdidas</span>
+  </div>
+
+  <div class="card" style="border-left-color: var(--purple);">
+    <h3>4. Onboarding Automatizado de Alunos</h3>
+    <p>Novo aluno paga → recebe automaticamente: boas-vindas personalizada, acesso à plataforma, grupo, calendário de aulas, materiais. Zero trabalho manual.</p>
+    <span class="tag blue">Eficiência operacional</span>
+  </div>
+
+  <div class="card" style="border-left-color: var(--accent);">
+    <h3>5. Gestão de Eventos com AI</h3>
+    <p>Inscrição automática → confirmação → lembretes (48h, 24h, 1h antes) → pesquisa pós-evento → oferta de upsell para quem participou. Para congressos e imersões dela.</p>
+    <span class="tag blue">Profissionalização</span>
+  </div>
+
+  <div class="card" style="border-left-color: var(--red);">
+    <h3>6. Assistente AI para Alunos</h3>
+    <p>Chatbot treinado no método Mentores de Elite. Responde dúvidas sobre conteúdo, agenda de aulas, certificação e suporte. Reduz carga da equipa e melhora experiência do aluno.</p>
+    <span class="tag purple">Diferencial no mercado</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- FRASES CHAVE -->
+<div class="section">
+  <div class="section-title"><span class="icon">💬</span> Frases que conectam com o mundo dela</div>
+  
+  <div class="phrase">
+    "Eu vi que te posicionas contra o mercado raso de cursos. A automação que eu faço é igual — não é spam automático, é criar uma experiência personalizada para cada pessoa que te procura."
+    <div class="context">→ Alinha os teus valores com os dela</div>
+  </div>
+
+  <div class="phrase">
+    "Tu estás a formar mentores de elite — mas o processo de captação e acompanhamento está à altura dessa excelência?"
+    <div class="context">→ Cria consciência do gap sem criticar</div>
+  </div>
+
+  <div class="phrase">
+    "Imagina que cada lead recebe um atendimento tão personalizado que parece que tens uma equipa de 5 pessoas — mas é a AI a fazer isso por ti enquanto dormes."
+    <div class="context">→ Vende o resultado, não a tecnologia</div>
+  </div>
+
+  <div class="phrase">
+    "Posso montar um protótipo em poucos dias para testares. Sem compromisso. Assim vês a funcionar antes de decidir."
+    <div class="context">→ Reduz risco e gera confiança</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ERROS A EVITAR -->
+<div class="alert" style="border-color: rgba(248,113,113,0.3); background: rgba(248,113,113,0.05);">
+  <h3>⚠️ O que NÃO fazer nesta reunião</h3>
+  <p>
+    <strong>Não fales em termos técnicos</strong> (N8N, API, webhook) — fala em resultados e experiência.<br><br>
+    <strong>Não proponhas tudo de uma vez</strong> — identifica a dor #1 dela e propõe resolver essa primeiro.<br><br>
+    <strong>Não desvalorizares o trabalho dela</strong> — ela orgulha-se do método. Mostra que a automação amplifica o que ela já faz bem.<br><br>
+    <strong>Não vendas barato</strong> — esta é uma formação premium com reconhecimento MEC. Posiciona-te à altura (€3.000-5.000+).
+  </p>
+</div>
+
+</body>
+</html>
