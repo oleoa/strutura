@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia Completo de Campismo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #1a3a2a;
+    --forest-light: #2d5a3f;
+    --moss: #4a7c59;
+    --sage: #7fa97f;
+    --sand: #e8dcc8;
+    --sand-light: #f4efe6;
+    --cream: #faf8f4;
+    --ember: #d4764e;
+    --ember-dark: #b85a35;
+    --bark: #5c4a3a;
+    --stone: #8a7e72;
+    --night: #0f1a14;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--cream);
+    color: var(--forest);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 40%, var(--moss) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease-out;
+  }
+
+  .hero-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    color: var(--sand);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero p {
+    color: var(--sage);
+    font-size: 1.15rem;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0.5rem auto 2rem;
+  }
+
+  .hero .badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    color: var(--sand-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--sage);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  /* NAV */
+  .nav {
+    position: sticky;
+    top: 0;
+    background: var(--forest);
+    z-index: 100;
+    padding: 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    min-width: max-content;
+  }
+
+  .nav a {
+    color: var(--sage);
+    text-decoration: none;
+    padding: 1rem 1.3rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.3s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .nav a:hover, .nav a.active {
+    color: var(--sand);
+    border-bottom-color: var(--ember);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* SECTIONS */
+  .section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--sage);
+    opacity: 0.25;
+    line-height: 1;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--forest);
+    margin-top: -0.5rem;
+  }
+
+  .section-subtitle {
+    color: var(--stone);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .divider {
+    height: 4px;
+    background: linear-gradient(90deg, var(--moss), var(--ember), var(--moss));
+    border-radius: 2px;
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  /* CHECKLIST CARDS */
+  .checklist-category {
+    margin-bottom: 2.5rem;
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .category-icon {
+    width: 44px;
+    height: 44px;
+    background: var(--forest);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .category-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  .category-count {
+    margin-left: auto;
+    background: var(--sand);
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--forest);
+  }
+
+  .checklist-items {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .checklist-item:hover {
+    border-color: var(--moss);
+    box-shadow: 0 2px 8px rgba(26,58,42,0.08);
+  }
+
+  .checklist-item.checked {
+    background: var(--sand-light);
+    opacity: 0.7;
+  }
+
+  .checklist-item.checked .item-name {
+    text-decoration: line-through;
+    color: var(--stone);
+  }
+
+  .checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--moss);
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    margin-top: 1px;
+  }
+
+  .checklist-item.checked .checkbox {
+    background: var(--moss);
+    border-color: var(--moss);
+  }
+
+  .checkbox::after {
+    content: '✓';
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .checklist-item.checked .checkbox::after {
+    opacity: 1;
+  }
+
+  .item-content {
+    flex: 1;
+  }
+
+  .item-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--forest);
+  }
+
+  .item-detail {
+    font-size: 0.82rem;
+    color: var(--stone);
+    margin-top: 2px;
+  }
+
+  .item-price {
+    font-weight: 700;
+    color: var(--ember);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+
+  .priority-essential {
+    border-left: 3px solid var(--ember);
+  }
+
+  .priority-recommended {
+    border-left: 3px solid var(--moss);
+  }
+
+  .priority-optional {
+    border-left: 3px solid var(--sand);
+  }
+
+  /* BUDGET BAR */
+  .budget-tracker {
+    background: var(--forest);
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    color: var(--sand);
+  }
+
+  .budget-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .budget-bar {
+    height: 8px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .budget-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--moss), var(--ember));
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+
+  .budget-total {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-top: 0.5rem;
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    padding: 1rem 1.25rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.82rem;
+    color: var(--stone);
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  /* SKILLS GRID */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .skill-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(26,58,42,0.1);
+  }
+
+  .skill-level {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .level-basic { background: #e8f5e9; color: #2e7d32; }
+  .level-intermediate { background: #fff3e0; color: #e65100; }
+  .level-advanced { background: #fce4ec; color: #c62828; }
+
+  .skill-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-desc {
+    font-size: 0.88rem;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+
+  /* RULES SECTION */
+  .rule-card {
+    background: white;
+    border-radius: 14px;
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .rule-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+
+  .rule-icon.danger { background: #fce4ec; }
+  .rule-icon.warning { background: #fff3e0; }
+  .rule-icon.info { background: #e8f5e9; }
+
+  .rule-title {
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .rule-text {
+    font-size: 0.9rem;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+
+  /* TIPS ACCORDION */
+  .tip-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .tip-header {
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 12px;
+    padding: 1.15rem 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: all 0.2s;
+    user-select: none;
+  }
+
+  .tip-header:hover {
+    border-color: var(--moss);
+  }
+
+  .tip-header.open {
+    border-radius: 12px 12px 0 0;
+    border-bottom-color: transparent;
+    background: var(--forest);
+    color: var(--sand);
+  }
+
+  .tip-header .arrow {
+    margin-left: auto;
+    transition: transform 0.3s;
+    font-size: 0.8rem;
+  }
+
+  .tip-header.open .arrow {
+    transform: rotate(180deg);
+  }
+
+  .tip-header-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .tip-body {
+    display: none;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    padding: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--bark);
+    line-height: 1.7;
+  }
+
+  .tip-body.open {
+    display: block;
+  }
+
+  /* PROGRESS TRACKER */
+  .progress-bar-container {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--forest);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    z-index: 200;
+    color: var(--sand);
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 280px;
+    justify-content: center;
+  }
+
+  .mini-bar {
+    width: 100px;
+    height: 5px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .mini-fill {
+    height: 100%;
+    background: var(--ember);
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--forest);
+    color: var(--sage);
+    text-align: center;
+    padding: 3rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .footer strong {
+    color: var(--sand);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .section { padding: 3rem 1rem; }
+    .skills-grid { grid-template-columns: 1fr; }
+    .legend { flex-direction: column; gap: 0.5rem; }
+    .budget-tracker { padding: 1.25rem; }
+    .progress-bar-container { min-width: 240px; padding: 0.6rem 1.2rem; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <span class="hero-icon">⛺</span>
+    <div class="badge">Guia para Iniciantes</div>
+    <h1>Campismo<br>de A a Z</h1>
+    <p>Tudo o que precisas saber para começar a acampar em Portugal — equipamento, competências, regras e dicas práticas.</p>
+  </div>
+  <div class="scroll-hint">↓ scroll para começar</div>
+</section>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#equipamento">Equipamento</a>
+    <a href="#competencias">Competências</a>
+    <a href="#legislacao">Legislação PT</a>
+    <a href="#primeirasaida">1ª Saída</a>
+    <a href="#dicas">Dicas Pro</a>
+  </div>
+</nav>
+
+<!-- SECTION 1: EQUIPAMENTO -->
+<section class="section" id="equipamento">
+  <div class="section-header">
+    <div class="section-number">01</div>
+    <h2 class="section-title">Equipamento Essencial</h2>
+    <p class="section-subtitle">Checklist interativa — clica nos itens à medida que fores comprando</p>
+  </div>
+
+  <div class="budget-tracker">
+    <div class="budget-label">
+      <span>Orçamento estimado (essenciais)</span>
+      <span id="budgetPercent">0%</span>
+    </div>
+    <div class="budget-bar">
+      <div class="budget-fill" id="budgetFill" style="width:0%"></div>
+    </div>
+    <div class="budget-total">€<span id="budgetTotal">0</span> <span style="font-size:0.9rem;font-weight:300;opacity:0.7">/ ~€350</span></div>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--ember)"></div> Essencial</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--moss)"></div> Recomendado</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--sand)"></div> Opcional / Conforto</div>
+  </div>
+
+  <!-- ABRIGO -->
+  <div class="checklist-category">
+    <div class="category-header">
+      <div class="category-icon">🏕️</div>
+      <span class="category-name">Abrigo & Dormida</span>
+      <span class="category-count" id="count-abrigo">0/5</span>
+    </div>
+    <div class="checklist-items" id="cat-abrigo">
+      <div class="checklist-item priority-essential" data-price="80" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Tenda 2-3 pessoas</div>
+          <div class="item-detail">Quechua MH100 ou similar — impermeável, fácil montagem. Para camping + selvagem, escolhe uma leve (&lt;3kg)</div>
+          <div class="item-price">~€80</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="40" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Saco-cama (10–15°C conforto)</div>
+          <div class="item-detail">Para 3 estações em Portugal. Verifica a temperatura de conforto, não a extrema</div>
+          <div class="item-price">~€40</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="25" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Colchão isolante / autoinsuflável</div>
+          <div class="item-detail">Isola do frio do solo — mais importante que o saco-cama! R-value ≥ 2 para 3 estações</div>
+          <div class="item-price">~€25</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-recommended" data-price="10" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Almofada de campismo</div>
+          <div class="item-detail">Insuflável e compacta. Ou usa roupa dentro de um saco</div>
+          <div class="item-price">~€10</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-optional" data-price="8" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Lona / footprint</div>
+          <div class="item-detail">Protege o fundo da tenda e serve como área de estar</div>
+          <div class="item-price">~€8</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COZINHA -->
+  <div class="checklist-category">
+    <div class="category-header">
+      <div class="category-icon">🍳</div>
+      <span class="category-name">Cozinha & Alimentação</span>
+      <span class="category-count" id="count-cozinha">0/6</span>
+    </div>
+    <div class="checklist-items" id="cat-cozinha">
+      <div class="checklist-item priority-essential" data-price="25" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Fogareiro portátil + gás</div>
+          <div class="item-detail">Campingaz Twister ou similar. Cartucho de rosca é mais seguro e eficiente</div>
+          <div class="item-price">~€25</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="15" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Kit panela + frigideira</div>
+          <div class="item-detail">Set de campismo empilhável (1L panela + tampa/frigideira). Alumínio para leveza</div>
+          <div class="item-price">~€15</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="5" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Talheres + prato + caneca</div>
+          <div class="item-detail">Kit compacto reutilizável. Evita plástico descartável</div>
+          <div class="item-price">~€5</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="10" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Garrafa de água (1L+)</div>
+          <div class="item-detail">Reutilizável, resistente. Nalgene ou similar. Leva sempre 2L mínimo</div>
+          <div class="item-price">~€10</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-recommended" data-price="8" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Isqueiro + faca multiusos</div>
+          <div class="item-detail">Canivete tipo Opinel ou Victorinox. Essencial para cozinhar e 1001 tarefas</div>
+          <div class="item-price">~€8</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-optional" data-price="20" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Geleira portátil</div>
+          <div class="item-detail">Para estadias em parque. Não é necessária para campismo selvagem/leve</div>
+          <div class="item-price">~€20</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ORIENTAÇÃO & SEGURANÇA -->
+  <div class="checklist-category">
+    <div class="category-header">
+      <div class="category-icon">🧭</div>
+      <span class="category-name">Segurança & Orientação</span>
+      <span class="category-count" id="count-seguranca">0/5</span>
+    </div>
+    <div class="checklist-items" id="cat-seguranca">
+      <div class="checklist-item priority-essential" data-price="15" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Lanterna frontal (headlamp)</div>
+          <div class="item-detail">Mãos livres é fundamental. Mínimo 200 lúmens. Leva pilhas extra</div>
+          <div class="item-price">~€15</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="10" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Kit primeiros socorros</div>
+          <div class="item-detail">Pensos, desinfetante, ligaduras, analgésicos, pomada picadas, pinça</div>
+          <div class="item-price">~€10</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-recommended" data-price="0" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">App de mapas offline</div>
+          <div class="item-detail">Wikiloc, Maps.me ou Organic Maps — descarrega os mapas antes de sair!</div>
+          <div class="item-price">Grátis</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-recommended" data-price="10" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Powerbank</div>
+          <div class="item-detail">Mínimo 10.000mAh para manter o telemóvel carregado 2-3 dias</div>
+          <div class="item-price">~€10</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-optional" data-price="8" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Apito + corda (10m)</div>
+          <div class="item-detail">Apito de emergência e corda paracord — mil e uma utilidades</div>
+          <div class="item-price">~€8</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VESTUÁRIO -->
+  <div class="checklist-category">
+    <div class="category-header">
+      <div class="category-icon">🧥</div>
+      <span class="category-name">Vestuário & Higiene</span>
+      <span class="category-count" id="count-vestuario">0/5</span>
+    </div>
+    <div class="checklist-items" id="cat-vestuario">
+      <div class="checklist-item priority-essential" data-price="30" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Casaco impermeável</div>
+          <div class="item-detail">Leve e compactável. O tempo em Portugal muda rápido, especialmente no norte</div>
+          <div class="item-price">~€30</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="0" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Camadas de roupa (sistema 3 camadas)</div>
+          <div class="item-detail">Base técnica + fleece/polar + impermeável. Evita algodão, demora a secar</div>
+          <div class="item-price">Usa o que tens</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-essential" data-price="0" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Calçado adequado</div>
+          <div class="item-detail">Botas de caminhada ou sapatilhas trail para selvagem. Chinelos para o parque</div>
+          <div class="item-price">Usa o que tens</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-recommended" data-price="8" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Toalha de secagem rápida</div>
+          <div class="item-detail">Microfibra, compacta. Seca 5x mais rápido que uma toalha normal</div>
+          <div class="item-price">~€8</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-recommended" data-price="12" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Protetor solar + repelente</div>
+          <div class="item-detail">SPF 30+ e repelente DEET. Portugal tem carraças em zonas de mato</div>
+          <div class="item-price">~€12</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRANSPORTE -->
+  <div class="checklist-category">
+    <div class="category-header">
+      <div class="category-icon">🎒</div>
+      <span class="category-name">Transporte</span>
+      <span class="category-count" id="count-transporte">0/2</span>
+    </div>
+    <div class="checklist-items" id="cat-transporte">
+      <div class="checklist-item priority-essential" data-price="50" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Mochila 40-60L (campismo selvagem)</div>
+          <div class="item-detail">Com cinto de anca e costas arejadas. Experimenta na loja antes de comprar</div>
+          <div class="item-price">~€50</div>
+        </div>
+      </div>
+      <div class="checklist-item priority-optional" data-price="0" onclick="toggleItem(this)">
+        <div class="checkbox"></div>
+        <div class="item-content">
+          <div class="item-name">Sacos estanques / sacos de organização</div>
+          <div class="item-detail">Para separar roupa seca da suja e proteger da chuva</div>
+          <div class="item-price">~€5-10</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 2: COMPETÊNCIAS -->
+<section class="section" id="competencias">
+  <div class="section-header">
+    <div class="section-number">02</div>
+    <h2 class="section-title">Competências a Desenvolver</h2>
+    <p class="section-subtitle">O que precisas saber fazer antes e durante as saídas</p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-level level-basic">Básico</div>
+      <div class="skill-title">Montar a tenda</div>
+      <div class="skill-desc">Pratica em casa antes da primeira saída. Escolhe terreno plano, sem pedras. Posiciona a porta contra o vento. Estica bem o duplo teto para evitar condensação.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-basic">Básico</div>
+      <div class="skill-title">Cozinhar com fogareiro</div>
+      <div class="skill-desc">Usa o fogareiro em superfície estável e abrigada do vento. Nunca dentro da tenda! Começa com refeições simples: massa, arroz, sandes, sopas instantâneas.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-basic">Básico</div>
+      <div class="skill-title">Fazer a mochila</div>
+      <div class="skill-desc">Itens pesados junto às costas e ao centro. Coisas que precisas rápido (chuva, snacks) no topo ou bolsos. Saco-cama no fundo. Equilibra o peso.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-basic">Básico</div>
+      <div class="skill-title">Gestão de água</div>
+      <div class="skill-desc">Leva sempre mais do que pensas precisar (mín. 2L/pessoa/dia). Em campismo selvagem, identifica fontes de água antes de sair. Pastilhas de purificação como backup.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-intermediate">Intermédio</div>
+      <div class="skill-title">Navegação com mapa/GPS</div>
+      <div class="skill-desc">Aprende a ler mapas topográficos. Usa apps como Wikiloc com mapas offline. Nunca dependas só do telemóvel — a bateria acaba. Marca waypoints do carro/campo.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-intermediate">Intermédio</div>
+      <div class="skill-title">Ler o tempo</div>
+      <div class="skill-desc">Consulta a previsão (IPMA) 2-3 dias antes. Aprende a ler nuvens: cúmulos altos = bom tempo, nimbos escuros = chuva iminente. Em montanha, desce se trovoada.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-intermediate">Intermédio</div>
+      <div class="skill-title">Nós essenciais</div>
+      <div class="skill-desc">Aprende 3 nós: lais de guia (fixar corda a árvore), nó de escota (unir cordas), volta do fiel (prender a postes). Servem para esticar lonas, secar roupa, tudo.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-intermediate">Intermédio</div>
+      <div class="skill-title">Leave No Trace</div>
+      <div class="skill-desc">7 princípios: planeia antes, usa trilhos, leva todo o lixo, não alteres o local, minimiza fogueiras, respeita a vida selvagem, sê considerado com outros.</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-level level-advanced">Avançado</div>
+      <div class="skill-title">Primeiros socorros outdoor</div>
+      <div class="skill-desc">Sabe tratar bolhas, entorses, picadas de insetos, hipotermia leve. Curso de primeiros socorros da Cruz Vermelha é um excelente investimento futuro.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 3: LEGISLAÇÃO -->
+<section class="section" id="legislacao">
+  <div class="section-header">
+    <div class="section-number">03</div>
+    <h2 class="section-title">Legislação em Portugal</h2>
+    <p class="section-subtitle">O que é legal, o que não é, e como acampar sem multas</p>
+  </div>
+
+  <div class="rule-card">
+    <div class="rule-icon danger">⚠️</div>
+    <div>
+      <div class="rule-title">Campismo selvagem com tenda: tecnicamente proibido</div>
+      <div class="rule-text">O Decreto-Lei n.º 39/2008 estabelece que acampar em tenda só é permitido em locais licenciados. Na prática, fora de zonas protegidas e turísticas do sul, a atividade é mais tolerada, especialmente no norte e interior. Mas o risco de multa existe.</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <div class="rule-icon warning">🏔️</div>
+    <div>
+      <div class="rule-title">Bivaque: a exceção possível</div>
+      <div class="rule-text">Em certas zonas de montanha, mediante autorização prévia do ICNF, é permitido o bivaque — pernoita sumária do pôr ao nascer do sol, sem estruturas permanentes. Contacta sempre o ICNF antes de planear uma pernoita em áreas protegidas.</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <div class="rule-icon danger">🚫</div>
+    <div>
+      <div class="rule-title">Zonas estritamente proibidas</div>
+      <div class="rule-text">É proibido acampar em áreas da Rede Natura 2000, parques nacionais, reservas naturais e zonas abrangidas pelos Planos de Ordenamento da Orla Costeira. Multas entre €120 e €2.000 dependendo da zona.</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <div class="rule-icon info">✅</div>
+    <div>
+      <div class="rule-title">A opção segura: parques de campismo</div>
+      <div class="rule-text">Portugal tem centenas de parques de campismo excelentes, desde €5-15/noite. Muitos em locais espetaculares (Gerês, Serra da Estrela, Costa Vicentina). Como iniciante, começa por aqui — tens infraestruturas e tranquilidade legal.</div>
+    </div>
+  </div>
+
+  <div class="rule-card">
+    <div class="rule-icon info">🔥</div>
+    <div>
+      <div class="rule-title">Fogueiras: muito cuidado!</div>
+      <div class="rule-text">Fazer fogueiras é proibido durante o período crítico de incêndios (15 maio a 15 outubro) em espaços florestais. Mesmo fora deste período, requer extremo cuidado. Usa sempre o fogareiro em vez de fogueira — é mais seguro e legal.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 4: PRIMEIRA SAÍDA -->
+<section class="section" id="primeirasaida">
+  <div class="section-header">
+    <div class="section-number">04</div>
+    <h2 class="section-title">A Tua 1ª Saída</h2>
+    <p class="section-subtitle">Plano passo a passo para a primeira experiência</p>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>1️⃣</span>
+      <span class="tip-header-title">1 semana antes — Preparação</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Escolhe um parque de campismo para a primeira vez (não vás logo para selvagem). Reserva o lugar se necessário. Monta a tenda em casa e desmonta — cronometra-te. Verifica todo o equipamento: funciona o fogareiro? A lanterna tem pilhas? Faz uma lista de refeições simples para os dias que vais estar fora. Verifica a previsão do tempo no IPMA.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>2️⃣</span>
+      <span class="tip-header-title">Na véspera — Preparar tudo</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Faz a mochila/mala seguindo a checklist acima. Carrega o telemóvel e powerbank a 100%. Descarrega os mapas offline da zona. Prepara snacks e a primeira refeição. Avisa alguém para onde vais e quando voltas. Coloca a mochila pronta à porta.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>3️⃣</span>
+      <span class="tip-header-title">Ao chegar — Montar campo</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Escolhe um local plano, sem pedras nem raízes. Se possível, ligeiramente elevado para escoar água de chuva. Porta da tenda virada contra o vento dominante. Estica bem todas as espias (cordas) da tenda. Organiza o interior: saco-cama estendido, coisas que precisas à noite à mão (lanterna, água, telemóvel). Monta a "cozinha" a 3-5 metros da tenda.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>4️⃣</span>
+      <span class="tip-header-title">Durante a estadia — Rotina</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Mantém a tenda fechada durante o dia (insetos!). Guarda comida em recipientes fechados e afastada da tenda. Hidrata-te bem, mesmo se não tiveres sede. Respeita o silêncio a partir das 22h nos parques. Se estiver calor, abre a ventilação da tenda (reduz condensação). Aproveita o nascer e pôr do sol — são os melhores momentos.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>5️⃣</span>
+      <span class="tip-header-title">Ao partir — Leave No Trace</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Recolhe absolutamente todo o lixo (incluindo restos orgânicos). Verifica o chão onde estava a tenda — não deixes nada para trás. Apaga completamente qualquer vestígio de fogueira. O objectivo é que ninguém perceba que estiveste ali. Faz uma foto mental e leva as memórias contigo.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SECTION 5: DICAS PRO -->
+<section class="section" id="dicas">
+  <div class="section-header">
+    <div class="section-number">05</div>
+    <h2 class="section-title">Dicas Pro</h2>
+    <p class="section-subtitle">Truques que fazem a diferença no terreno</p>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>💡</span>
+      <span class="tip-header-title">Hack do conforto noturno</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      O colchão isolante é mais importante que o saco-cama — o frio vem de baixo, não de cima. Se tiveres frio, veste um gorro e meias. Enche a garrafa de água com água quente e mete no fundo do saco-cama como botija. Não durmas com roupa molhada de suor — muda para roupa seca.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>🍝</span>
+      <span class="tip-header-title">Refeições fáceis para principiantes</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Pequeno-almoço: aveia instantânea + frutos secos + mel. Almoço: wraps com atum/queijo/fiambre (não precisam de cozinhar). Jantar: massa com molho pesto pronto + atum (1 panela só). Snacks: frutos secos, barras energéticas, fruta resistente (maçãs, laranjas). A regra de ouro: máximo 1 panela, mínimo 10 minutos.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>🇵🇹</span>
+      <span class="tip-header-title">Melhores locais em Portugal para começar</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      <strong>Parques recomendados:</strong> Parque de Campismo do Gerês, Camping Cerdeira (Serra da Lousã), Lisboa Camping (perto de casa para testar equipamento), Parque de Campismo da Praia da Galé (Algarve). <strong>Para evoluir:</strong> trilhos do Gerês com pernoita (pedir autorização ICNF), Serra da Estrela, Rota Vicentina (procura abrigos nos trilhos). Apps úteis: Park4Night, Wikiloc, CampingCar Portugal.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>⚡</span>
+      <span class="tip-header-title">Onde comprar barato em Portugal</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      <strong>Decathlon</strong> é o melhor custo-benefício para iniciantes (marca Quechua/Forclaz). <strong>Action</strong> tem acessórios muito baratos (utensílios, lanternas, lonas). <strong>OLX e Vinted</strong> para equipamento usado em bom estado — muita gente compra e só usa uma vez. <strong>Dica:</strong> compra fora da época alta (setembro-fevereiro) para melhores preços e promoções.
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-header" onclick="toggleTip(this)">
+      <span>🦟</span>
+      <span class="tip-header-title">Carraças e insetos — proteção real</span>
+      <span class="arrow">▼</span>
+    </div>
+    <div class="tip-body">
+      Em Portugal, as carraças são um risco real em zonas de mato, especialmente na primavera e verão. Usa calças compridas e tucked nos meias em trilhos. Aplica repelente com DEET. Faz check corporal completo ao final do dia. Se encontrares uma carraça, remove com pinça puxando reto e firme (sem rodar). Vai ao centro de saúde se apareceres vermelhidão circular.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="footer">
+  <strong>Bom campismo! ⛺</strong>
+  <p>Começa simples, evolui gradualmente, e respeita sempre a natureza.<br>O melhor investimento é em experiência, não em equipamento.</p>
+</div>
+
+<!-- PROGRESS TRACKER -->
+<div class="progress-bar-container" id="progressTracker">
+  <span id="progressText">0 / 23 itens</span>
+  <div class="mini-bar">
+    <div class="mini-fill" id="progressFill" style="width:0%"></div>
+  </div>
+</div>
+
+<script>
+  let totalChecked = 0;
+  const totalItems = document.querySelectorAll('.checklist-item').length;
+  const budgetMax = 350;
+
+  function toggleItem(el) {
+    el.classList.toggle('checked');
+    updateCounts();
+    updateBudget();
+    updateProgress();
+  }
+
+  function updateCounts() {
+    const categories = {
+      'abrigo': 'cat-abrigo',
+      'cozinha': 'cat-cozinha',
+      'seguranca': 'cat-seguranca',
+      'vestuario': 'cat-vestuario',
+      'transporte': 'cat-transporte'
+    };
+
+    Object.entries(categories).forEach(([key, catId]) => {
+      const items = document.querySelectorAll(`#${catId} .checklist-item`);
+      const checked = document.querySelectorAll(`#${catId} .checklist-item.checked`);
+      document.getElementById(`count-${key}`).textContent = `${checked.length}/${items.length}`;
+    });
+  }
+
+  function updateBudget() {
+    let total = 0;
+    document.querySelectorAll('.checklist-item.checked').forEach(item => {
+      total += parseInt(item.dataset.price) || 0;
+    });
+    const pct = Math.min((total / budgetMax) * 100, 100);
+    document.getElementById('budgetTotal').textContent = total;
+    document.getElementById('budgetFill').style.width = pct + '%';
+    document.getElementById('budgetPercent').textContent = Math.round(pct) + '%';
+  }
+
+  function updateProgress() {
+    const checked = document.querySelectorAll('.checklist-item.checked').length;
+    const pct = (checked / totalItems) * 100;
+    document.getElementById('progressText').textContent = `${checked} / ${totalItems} itens`;
+    document.getElementById('progressFill').style.width = pct + '%';
+  }
+
+  function toggleTip(header) {
+    const body = header.nextElementSibling;
+    const isOpen = header.classList.contains('open');
+    
+    // Close all
+    document.querySelectorAll('.tip-header').forEach(h => h.classList.remove('open'));
+    document.querySelectorAll('.tip-body').forEach(b => b.classList.remove('open'));
+    
+    if (!isOpen) {
+      header.classList.add('open');
+      body.classList.add('open');
+    }
+  }
+
+  // Smooth scroll for nav
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Active nav on scroll
+  const sections = document.querySelectorAll('.section');
+  const navLinks = document.querySelectorAll('.nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      if (window.scrollY >= top) current = section.id;
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
