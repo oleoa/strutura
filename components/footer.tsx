@@ -1,4 +1,10 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 export default function Footer() {
+  const pathname = usePathname();
+  if (pathname.startsWith("/crm")) return null;
   return (
     <div className="flex flex-col sm:flex-row justify-between lg:px-32 px-6 py-8 w-full border-t border-yellow gap-6">
       <div className="flex flex-col gap-4">

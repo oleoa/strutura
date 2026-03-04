@@ -19,6 +19,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === "/";
 
+  if (pathname.startsWith("/crm")) return null;
+
   function handleNav(id: string) {
     setIsOpen(false);
     scrollToSection(id);
