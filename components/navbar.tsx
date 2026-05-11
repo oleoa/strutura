@@ -52,16 +52,28 @@ export default function Navbar() {
               Início
             </button>
             <button
-              onClick={() => scrollToSection("como-funciona")}
+              onClick={() => scrollToSection("o-que-fazemos")}
               className="text-sm font-medium hover:text-yellow transition-colors"
             >
-              Como funciona
+              O que fazemos
             </button>
             <button
-              onClick={() => scrollToSection("produtos")}
+              onClick={() => scrollToSection("crm")}
               className="text-sm font-medium hover:text-yellow transition-colors"
             >
-              Produtos
+              CRM
+            </button>
+            <button
+              onClick={() => scrollToSection("casos")}
+              className="text-sm font-medium hover:text-yellow transition-colors"
+            >
+              Casos
+            </button>
+            <button
+              onClick={() => scrollToSection("contato")}
+              className="text-sm font-medium hover:text-yellow transition-colors"
+            >
+              Contato
             </button>
           </nav>
         )}
@@ -90,16 +102,28 @@ export default function Navbar() {
             Início
           </button>
           <button
-            onClick={() => handleNav("como-funciona")}
+            onClick={() => handleNav("o-que-fazemos")}
             className="text-sm font-medium hover:text-yellow transition-colors text-left"
           >
-            Como funciona
+            O que fazemos
           </button>
           <button
-            onClick={() => handleNav("produtos")}
+            onClick={() => handleNav("crm")}
             className="text-sm font-medium hover:text-yellow transition-colors text-left"
           >
-            Produtos
+            CRM
+          </button>
+          <button
+            onClick={() => handleNav("casos")}
+            className="text-sm font-medium hover:text-yellow transition-colors text-left"
+          >
+            Casos
+          </button>
+          <button
+            onClick={() => handleNav("contato")}
+            className="text-sm font-medium hover:text-yellow transition-colors text-left"
+          >
+            Contato
           </button>
         </div>
       )}

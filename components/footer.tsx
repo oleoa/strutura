@@ -9,7 +9,7 @@ export default function Footer() {
     <div className="flex flex-col sm:flex-row justify-between lg:px-32 px-6 py-8 w-full border-t border-yellow gap-6">
       <div className="flex flex-col gap-4">
         <h2 className="text-xl font-bold">STRUTURA</h2>
-        <p>Escalando negócios com AI</p>
+        <p>Infraestrutura digital para empresários</p>
         <p className="text-xs text-gray">
           Leonardo Abreu de Paulo @ 2026. Todos os direitos reservados.
         </p>
@@ -21,10 +21,10 @@ export default function Footer() {
             leonardo@strutura.ai
           </a>
           <a
-            href="tel:+351965914994"
+            href="tel:+351931135852"
             className="text-xs text-gray underline underline-offset-4"
           >
-            +351 965 914 994
+            +351 931 135 852
           </a>
         </div>
         <div className="flex flex-row gap-4">
@@ -51,7 +51,7 @@ export default function Footer() {
             </svg>
           </a>
           <a
-            href="https://wa.me/351965914994"
+            href="https://wa.me/351931135852"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray hover:text-white transition-colors"

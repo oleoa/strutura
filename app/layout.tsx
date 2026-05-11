@@ -21,19 +21,19 @@ const siteUrl = "https://strutura.ai";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Strutura — Automação com IA para Empresas",
+    default: "Strutura — Infraestrutura digital para o seu negócio",
     template: "%s | Strutura",
   },
   description:
-    "Automatize processos com IA de próxima geração. Captação de leads, qualificação automática, relatórios e integração com CRM — escale sem aumentar a sua equipa.",
+    "Sites, automações, CRM e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
   keywords: [
-    "automação com IA",
-    "inteligência artificial para empresas",
-    "automação de processos",
-    "captação de leads",
-    "CRM com IA",
+    "infraestrutura digital",
+    "CRM para WhatsApp",
+    "automações para empresas",
+    "sites e landing pages",
+    "agentes de IA",
+    "integrações n8n",
     "Strutura",
-    "Portugal",
   ],
   authors: [{ name: "Leonardo Abreu de Paulo", url: siteUrl }],
   creator: "Leonardo Abreu de Paulo",
@@ -45,30 +45,30 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: siteUrl,
-    languages: { "pt-PT": siteUrl },
+    languages: { "pt-BR": siteUrl },
   },
   openGraph: {
     type: "website",
-    locale: "pt_PT",
+    locale: "pt_BR",
     url: siteUrl,
     siteName: "Strutura",
-    title: "Strutura — Automação com IA para Empresas",
+    title: "Strutura — Infraestrutura digital para o seu negócio",
     description:
-      "Automatize processos com IA de próxima geração. Captação de leads, qualificação automática, relatórios e integração com CRM — escale sem aumentar a sua equipa.",
+      "Sites, automações, CRM e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Strutura — Automação com IA para Empresas",
+        alt: "Strutura — Infraestrutura digital para o seu negócio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Strutura — Automação com IA para Empresas",
+    title: "Strutura — Infraestrutura digital para o seu negócio",
     description:
-      "Automatize processos com IA de próxima geração. Escale sem aumentar a sua equipa.",
+      "Sites, automações, CRM e integrações construídos sob medida. Direto com o fundador, sem agência no meio.",
     images: ["/og-image.png"],
   },
   verification: {
@@ -83,7 +83,7 @@ const jsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-    "Automação com IA de próxima geração para escalar empresas sem aumentar a equipa.",
+    "Infraestrutura digital sob medida para o seu negócio — sites, automações, CRM e integrações, construídos direto com o fundador.",
   founder: {
     "@type": "Person",
     name: "Leonardo Abreu de Paulo",
@@ -91,7 +91,7 @@ const jsonLd = {
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "customer support",
-    availableLanguage: ["Portuguese"],
+    availableLanguage: ["Portuguese", "pt-BR"],
   },
   sameAs: [
     // TODO: adicionar os URLs dos perfis de redes sociais
@@ -104,7 +104,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-PT" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
