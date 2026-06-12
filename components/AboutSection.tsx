@@ -11,24 +11,24 @@ export default function AboutSection() {
     >
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
         <RevealOnScroll delay={0}>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-yellow/10 text-yellow text-sm font-medium tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-mustard-soft text-mustard-ink text-xs font-semibold tracking-wide uppercase">
             Sobre
           </span>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="text-4xl md:text-5xl leading-tight">
             Atendimento direto, sem intermediários
           </h2>
         </RevealOnScroll>
         <RevealOnScroll delay={0.2}>
-          <p className="text-lg text-foreground/70 leading-relaxed">
+          <p className="text-lg text-ink-soft leading-relaxed">
             Sou o Leonardo, fundador da Strutura. Toda conversa, todo projeto e
             todo código passa por mim. Sem agência, sem terceirização, sem
             ficar explicando seu negócio pra três pessoas diferentes.
           </p>
         </RevealOnScroll>
         <RevealOnScroll delay={0.3}>
-          <p className="text-base text-foreground/55 leading-relaxed">
+          <p className="text-base text-ink-muted leading-relaxed">
             Baseado em Funchal, Madeira. Atendo empresários no Brasil e na
             Europa.
           </p>

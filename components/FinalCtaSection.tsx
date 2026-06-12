@@ -27,12 +27,12 @@ export default function FinalCtaSection() {
     >
       <div className="flex flex-col items-center gap-6 max-w-2xl text-center">
         <RevealOnScroll delay={0}>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="text-4xl md:text-5xl leading-tight">
             Vamos conversar?
           </h2>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
-          <p className="text-lg text-foreground/70 leading-relaxed">
+          <p className="text-lg text-ink-soft leading-relaxed">
             Me conta o que você está construindo. Em 24h respondo com uma
             proposta clara dos próximos passos.
           </p>
@@ -41,22 +41,13 @@ export default function FinalCtaSection() {
 
       <RevealOnScroll delay={0.2}>
         <div className="flex flex-col sm:flex-row items-center gap-4">
-          <Button
-            asChild
-            size="xl"
-            className="bg-yellow text-black font-bold hover:bg-yellow/80"
-          >
+          <Button asChild size="xl">
             <Link href="https://wa.me/351931135852" target="_blank">
               <WhatsAppIcon className="w-5 h-5" />
               WhatsApp
             </Link>
           </Button>
-          <Button
-            asChild
-            size="xl"
-            variant="outline"
-            className="border-yellow/40 text-foreground hover:bg-yellow/10 hover:text-foreground"
-          >
+          <Button asChild size="xl" variant="outline">
             <a href="mailto:leonardo@strutura.ai">
               <Mail className="w-5 h-5" />
               Email

@@ -1,19 +1,32 @@
 import type { Metadata } from "next";
-import { DM_Sans, Geist_Mono } from "next/font/google";
+import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
-import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
+  // Variable font: omit `weight` so `wght` stays a variable axis (any weight works),
+  // and request the optical-size + SOFT axes used by the hero display heading.
+  axes: ["opsz", "SOFT"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
 });
 
 const siteUrl = "https://strutura.ai";
@@ -104,7 +117,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR">
       <head>
         <script
           type="application/ld+json"
@@ -117,21 +130,14 @@ export default function RootLayout({
           data-pid="ci2KKkZ70Yi7Ww68"
           data-version="062024"
         ></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.classList.add('dark')}})()`,
-          }}
-        />
       </head>
       <body
-        className={`${dmSans.variable} ${geistMono.variable} bg-background antialiased`}
+        className={`${inter.variable} ${fraunces.variable} ${jetBrainsMono.variable} bg-background antialiased`}
       >
-        <ThemeProvider>
-          <Navbar />
-          {children}
-          <Toaster />
-          <Footer />
-        </ThemeProvider>
+        <Navbar />
+        {children}
+        <Toaster />
+        <Footer />
       </body>
     </html>
   );

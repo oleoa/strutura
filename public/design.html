@@ -1,0 +1,2111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strutura — Design System Warm Minimal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        /* ─────── PALETA NEUTRA (warm) ─────── */
+        --bg-base: #faf7f2; /* fundo da página */
+        --bg-surface: #fffefb; /* cards, inputs, áreas elevadas */
+        --bg-muted: #f5f1e8; /* hover, áreas secundárias */
+        --bg-subtle: #f0ebdf; /* dividers visuais, inputs */
+
+        --border-base: #e8e0d0; /* bordas padrão */
+        --border-subtle: #efe8d8; /* bordas mais leves */
+        --border-strong: #d8cdb5; /* hover, focus */
+
+        /* ─────── TEXTO ─────── */
+        --text-primary: #2c2820; /* títulos, texto forte */
+        --text-secondary: #5c5448; /* corpo, descrições */
+        --text-muted: #8b7e68; /* labels, meta */
+        --text-faint: #a89a7e; /* placeholders, hints */
+
+        /* ─────── ACENTO MOSTARDA ─────── */
+        --accent: #c99a2e; /* primário — não usar em texto pequeno */
+        --accent-hover: #b58825;
+        --accent-soft: #f5efe0; /* fundo de elementos com acento */
+        --accent-soft-hover: #efe6cd;
+        --accent-text: #8b6f2c; /* texto sobre fundo accent-soft */
+        --accent-border: #e8ddb8;
+
+        /* ─────── SEMÂNTICOS ─────── */
+        --success: #5c7a3a;
+        --success-soft: #eaf0dd;
+        --success-text: #3f5526;
+        --success-border: #d5dfc0;
+
+        --warning: #c99a2e; /* mesmo do accent (intencional) */
+        --warning-soft: #f5efe0;
+        --warning-text: #8b6f2c;
+
+        --danger: #b5462e;
+        --danger-soft: #f5e6df;
+        --danger-text: #7a2f1e;
+        --danger-border: #e5cfc2;
+
+        --info: #4a6b8b;
+        --info-soft: #e5ebf2;
+        --info-text: #2f4760;
+        --info-border: #c8d4e0;
+
+        /* ─────── CANAIS (origem do contato) ─────── */
+        --whatsapp-soft: #e8f0e0;
+        --whatsapp-text: #4a6b2c;
+
+        --instagram-soft: #f5e8ee;
+        --instagram-text: #8b3a5c;
+
+        /* ─────── TEMPERATURA ─────── */
+        --hot-soft: #f5e0dc;
+        --hot-text: #a03e2a;
+
+        --warm-soft: #f5ebda;
+        --warm-text: #a0712a;
+
+        --cold-soft: #e0e8f0;
+        --cold-text: #3a5570;
+
+        /* ─────── SOMBRAS (sutis, NUNCA pesadas) ─────── */
+        --shadow-sm: 0 1px 2px rgba(44, 40, 32, 0.04);
+        --shadow-md: 0 2px 8px rgba(44, 40, 32, 0.06);
+        --shadow-lg: 0 8px 24px rgba(44, 40, 32, 0.08);
+        --shadow-focus: 0 0 0 3px rgba(201, 154, 46, 0.18);
+
+        /* ─────── RADIUS ─────── */
+        --radius-sm: 6px; /* badges, pills pequenos */
+        --radius-md: 10px; /* botões, inputs */
+        --radius-lg: 14px; /* cards internos */
+        --radius-xl: 16px; /* cards principais */
+        --radius-2xl: 20px; /* hero, modais */
+        --radius-pill: 100px; /* pills, status */
+
+        /* ─────── ESPAÇAMENTO ─────── */
+        --space-1: 4px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-5: 20px;
+        --space-6: 24px;
+        --space-8: 32px;
+        --space-10: 40px;
+        --space-12: 48px;
+
+        /* ─────── TIPOGRAFIA ─────── */
+        --font-sans:
+          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+        --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--bg-base);
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-size: 15px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      .container {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 48px 32px 96px;
+      }
+
+      /* ─────── HEADER ─────── */
+      .header {
+        margin-bottom: 64px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border-base);
+      }
+
+      .header-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 5px 12px;
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+        border-radius: var(--radius-pill);
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--accent-text);
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .header h1 {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        font-weight: 500;
+        color: var(--text-primary);
+        letter-spacing: -1px;
+        line-height: 1.05;
+        margin-bottom: 14px;
+        font-variation-settings:
+          "opsz" 144,
+          "SOFT" 50;
+      }
+
+      .header h1 em {
+        font-style: italic;
+        color: var(--accent);
+        font-variation-settings:
+          "opsz" 144,
+          "SOFT" 100;
+      }
+
+      .header p {
+        font-size: 17px;
+        color: var(--text-secondary);
+        max-width: 640px;
+        line-height: 1.65;
+      }
+
+      /* ─────── SEÇÕES ─────── */
+      .section {
+        margin-bottom: 64px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .section-num {
+        font-family: var(--font-serif);
+        font-size: 14px;
+        color: var(--accent);
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .section-header h2 {
+        font-family: var(--font-serif);
+        font-size: 28px;
+        font-weight: 500;
+        color: var(--text-primary);
+        letter-spacing: -0.5px;
+      }
+
+      .section-header .meta {
+        margin-left: auto;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+
+      .section-intro {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: 24px;
+        max-width: 720px;
+        line-height: 1.7;
+      }
+
+      .section-intro code {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        background: var(--bg-muted);
+        padding: 2px 6px;
+        border-radius: var(--radius-sm);
+        color: var(--accent-text);
+      }
+
+      /* ─────── PALETA DE CORES ─────── */
+      .swatch-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+      }
+
+      .swatch {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .swatch:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+      }
+
+      .swatch-color {
+        height: 80px;
+        border-bottom: 1px solid var(--border-base);
+      }
+
+      .swatch-info {
+        padding: 12px 14px;
+      }
+
+      .swatch-name {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 4px;
+      }
+
+      .swatch-token {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+      }
+
+      .swatch-hex {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-secondary);
+      }
+
+      /* ─────── TIPOGRAFIA ─────── */
+      .type-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .type-row {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-lg);
+        padding: 24px 28px;
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+
+      .type-meta {
+        font-size: 12px;
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .type-meta strong {
+        display: block;
+        color: var(--text-primary);
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .type-meta code {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: var(--accent-text);
+        background: var(--accent-soft);
+        padding: 1px 5px;
+        border-radius: 3px;
+      }
+
+      .type-display-1 {
+        font-family: var(--font-serif);
+        font-size: 56px;
+        font-weight: 500;
+        line-height: 1.05;
+        letter-spacing: -1.5px;
+        color: var(--text-primary);
+        font-variation-settings:
+          "opsz" 144,
+          "SOFT" 50;
+      }
+
+      .type-display-2 {
+        font-family: var(--font-serif);
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        color: var(--text-primary);
+        font-variation-settings:
+          "opsz" 144,
+          "SOFT" 50;
+      }
+
+      .type-h1 {
+        font-family: var(--font-serif);
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: -0.5px;
+        color: var(--text-primary);
+      }
+
+      .type-h2 {
+        font-family: var(--font-serif);
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.3;
+        letter-spacing: -0.3px;
+        color: var(--text-primary);
+      }
+
+      .type-h3 {
+        font-family: var(--font-sans);
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: var(--text-primary);
+      }
+
+      .type-body-lg {
+        font-family: var(--font-sans);
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.65;
+        color: var(--text-secondary);
+      }
+
+      .type-body {
+        font-family: var(--font-sans);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: var(--text-secondary);
+      }
+
+      .type-small {
+        font-family: var(--font-sans);
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: var(--text-muted);
+      }
+
+      .type-label {
+        font-family: var(--font-sans);
+        font-size: 11px;
+        font-weight: 600;
+        line-height: 1.4;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .type-mono {
+        font-family: var(--font-mono);
+        font-size: 13px;
+        color: var(--text-secondary);
+      }
+
+      /* ─────── COMPONENTES ─────── */
+      .component-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+      }
+
+      .demo-card {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+      }
+
+      .demo-card-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 16px;
+      }
+
+      /* ─────── BOTÕES ─────── */
+      .btn-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 18px;
+        font-family: var(--font-sans);
+        font-size: 14px;
+        font-weight: 500;
+        border-radius: var(--radius-md);
+        cursor: pointer;
+        transition: all 0.15s;
+        border: 1px solid transparent;
+        white-space: nowrap;
+      }
+
+      .btn-primary {
+        background: var(--accent);
+        color: #fffefb;
+        border-color: var(--accent);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
+      }
+
+      .btn-secondary {
+        background: var(--bg-surface);
+        color: var(--text-primary);
+        border-color: var(--border-base);
+      }
+
+      .btn-secondary:hover {
+        background: var(--bg-muted);
+        border-color: var(--border-strong);
+      }
+
+      .btn-ghost {
+        background: transparent;
+        color: var(--text-secondary);
+        border-color: transparent;
+      }
+
+      .btn-ghost:hover {
+        background: var(--bg-muted);
+        color: var(--text-primary);
+      }
+
+      .btn-danger {
+        background: var(--bg-surface);
+        color: var(--danger-text);
+        border-color: var(--danger-border);
+      }
+
+      .btn-danger:hover {
+        background: var(--danger-soft);
+      }
+
+      .btn-sm {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
+      .btn-lg {
+        padding: 13px 24px;
+        font-size: 15px;
+      }
+
+      /* ─────── BADGES ─────── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px 10px;
+        font-size: 11px;
+        font-weight: 500;
+        border-radius: var(--radius-sm);
+        white-space: nowrap;
+      }
+
+      .badge-lead {
+        background: var(--info-soft);
+        color: var(--info-text);
+      }
+      .badge-cliente {
+        background: var(--success-soft);
+        color: var(--success-text);
+      }
+      .badge-equipe {
+        background: var(--accent-soft);
+        color: var(--accent-text);
+      }
+      .badge-whatsapp {
+        background: var(--whatsapp-soft);
+        color: var(--whatsapp-text);
+      }
+      .badge-instagram {
+        background: var(--instagram-soft);
+        color: var(--instagram-text);
+      }
+      .badge-hot {
+        background: var(--hot-soft);
+        color: var(--hot-text);
+      }
+      .badge-warm {
+        background: var(--warm-soft);
+        color: var(--warm-text);
+      }
+      .badge-cold {
+        background: var(--cold-soft);
+        color: var(--cold-text);
+      }
+
+      /* ─────── INPUTS ─────── */
+      .input-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+
+      .input-group label {
+        font-size: 12px;
+        font-weight: 500;
+        color: var(--text-secondary);
+      }
+
+      .input {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-md);
+        padding: 10px 14px;
+        font-family: var(--font-sans);
+        font-size: 14px;
+        color: var(--text-primary);
+        transition: all 0.15s;
+        width: 100%;
+      }
+
+      .input:hover {
+        border-color: var(--border-strong);
+      }
+      .input:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: var(--shadow-focus);
+      }
+      .input::placeholder {
+        color: var(--text-faint);
+      }
+
+      .select {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-md);
+        padding: 10px 14px;
+        font-family: var(--font-sans);
+        font-size: 14px;
+        color: var(--text-primary);
+        cursor: pointer;
+        width: 100%;
+        appearance: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238B7E68' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 36px;
+      }
+
+      /* ─────── CARDS DE STATS ─────── */
+      .stat-card {
+        background: var(--bg-base);
+        border-radius: var(--radius-lg);
+        padding: 20px;
+      }
+
+      .stat-card.featured {
+        background: var(--accent-soft);
+        border: 1px solid var(--accent-border);
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+
+      .stat-card.featured .stat-label {
+        color: var(--accent-text);
+      }
+
+      .stat-value {
+        font-family: var(--font-serif);
+        font-size: 32px;
+        font-weight: 500;
+        color: var(--text-primary);
+        line-height: 1;
+        letter-spacing: -0.5px;
+      }
+
+      .stat-card.featured .stat-value {
+        color: var(--accent-text);
+      }
+
+      .stat-meta {
+        font-size: 11px;
+        color: var(--text-faint);
+        margin-top: 6px;
+      }
+
+      .stat-card.featured .stat-meta {
+        color: var(--accent-text);
+        opacity: 0.7;
+      }
+
+      /* ─────── TABELA ─────── */
+      .demo-table {
+        width: 100%;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border-collapse: separate;
+        border-spacing: 0;
+      }
+
+      .demo-table th {
+        background: var(--bg-muted);
+        padding: 11px 16px;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--text-muted);
+        text-align: left;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        border-bottom: 1px solid var(--border-base);
+      }
+
+      .demo-table td {
+        padding: 14px 16px;
+        font-size: 13px;
+        color: var(--text-secondary);
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .demo-table tr:last-child td {
+        border-bottom: none;
+      }
+      .demo-table tr:hover td {
+        background: var(--bg-muted);
+      }
+
+      .demo-table .name {
+        font-weight: 500;
+        color: var(--text-primary);
+      }
+
+      .demo-table .name-meta {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-top: 2px;
+      }
+
+      .avatar {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: var(--accent-soft);
+        color: var(--accent-text);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        font-weight: 600;
+        margin-right: 10px;
+        vertical-align: middle;
+      }
+
+      /* ─────── DASHBOARD MOCKUP ─────── */
+      .dashboard-preview {
+        background: var(--bg-base);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-2xl);
+        padding: 4px;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .dashboard-chrome {
+        background: var(--bg-muted);
+        border-radius: 18px 18px 0 0;
+        padding: 12px 16px;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+      }
+
+      .chrome-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--border-strong);
+      }
+      .chrome-dot.r {
+        background: #e5a8a0;
+      }
+      .chrome-dot.y {
+        background: #e5c99d;
+      }
+      .chrome-dot.g {
+        background: #b5c9a8;
+      }
+
+      .chrome-url {
+        margin-left: 16px;
+        background: var(--bg-surface);
+        padding: 4px 12px;
+        border-radius: var(--radius-pill);
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: var(--text-muted);
+      }
+
+      .dashboard-body {
+        background: var(--bg-base);
+        border-radius: 0 0 18px 18px;
+        padding: 28px 32px;
+      }
+
+      /* ─────── COMPARISON ─────── */
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 24px;
+      }
+
+      .compare-col {
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-lg);
+        padding: 24px;
+      }
+
+      .compare-col h4 {
+        font-family: var(--font-sans);
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 14px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--border-subtle);
+      }
+
+      .compare-col.before h4 {
+        color: var(--danger-text);
+      }
+      .compare-col.after h4 {
+        color: var(--success-text);
+      }
+
+      .compare-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .compare-col li {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.55;
+        padding-left: 18px;
+        position: relative;
+      }
+
+      .compare-col li::before {
+        content: "";
+        position: absolute;
+        left: 4px;
+        top: 7px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+      }
+
+      .compare-col.before li::before {
+        background: var(--danger-text);
+        opacity: 0.5;
+      }
+      .compare-col.after li::before {
+        background: var(--success-text);
+      }
+
+      /* ─────── TOC FLUTUANTE ─────── */
+      .toc {
+        position: fixed;
+        top: 48px;
+        right: 24px;
+        background: var(--bg-surface);
+        border: 1px solid var(--border-base);
+        border-radius: var(--radius-lg);
+        padding: 14px 18px;
+        box-shadow: var(--shadow-md);
+        width: 200px;
+        font-size: 12px;
+      }
+
+      .toc-title {
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--text-muted);
+        margin-bottom: 10px;
+      }
+
+      .toc a {
+        display: block;
+        color: var(--text-secondary);
+        text-decoration: none;
+        padding: 4px 0;
+        transition: color 0.15s;
+      }
+
+      .toc a:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 1280px) {
+        .toc {
+          display: none;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .container {
+          padding: 32px 20px 64px;
+        }
+        .header h1 {
+          font-size: 36px;
+        }
+        .type-display-1 {
+          font-size: 38px;
+        }
+        .type-display-2 {
+          font-size: 30px;
+        }
+        .type-row {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .compare {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ─────── DOWNLOAD BLOCK ─────── */
+      .download-block {
+        background: linear-gradient(
+          180deg,
+          var(--accent-soft) 0%,
+          var(--bg-base) 100%
+        );
+        border: 1px solid var(--accent-border);
+        border-radius: var(--radius-xl);
+        padding: 32px 36px;
+        margin-top: 24px;
+      }
+
+      .code-block {
+        background: #2c2820;
+        color: #f5f1e8;
+        border-radius: var(--radius-lg);
+        padding: 20px 24px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        line-height: 1.7;
+        overflow-x: auto;
+        margin-top: 16px;
+      }
+
+      .code-block .comment {
+        color: #a89a7e;
+      }
+      .code-block .key {
+        color: #e5c99d;
+      }
+      .code-block .val {
+        color: #c9d6a8;
+      }
+      .code-block .punct {
+        color: #8b7e68;
+      }
+    </style>
+  </head>
+  <body>
+    <aside class="toc" aria-label="Índice">
+      <div class="toc-title">Navegação</div>
+      <a href="#filosofia">Filosofia</a>
+      <a href="#cores">Cores</a>
+      <a href="#tipografia">Tipografia</a>
+      <a href="#radius">Radius e sombras</a>
+      <a href="#botoes">Botões</a>
+      <a href="#badges">Badges</a>
+      <a href="#inputs">Inputs</a>
+      <a href="#stats">Stats</a>
+      <a href="#tabela">Tabela</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#contraste">Antes e depois</a>
+      <a href="#tokens">Tokens</a>
+    </aside>
+
+    <div class="container">
+      <!-- ─────── HEADER ─────── -->
+      <header class="header">
+        <div class="header-tag">
+          <span
+            style="
+              width: 6px;
+              height: 6px;
+              background: var(--accent);
+              border-radius: 50%;
+            "
+          ></span>
+          Strutura · Design System v2
+        </div>
+        <h1>Warm <em>Minimal</em></h1>
+        <p>
+          O sistema de design completo do novo Strutura CRM. Light-first,
+          tipografia humana com Fraunces nos momentos de destaque, paleta
+          off-white quente, e linguagem que conversa em vez de relatar.
+        </p>
+      </header>
+
+      <!-- ─────── FILOSOFIA ─────── -->
+      <section class="section" id="filosofia">
+        <div class="section-header">
+          <span class="section-num">01.</span>
+          <h2>Filosofia</h2>
+          <span class="meta">Princípios que guiam toda decisão</span>
+        </div>
+        <div class="section-intro">
+          Antes da paleta, antes dos componentes, vêm os princípios. Toda
+          decisão visual e de microcópia no Strutura segue estas regras.
+        </div>
+        <div class="component-grid">
+          <div class="demo-card">
+            <div class="demo-card-label">01. Calmo, não vazio</div>
+            <p class="type-body">
+              Respiração não é desperdício de espaço. Padding generoso,
+              hierarquia clara com tamanho real (não só com cor), e nunca mais
+              de 3 níveis de informação na mesma vista.
+            </p>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">02. Humano, não corporativo</div>
+            <p class="type-body">
+              "Pessoas no radar" em vez de "Total de Contatos". "Precisam de
+              você hoje" em vez de "Follow-ups pendentes". A UI fala como um
+              assistente atento, não como um relatório.
+            </p>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">03. Quente, não frio</div>
+            <p class="type-body">
+              Off-white em vez de branco puro. Tons de marrom e mostarda em vez
+              de cinza neutro. Nunca pretos absolutos em fundos ou textos
+              primários — sempre uma camada de calor.
+            </p>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">04. Acentos com propósito</div>
+            <p class="type-body">
+              A cor mostarda só aparece para destacar o que importa: ações
+              primárias, métricas críticas, estados positivos. Se tudo é
+              destacado, nada é destacado.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── CORES ─────── -->
+      <section class="section" id="cores">
+        <div class="section-header">
+          <span class="section-num">02.</span>
+          <h2>Paleta de cores</h2>
+          <span class="meta">Light mode only</span>
+        </div>
+
+        <div class="section-intro">
+          Toda a paleta é construída sobre uma base off-white quente (#FAF7F2)
+          em vez de branco puro. Isso já distancia o produto de SaaS genéricos.
+          O acento mostarda (#C99A2E) substitui o amarelo neon — mais
+          sofisticado, mais brasileiro, envelhece melhor.
+        </div>
+
+        <h3 class="type-h3" style="margin-bottom: 14px">
+          Neutros (warm grays)
+        </h3>
+        <div class="swatch-grid" style="margin-bottom: 32px">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #faf7f2"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Base</div>
+              <div class="swatch-token">--bg-base</div>
+              <div class="swatch-hex">#FAF7F2</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #fffefb"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Surface</div>
+              <div class="swatch-token">--bg-surface</div>
+              <div class="swatch-hex">#FFFEFB</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f5f1e8"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Muted</div>
+              <div class="swatch-token">--bg-muted</div>
+              <div class="swatch-hex">#F5F1E8</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f0ebdf"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Subtle</div>
+              <div class="swatch-token">--bg-subtle</div>
+              <div class="swatch-hex">#F0EBDF</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #e8e0d0"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Border</div>
+              <div class="swatch-token">--border-base</div>
+              <div class="swatch-hex">#E8E0D0</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #d8cdb5"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Border strong</div>
+              <div class="swatch-token">--border-strong</div>
+              <div class="swatch-hex">#D8CDB5</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="type-h3" style="margin-bottom: 14px">Texto</h3>
+        <div class="swatch-grid" style="margin-bottom: 32px">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #2c2820"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Primary</div>
+              <div class="swatch-token">--text-primary</div>
+              <div class="swatch-hex">#2C2820</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #5c5448"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Secondary</div>
+              <div class="swatch-token">--text-secondary</div>
+              <div class="swatch-hex">#5C5448</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #8b7e68"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Muted</div>
+              <div class="swatch-token">--text-muted</div>
+              <div class="swatch-hex">#8B7E68</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #a89a7e"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Faint</div>
+              <div class="swatch-token">--text-faint</div>
+              <div class="swatch-hex">#A89A7E</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="type-h3" style="margin-bottom: 14px">Acento mostarda</h3>
+        <div class="swatch-grid" style="margin-bottom: 32px">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #c99a2e"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Accent</div>
+              <div class="swatch-token">--accent</div>
+              <div class="swatch-hex">#C99A2E</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #b58825"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Accent hover</div>
+              <div class="swatch-token">--accent-hover</div>
+              <div class="swatch-hex">#B58825</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f5efe0"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Accent soft</div>
+              <div class="swatch-token">--accent-soft</div>
+              <div class="swatch-hex">#F5EFE0</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #8b6f2c"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Accent text</div>
+              <div class="swatch-token">--accent-text</div>
+              <div class="swatch-hex">#8B6F2C</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="type-h3" style="margin-bottom: 14px">Semânticos</h3>
+        <div class="swatch-grid" style="margin-bottom: 32px">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #5c7a3a"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Success</div>
+              <div class="swatch-token">--success</div>
+              <div class="swatch-hex">#5C7A3A</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #b5462e"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Danger</div>
+              <div class="swatch-token">--danger</div>
+              <div class="swatch-hex">#B5462E</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #4a6b8b"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Info</div>
+              <div class="swatch-token">--info</div>
+              <div class="swatch-hex">#4A6B8B</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #c99a2e"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Warning</div>
+              <div class="swatch-token">--warning</div>
+              <div class="swatch-hex">#C99A2E</div>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="type-h3" style="margin-bottom: 14px">
+          Canais e temperatura
+        </h3>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #e8f0e0"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">WhatsApp soft</div>
+              <div class="swatch-token">--whatsapp-soft</div>
+              <div class="swatch-hex">#E8F0E0</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f5e8ee"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Instagram soft</div>
+              <div class="swatch-token">--instagram-soft</div>
+              <div class="swatch-hex">#F5E8EE</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f5e0dc"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Hot</div>
+              <div class="swatch-token">--hot-soft</div>
+              <div class="swatch-hex">#F5E0DC</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f5ebda"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Warm</div>
+              <div class="swatch-token">--warm-soft</div>
+              <div class="swatch-hex">#F5EBDA</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #e0e8f0"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Cold</div>
+              <div class="swatch-token">--cold-soft</div>
+              <div class="swatch-hex">#E0E8F0</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── TIPOGRAFIA ─────── -->
+      <section class="section" id="tipografia">
+        <div class="section-header">
+          <span class="section-num">03.</span>
+          <h2>Tipografia</h2>
+          <span class="meta">Fraunces · Inter · JetBrains Mono</span>
+        </div>
+
+        <div class="section-intro">
+          Três famílias com papéis bem definidos. <strong>Fraunces</strong> nos
+          momentos de destaque e respiro (dashboards, hero, números
+          importantes). <strong>Inter</strong> para todo o resto da UI — botões,
+          inputs, corpo. <strong>JetBrains Mono</strong> apenas em IDs, números
+          técnicos, e campos onde monoespaço importa funcionalmente.
+        </div>
+
+        <div class="type-stack">
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Display 1</strong>
+              <code>Fraunces 56/500</code><br />
+              opsz: 144, soft: 50<br />
+              letter-spacing: -1.5px
+            </div>
+            <div class="type-display-1">
+              Bom dia,
+              <em style="font-style: italic; color: var(--accent)">Leonardo</em>
+            </div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Display 2</strong>
+              <code>Fraunces 40/500</code><br />
+              Hero secundário
+            </div>
+            <div class="type-display-2">36 pessoas no radar</div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>H1</strong>
+              <code>Fraunces 28/500</code><br />
+              Títulos de seção
+            </div>
+            <div class="type-h1">Precisam de você hoje</div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>H2</strong>
+              <code>Fraunces 22/500</code><br />
+              Subtítulos
+            </div>
+            <div class="type-h2">Pipeline de vendas</div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>H3</strong>
+              <code>Inter 17/600</code><br />
+              Títulos de cards
+            </div>
+            <div class="type-h3">Conexões ativas</div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Body lg</strong>
+              <code>Inter 16/400</code><br />
+              Texto introdutório
+            </div>
+            <div class="type-body-lg">
+              Você tem 2 leads quentes esperando contato hoje.
+            </div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Body</strong>
+              <code>Inter 14/400</code><br />
+              Texto padrão de UI
+            </div>
+            <div class="type-body">
+              A IA do Strutura analisou suas conversas durante a noite e
+              identificou três oportunidades.
+            </div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Small</strong>
+              <code>Inter 13/400</code><br />
+              Texto auxiliar
+            </div>
+            <div class="type-small">
+              Última análise às 03:00 UTC · próxima em 15h 43min
+            </div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Label</strong>
+              <code>Inter 11/600</code><br />
+              uppercase + letter-spacing
+            </div>
+            <div class="type-label">Pessoas no radar</div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Mono</strong>
+              <code>JetBrains 13/400</code><br />
+              IDs, números técnicos
+            </div>
+            <div class="type-mono">+55 11 98765-4321 · prod_U5WRaYYxUxu2Py</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── RADIUS E SOMBRAS ─────── -->
+      <section class="section" id="radius">
+        <div class="section-header">
+          <span class="section-num">04.</span>
+          <h2>Radius e sombras</h2>
+          <span class="meta">Curvas generosas, sombras quase invisíveis</span>
+        </div>
+
+        <div class="section-intro">
+          Cantos arredondados em todos os elementos. A escala vai de 6px
+          (badges) a 20px (modais). Sombras são ferramenta de elevação sutil —
+          nunca dramáticas, nunca pesadas, sempre quentes (RGB com tom marrom).
+        </div>
+
+        <div class="component-grid" style="margin-bottom: 24px">
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 6px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">SM</div>
+            <div class="type-mono">6px · badges, pills</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 10px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">MD</div>
+            <div class="type-mono">10px · botões, inputs</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 14px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">LG</div>
+            <div class="type-mono">14px · cards internos</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 16px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">XL</div>
+            <div class="type-mono">16px · cards principais</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 20px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">2XL</div>
+            <div class="type-mono">20px · modais, hero</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 100px;
+              padding: 20px;
+              text-align: center;
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">PILL</div>
+            <div class="type-mono">100px · status, tags</div>
+          </div>
+        </div>
+
+        <h3 class="type-h3" style="margin-bottom: 14px">Sombras</h3>
+        <div class="component-grid">
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 14px;
+              padding: 24px;
+              box-shadow: var(--shadow-sm);
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">SM</div>
+            <div class="type-small">Cards em repouso</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 14px;
+              padding: 24px;
+              box-shadow: var(--shadow-md);
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">MD</div>
+            <div class="type-small">Hover, dropdowns</div>
+          </div>
+          <div
+            style="
+              background: var(--bg-surface);
+              border: 1px solid var(--border-base);
+              border-radius: 14px;
+              padding: 24px;
+              box-shadow: var(--shadow-lg);
+            "
+          >
+            <div class="type-label" style="margin-bottom: 8px">LG</div>
+            <div class="type-small">Modais, popovers</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── BOTÕES ─────── -->
+      <section class="section" id="botoes">
+        <div class="section-header">
+          <span class="section-num">05.</span>
+          <h2>Botões</h2>
+          <span class="meta">4 variantes · 3 tamanhos</span>
+        </div>
+
+        <div class="component-grid">
+          <div class="demo-card">
+            <div class="demo-card-label">Primary · ação principal</div>
+            <div class="btn-row">
+              <button class="btn btn-primary btn-sm">Salvar</button>
+              <button class="btn btn-primary">Salvar contato</button>
+              <button class="btn btn-primary btn-lg">Conectar WhatsApp</button>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Secondary · ação alternativa</div>
+            <div class="btn-row">
+              <button class="btn btn-secondary btn-sm">Cancelar</button>
+              <button class="btn btn-secondary">Ver detalhes</button>
+              <button class="btn btn-secondary btn-lg">
+                Importar contatos
+              </button>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Ghost · ação sutil</div>
+            <div class="btn-row">
+              <button class="btn btn-ghost btn-sm">Editar</button>
+              <button class="btn btn-ghost">Marcar como feito</button>
+              <button class="btn btn-ghost btn-lg">Ver tudo</button>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Danger · ação destrutiva</div>
+            <div class="btn-row">
+              <button class="btn btn-danger btn-sm">Apagar</button>
+              <button class="btn btn-danger">Desconectar conta</button>
+              <button class="btn btn-danger btn-lg">Excluir workspace</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── BADGES ─────── -->
+      <section class="section" id="badges">
+        <div class="section-header">
+          <span class="section-num">06.</span>
+          <h2>Badges e tags</h2>
+          <span class="meta">Sempre com fundo soft, nunca saturado</span>
+        </div>
+
+        <div class="component-grid">
+          <div class="demo-card">
+            <div class="demo-card-label">Tipo de contato</div>
+            <div class="btn-row">
+              <span class="badge badge-lead">Lead</span>
+              <span class="badge badge-cliente">Cliente</span>
+              <span class="badge badge-equipe">Equipe</span>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Canal de origem</div>
+            <div class="btn-row">
+              <span class="badge badge-whatsapp">WhatsApp</span>
+              <span class="badge badge-instagram">Instagram</span>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Temperatura</div>
+            <div class="btn-row">
+              <span class="badge badge-hot">Quente</span>
+              <span class="badge badge-warm">Morno</span>
+              <span class="badge badge-cold">Frio</span>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Estados</div>
+            <div class="btn-row">
+              <span class="badge badge-cliente">Ativo</span>
+              <span class="badge badge-warm">Pendente</span>
+              <span class="badge badge-hot">Vencido</span>
+              <span class="badge badge-cold">Arquivado</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── INPUTS ─────── -->
+      <section class="section" id="inputs">
+        <div class="section-header">
+          <span class="section-num">07.</span>
+          <h2>Inputs e formulários</h2>
+          <span class="meta">Foco com glow mostarda</span>
+        </div>
+
+        <div class="component-grid">
+          <div class="demo-card">
+            <div class="demo-card-label">Text input</div>
+            <div class="input-group">
+              <label>Nome do contato</label>
+              <input class="input" type="text" placeholder="Maria Silva" />
+            </div>
+            <div class="input-group">
+              <label>Telefone</label>
+              <input
+                class="input"
+                type="text"
+                placeholder="+55 11 98765-4321"
+              />
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Select</div>
+            <div class="input-group">
+              <label>Temperatura</label>
+              <select class="select">
+                <option>Selecione...</option>
+                <option>Quente</option>
+                <option>Morno</option>
+                <option>Frio</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Estágio do funil</label>
+              <select class="select">
+                <option>Curioso</option>
+                <option>Interessado</option>
+                <option>Proposta enviada</option>
+              </select>
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Search</div>
+            <div class="input-group">
+              <input
+                class="input"
+                type="text"
+                placeholder="🔍  Buscar contatos, mensagens, tags..."
+              />
+            </div>
+          </div>
+          <div class="demo-card">
+            <div class="demo-card-label">Textarea</div>
+            <div class="input-group">
+              <label>Próxima ação</label>
+              <textarea
+                class="input"
+                rows="3"
+                placeholder="O que precisa ser feito com este contato?"
+              ></textarea>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── STATS ─────── -->
+      <section class="section" id="stats">
+        <div class="section-header">
+          <span class="section-num">08.</span>
+          <h2>Cards de estatísticas</h2>
+          <span class="meta">Números em Fraunces, contexto em Inter</span>
+        </div>
+
+        <div class="section-intro">
+          O número é a estrela — usar Fraunces 32px com letter-spacing apertado.
+          Label acima em Inter pequeno e muted. Meta abaixo opcional, sempre
+          faint. Um stat por vez pode ser "featured" (fundo accent-soft) para
+          destacar o número crítico do dia.
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+          "
+        >
+          <div class="stat-card">
+            <div class="stat-label">Pessoas no radar</div>
+            <div class="stat-value">36</div>
+            <div class="stat-meta">+3 esta semana</div>
+          </div>
+          <div class="stat-card featured">
+            <div class="stat-label">Quentes agora</div>
+            <div class="stat-value">2</div>
+            <div class="stat-meta">prontas para fechar</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Análises este mês</div>
+            <div class="stat-value">426</div>
+            <div class="stat-meta">de 500 disponíveis</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Próxima análise</div>
+            <div class="stat-value" style="font-size: 24px">15h 43m</div>
+            <div class="stat-meta">diariamente às 03:00</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── TABELA ─────── -->
+      <section class="section" id="tabela">
+        <div class="section-header">
+          <span class="section-num">09.</span>
+          <h2>Tabela de contatos</h2>
+          <span class="meta">Densidade humana</span>
+        </div>
+
+        <div class="section-intro">
+          Comparada à tabela atual: padding maior nas células (14px vs 8px),
+          avatar com inicial em vez de só texto, headers em uppercase
+          letterspaced para hierarquia clara, hover sutil. Linhas separadas por
+          borders sutis (não linhas duras).
+        </div>
+
+        <table class="demo-table">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Tipo</th>
+              <th>Temperatura</th>
+              <th>Origem</th>
+              <th>Último</th>
+              <th>Próxima ação</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="avatar">L</span>
+                <span class="name">Leonardo</span>
+                <div class="name-meta" style="margin-left: 42px">
+                  +351 931 135 852
+                </div>
+              </td>
+              <td><span class="badge badge-lead">Lead</span></td>
+              <td>—</td>
+              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
+              <td><span style="color: var(--text-muted)">há 20h</span></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
+                <span
+                  class="avatar"
+                  style="
+                    background: var(--success-soft);
+                    color: var(--success-text);
+                  "
+                  >LW</span
+                >
+                <span class="name">Luciano Weber</span>
+                <div class="name-meta" style="margin-left: 42px">
+                  +55 11 98755-6622
+                </div>
+              </td>
+              <td><span class="badge badge-cliente">Cliente</span></td>
+              <td><span class="badge badge-hot">Quente</span></td>
+              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
+              <td><span style="color: var(--text-muted)">há 22h</span></td>
+              <td>
+                <span style="color: var(--text-secondary)"
+                  >Implementar ajustes finais conforme email</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="avatar">M</span>
+                <span class="name">Matheus</span>
+                <div class="name-meta" style="margin-left: 42px">
+                  +55 11 97487-3081
+                </div>
+              </td>
+              <td><span class="badge badge-lead">Lead</span></td>
+              <td>—</td>
+              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
+              <td><span style="color: var(--text-muted)">há 1d</span></td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
+                <span class="avatar" style="background: var(--accent-soft)"
+                  >GA</span
+                >
+                <span class="name">Greece Aviation</span>
+                <div class="name-meta" style="margin-left: 42px">
+                  +30 6955 193 957
+                </div>
+              </td>
+              <td><span class="badge badge-lead">Lead</span></td>
+              <td><span class="badge badge-hot">Quente</span></td>
+              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
+              <td><span style="color: var(--text-muted)">há 1d</span></td>
+              <td>
+                <span style="color: var(--text-secondary)"
+                  >Ajustar informações no site Brazil Aviation</span
+                >
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="avatar">V</span>
+                <span class="name">Valquiria</span>
+                <div class="name-meta" style="margin-left: 42px">
+                  +351 933 144 559
+                </div>
+              </td>
+              <td><span class="badge badge-lead">Lead</span></td>
+              <td><span class="badge badge-cold">Frio</span></td>
+              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
+              <td><span style="color: var(--text-muted)">há 1d</span></td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- ─────── DASHBOARD MOCKUP ─────── -->
+      <section class="section" id="dashboard">
+        <div class="section-header">
+          <span class="section-num">10.</span>
+          <h2>Tudo junto: o dashboard</h2>
+          <span class="meta">Como tudo se compõe</span>
+        </div>
+
+        <div class="dashboard-preview">
+          <div class="dashboard-chrome">
+            <div class="chrome-dot r"></div>
+            <div class="chrome-dot y"></div>
+            <div class="chrome-dot g"></div>
+            <div class="chrome-url">lcrm.strutura.ai/dashboard</div>
+          </div>
+          <div class="dashboard-body">
+            <div
+              style="
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-bottom: 32px;
+              "
+            >
+              <div>
+                <div class="type-display-2" style="margin-bottom: 6px">
+                  Bom dia,
+                  <em style="font-style: italic; color: var(--accent)"
+                    >Leonardo</em
+                  >
+                </div>
+                <div class="type-body-lg">
+                  Você tem 2 pessoas prontas para fechar hoje.
+                </div>
+              </div>
+              <div
+                style="
+                  display: flex;
+                  gap: 8px;
+                  align-items: center;
+                  padding: 7px 14px;
+                  background: var(--accent-soft);
+                  border: 1px solid var(--accent-border);
+                  border-radius: var(--radius-pill);
+                  font-size: 12px;
+                  color: var(--accent-text);
+                  font-weight: 500;
+                "
+              >
+                <span
+                  style="
+                    width: 6px;
+                    height: 6px;
+                    background: var(--accent);
+                    border-radius: 50%;
+                  "
+                ></span>
+                análise em 15h 43min
+              </div>
+            </div>
+
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+                margin-bottom: 32px;
+              "
+            >
+              <div class="stat-card">
+                <div class="stat-label">No radar</div>
+                <div class="stat-value">36</div>
+                <div class="stat-meta">34 leads · 1 cliente</div>
+              </div>
+              <div class="stat-card featured">
+                <div class="stat-label">Quentes</div>
+                <div class="stat-value">2</div>
+                <div class="stat-meta">prontas para fechar</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Créditos IA</div>
+                <div class="stat-value">426</div>
+                <div class="stat-meta">de 500 — Starter</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-label">Pipeline IA</div>
+                <div class="stat-value" style="font-size: 22px">15h 43m</div>
+                <div class="stat-meta">próxima análise</div>
+              </div>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: baseline;
+                justify-content: space-between;
+                margin-bottom: 14px;
+              "
+            >
+              <h3 class="type-h2">Precisam de você hoje</h3>
+              <span class="type-small">2 follow-ups pendentes</span>
+            </div>
+
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px"
+            >
+              <div
+                style="
+                  background: var(--bg-surface);
+                  border: 1px solid var(--border-base);
+                  border-radius: var(--radius-lg);
+                  padding: 18px 20px;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 12px;
+                  "
+                >
+                  <span class="avatar">L</span>
+                  <div style="flex: 1">
+                    <div class="type-h3" style="font-size: 14px">Leonardo</div>
+                    <div class="type-small">
+                      Instagram · há 44 dias sem contato
+                    </div>
+                  </div>
+                  <span class="badge badge-instagram">IG</span>
+                </div>
+                <div
+                  style="
+                    font-size: 13px;
+                    color: var(--text-secondary);
+                    line-height: 1.5;
+                    padding: 10px 12px;
+                    background: var(--bg-base);
+                    border-radius: var(--radius-md);
+                    margin-bottom: 12px;
+                  "
+                >
+                  Só um exemplo de teste aqui 2
+                </div>
+                <button
+                  class="btn btn-secondary btn-sm"
+                  style="width: 100%; justify-content: center"
+                >
+                  Marcar como feito
+                </button>
+              </div>
+
+              <div
+                style="
+                  background: var(--bg-surface);
+                  border: 1px solid var(--border-base);
+                  border-radius: var(--radius-lg);
+                  padding: 18px 20px;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    margin-bottom: 12px;
+                  "
+                >
+                  <span
+                    class="avatar"
+                    style="
+                      background: var(--whatsapp-soft);
+                      color: var(--whatsapp-text);
+                    "
+                    >S</span
+                  >
+                  <div style="flex: 1">
+                    <div class="type-h3" style="font-size: 14px">Santiago</div>
+                    <div class="type-small">WhatsApp · há 1 dia</div>
+                  </div>
+                  <span class="badge badge-whatsapp">WA</span>
+                </div>
+                <div
+                  style="
+                    font-size: 13px;
+                    color: var(--text-secondary);
+                    line-height: 1.5;
+                    padding: 10px 12px;
+                    background: var(--bg-base);
+                    border-radius: var(--radius-md);
+                    margin-bottom: 12px;
+                  "
+                >
+                  Tenho que mandar uma confirmação
+                </div>
+                <button
+                  class="btn btn-secondary btn-sm"
+                  style="width: 100%; justify-content: center"
+                >
+                  Marcar como feito
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── CONTRASTE ─────── -->
+      <section class="section" id="contraste">
+        <div class="section-header">
+          <span class="section-num">11.</span>
+          <h2>Antes e depois</h2>
+          <span class="meta">O que muda na prática</span>
+        </div>
+
+        <div class="compare">
+          <div class="compare-col before">
+            <h4>Antes (atual)</h4>
+            <ul>
+              <li>Fundo preto-terminal (#111110)</li>
+              <li>IBM Plex Mono em toda a UI — cara de ferramenta para devs</li>
+              <li>Amarelo neon (#e9d73a) — datado, agressivo</li>
+              <li>Cantos retos (radius 6px) — frio, corporativo</li>
+              <li>Densidade alta sem hierarquia clara</li>
+              <li>Linguagem técnica: "Total de Contatos", "Follow-ups"</li>
+              <li>Sem distinção visual entre dados críticos e secundários</li>
+              <li>Dark mode forçado — desconfortável de dia</li>
+            </ul>
+          </div>
+          <div class="compare-col after">
+            <h4>Depois (warm minimal)</h4>
+            <ul>
+              <li>Off-white quente (#FAF7F2) — convidativo, calmo</li>
+              <li>
+                Inter para UI + Fraunces serif para destaques — humano e premium
+              </li>
+              <li>Mostarda (#C99A2E) — sofisticado, brasileiro, atemporal</li>
+              <li>Cantos generosos (radius 14-16px) — acolhedor, moderno</li>
+              <li>Respiração entre seções, hierarquia tipográfica real</li>
+              <li>
+                Linguagem que conversa: "Pessoas no radar", "Precisam de você
+                hoje"
+              </li>
+              <li>Card "featured" mostarda destaca o número crítico do dia</li>
+              <li>Light only — claro de dia, no celular, em qualquer lugar</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─────── TOKENS ─────── -->
+      <section class="section" id="tokens">
+        <div class="section-header">
+          <span class="section-num">12.</span>
+          <h2>Tokens prontos</h2>
+          <span class="meta">Para o tailwind.config.ts</span>
+        </div>
+
+        <div class="section-intro">
+          Estes são os tokens que vão direto no
+          <code>tailwind.config.ts</code> do Strutura. Eles substituem
+          completamente a paleta atual. Variáveis CSS são definidas em
+          <code>globals.css</code> para permitir usar tanto pelo Tailwind quanto
+          direto em CSS quando necessário.
+        </div>
+
+        <div class="download-block">
+          <div class="type-h3" style="margin-bottom: 8px">Próximo passo</div>
+          <p class="type-body" style="margin-bottom: 16px">
+            Estes tokens estão prontos para implementação. O arquivo
+            <code>tailwind.config.ts</code> e o <code>globals.css</code> serão
+            entregues separadamente, junto com o prompt completo para o Claude
+            Code aplicar o redesign progressivamente.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap">
+            <button class="btn btn-primary">Ver tailwind.config.ts</button>
+            <button class="btn btn-secondary">Ver globals.css</button>
+            <button class="btn btn-secondary">Ver prompt do Claude Code</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

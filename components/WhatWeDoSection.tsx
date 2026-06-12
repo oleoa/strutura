@@ -13,11 +13,11 @@ const AREAS = [
     Icon: Workflow,
     title: "Automações e integrações",
     description:
-      "Workflows com n8n, agentes de IA e conexão entre as suas ferramentas.",
+      "Workflows, agentes de IA e conexão entre as suas ferramentas.",
   },
   {
     Icon: MessageSquareText,
-    title: "CRM Strutura",
+    title: "Strutura CRM",
     description:
       "Nosso produto próprio para gestão de WhatsApp e vendas.",
   },
@@ -38,17 +38,17 @@ export default function WhatWeDoSection() {
     >
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
         <RevealOnScroll delay={0}>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-yellow/10 text-yellow text-sm font-medium tracking-wide uppercase">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-mustard-soft text-mustard-ink text-xs font-semibold tracking-wide uppercase">
             O que fazemos
           </span>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
-          <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+          <h2 className="text-4xl md:text-5xl leading-tight">
             O que fazemos
           </h2>
         </RevealOnScroll>
         <RevealOnScroll delay={0.2}>
-          <p className="text-lg text-foreground/65 leading-relaxed">
+          <p className="text-lg text-ink-muted leading-relaxed">
             Trabalhamos com empresários que querem parar de improvisar o
             digital. Cada negócio recebe a estrutura que precisa — não um pacote
             engessado.
@@ -60,30 +60,28 @@ export default function WhatWeDoSection() {
         {AREAS.map((area, i) => (
           <RevealOnScroll key={i} delay={0.1 + i * 0.08}>
             <div
-              className="group relative flex flex-col h-full p-8 rounded-2xl
-                         bg-white dark:bg-transparent
-                         border border-foreground/8 dark:border-foreground/10
-                         shadow-[0_2px_16px_rgba(0,0,0,0.06)] dark:shadow-none
-                         hover:border-yellow/35 hover:bg-yellow/[0.02]
+              className="group relative flex items-start gap-4 h-full p-8 rounded-2xl
+                         bg-card border border-border shadow-md
+                         hover:border-mustard-border hover:bg-muted
                          transition-all duration-300"
             >
-              <div className="flex items-start gap-4 mb-4">
-                <div
-                  className="p-3 rounded-xl bg-yellow/10 border border-yellow/20
-                              group-hover:bg-yellow/15 transition-colors duration-300"
-                >
-                  <area.Icon
-                    className="w-5 h-5 text-yellow"
-                    strokeWidth={1.75}
-                  />
-                </div>
+              <div
+                className="shrink-0 p-3 rounded-xl bg-mustard-soft border border-mustard-border
+                            group-hover:bg-mustard-soft-hover transition-colors duration-300"
+              >
+                <area.Icon
+                  className="w-5 h-5 text-mustard-ink"
+                  strokeWidth={1.75}
+                />
               </div>
-              <h3 className="text-xl font-bold mb-2 leading-snug">
-                {area.title}
-              </h3>
-              <p className="text-sm text-foreground/65 leading-relaxed">
-                {area.description}
-              </p>
+              <div className="flex flex-col">
+                <h3 className="text-xl font-semibold mb-2 leading-snug">
+                  {area.title}
+                </h3>
+                <p className="text-sm text-ink-muted leading-relaxed">
+                  {area.description}
+                </p>
+              </div>
             </div>
           </RevealOnScroll>
         ))}

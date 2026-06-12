@@ -4,25 +4,25 @@ import { usePathname } from "next/navigation";
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname.startsWith("/crm")) return null;
+  if (pathname.startsWith("/crm") || pathname.startsWith("/linktree")) return null;
   return (
-    <div className="flex flex-col sm:flex-row justify-between lg:px-32 px-6 py-8 w-full border-t border-yellow gap-6">
+    <div className="flex flex-col sm:flex-row justify-between lg:px-32 px-6 py-8 w-full border-t border-border gap-6">
       <div className="flex flex-col gap-4">
-        <h2 className="text-xl font-bold">STRUTURA</h2>
-        <p>Infraestrutura digital para empresários</p>
-        <p className="text-xs text-gray">
+        <h2 className="text-xl font-semibold tracking-wide font-sans">STRUTURA</h2>
+        <p className="text-sm text-ink-soft">Infraestrutura digital para empresários</p>
+        <p className="text-xs text-ink-muted">
           Leonardo Abreu de Paulo @ 2026. Todos os direitos reservados.
         </p>
         <div className="flex flex-row gap-4">
           <a
             href="mailto:leonardo@strutura.ai"
-            className="text-xs text-gray underline underline-offset-4"
+            className="text-xs text-ink-muted underline underline-offset-4"
           >
             leonardo@strutura.ai
           </a>
           <a
             href="tel:+351931135852"
-            className="text-xs text-gray underline underline-offset-4"
+            className="text-xs text-ink-muted underline underline-offset-4"
           >
             +351 931 135 852
           </a>
@@ -32,7 +32,7 @@ export default function Footer() {
             href="https://www.instagram.com/strutura.ai/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray hover:text-white transition-colors"
+            className="text-ink-muted hover:text-mustard-ink transition-colors"
             aria-label="Instagram"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -43,7 +43,7 @@ export default function Footer() {
             href="https://www.linkedin.com/company/111340063/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray hover:text-white transition-colors"
+            className="text-ink-muted hover:text-mustard-ink transition-colors"
             aria-label="LinkedIn"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -54,7 +54,7 @@ export default function Footer() {
             href="https://wa.me/351931135852"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray hover:text-white transition-colors"
+            className="text-ink-muted hover:text-mustard-ink transition-colors"
             aria-label="WhatsApp"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
