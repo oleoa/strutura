@@ -17,7 +17,7 @@ const AREAS = [
   },
   {
     Icon: MessageSquareText,
-    title: "Strutura CRM",
+    title: "Strutura Pharos",
     description:
       "Nosso produto próprio para gestão de WhatsApp e vendas.",
   },
@@ -44,7 +44,8 @@ export default function WhatWeDoSection() {
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
           <h2 className="text-4xl md:text-5xl leading-tight">
-            O que fazemos
+            Tudo que o seu negócio precisa,{" "}
+            <span className="italic text-mustard">num lugar só</span>
           </h2>
         </RevealOnScroll>
         <RevealOnScroll delay={0.2}>

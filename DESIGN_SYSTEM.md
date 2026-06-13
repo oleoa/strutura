@@ -36,14 +36,14 @@ Os utilitários abaixo são gerados a partir de `@theme` em `app/globals.css` e 
 ### Acento mostarda
 | Papel | Hex | Utilitário |
 | --- | --- | --- |
-| Acento (preenchimentos / display grande) | `#c99a2e` | `bg-mustard` · `text-mustard` |
+| Acento (preenchimentos / display grande) | `#c99a2d` | `bg-mustard` · `text-mustard` |
 | Acento hover | `#b58825` | `bg-mustard-hover` |
 | Acento soft (fundo) | `#f5efe0` | `bg-mustard-soft` |
 | Acento soft hover | `#efe6cd` | `bg-mustard-soft-hover` |
 | **Acento texto (texto pequeno / ícones)** | `#8b6f2c` | `text-mustard-ink` |
 | Acento borda | `#e8ddb8` | `border-mustard-border` |
 
-> ⚠️ **Regra de contraste:** `#c99a2e` (`mustard`) reprova WCAG AA como texto pequeno. Usar **`mustard` só em preenchimentos e display grande**; para **texto, ícones, links e labels usar `text-mustard-ink` (`#8b6f2c`)**.
+> ⚠️ **Regra de contraste:** `#c99a2d` (`mustard`) reprova WCAG AA como texto pequeno. Usar **`mustard` só em preenchimentos e display grande**; para **texto, ícones, links e labels usar `text-mustard-ink` (`#8b6f2c`)**.
 
 ### Semânticos (`success` / `danger` / `info` / `warning`)
 Cada um com variantes `-soft` (fundo), `-ink` (texto) e `-border`. Ex.: `bg-danger-soft text-danger-ink border-danger-border`. `warning` == `mustard` (intencional). `destructive` (botões shadcn) = `#b5462e`.

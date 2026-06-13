@@ -22,37 +22,49 @@ export default function FinalCtaSection() {
   return (
     <section
       id="contato"
-      className="relative flex flex-col items-center justify-center gap-10 md:px-32 px-6 w-full py-28"
-      style={{ background: "var(--section-hero-bg)" }}
+      className="relative flex w-full flex-col items-center px-6 py-28 md:px-32"
+      style={{ background: "var(--section-how-bg)" }}
     >
-      <div className="flex flex-col items-center gap-6 max-w-2xl text-center">
-        <RevealOnScroll delay={0}>
-          <h2 className="text-4xl md:text-5xl leading-tight">
-            Vamos conversar?
-          </h2>
-        </RevealOnScroll>
-        <RevealOnScroll delay={0.1}>
-          <p className="text-lg text-ink-soft leading-relaxed">
-            Me conta o que você está construindo. Em 24h respondo com uma
-            proposta clara dos próximos passos.
-          </p>
-        </RevealOnScroll>
-      </div>
+      <RevealOnScroll delay={0}>
+        <div className="relative flex w-full max-w-4xl flex-col items-center gap-8 overflow-hidden rounded-4xl border border-mustard-border bg-mustard-soft px-6 py-16 text-center md:px-16 md:py-20">
+          {/* Brilho quente */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "radial-gradient(80% 120% at 50% 0%, rgba(201,154,45,0.18) 0%, transparent 60%)",
+            }}
+          />
+          <div className="relative flex max-w-2xl flex-col items-center gap-6">
+            <h2 className="text-4xl leading-tight md:text-5xl">
+              Vamos <span className="italic text-mustard">conversar?</span>
+            </h2>
+            <p className="text-lg leading-relaxed text-ink-soft">
+              Me conta o que você está construindo. Em 24h respondo com uma
+              proposta clara dos próximos passos.
+            </p>
+          </div>
 
-      <RevealOnScroll delay={0.2}>
-        <div className="flex flex-col sm:flex-row items-center gap-4">
-          <Button asChild size="xl">
-            <Link href="https://wa.me/351931135852" target="_blank">
-              <WhatsAppIcon className="w-5 h-5" />
-              WhatsApp
-            </Link>
-          </Button>
-          <Button asChild size="xl" variant="outline">
-            <a href="mailto:leonardo@strutura.ai">
-              <Mail className="w-5 h-5" />
-              Email
-            </a>
-          </Button>
+          <div className="relative flex flex-col items-center gap-4 sm:flex-row">
+            <Button asChild size="xl" className="rounded-full">
+              <Link href="https://wa.me/351931135852" target="_blank">
+                <WhatsAppIcon className="w-5 h-5" />
+                WhatsApp
+              </Link>
+            </Button>
+            <Button
+              asChild
+              size="xl"
+              variant="outline"
+              className="rounded-full"
+            >
+              <a href="mailto:leonardo@strutura.ai">
+                <Mail className="w-5 h-5" />
+                Email
+              </a>
+            </Button>
+          </div>
         </div>
       </RevealOnScroll>
     </section>

@@ -38,10 +38,10 @@ export const metadata: Metadata = {
     template: "%s | Strutura",
   },
   description:
-    "Sites, automações, CRM e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
+    "Sites, automações, Pharos e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
   keywords: [
     "infraestrutura digital",
-    "CRM para WhatsApp",
+    "Pharos para WhatsApp",
     "automações para empresas",
     "sites e landing pages",
     "agentes de IA",
@@ -67,12 +67,12 @@ export const metadata: Metadata = {
     siteName: "Strutura",
     title: "Strutura — Infraestrutura digital para o seu negócio",
     description:
-      "Sites, automações, CRM e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
+      "Sites, automações, Pharos e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
+        url: "/banner.png",
+        width: 1584,
+        height: 396,
         alt: "Strutura — Infraestrutura digital para o seu negócio",
       },
     ],
@@ -81,8 +81,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Strutura — Infraestrutura digital para o seu negócio",
     description:
-      "Sites, automações, CRM e integrações construídos sob medida. Direto com o fundador, sem agência no meio.",
-    images: ["/og-image.png"],
+      "Sites, automações, Pharos e integrações construídos sob medida. Direto com o fundador, sem agência no meio.",
+    images: ["/banner.png"],
   },
   verification: {
     google: "", // TODO: adicionar o token de verificação do Google Search Console
@@ -96,7 +96,7 @@ const jsonLd = {
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
   description:
-    "Infraestrutura digital sob medida para o seu negócio — sites, automações, CRM e integrações, construídos direto com o fundador.",
+    "Infraestrutura digital sob medida para o seu negócio — sites, automações, Pharos e integrações, construídos direto com o fundador.",
   founder: {
     "@type": "Person",
     name: "Leonardo Abreu de Paulo",

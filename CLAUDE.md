@@ -40,7 +40,7 @@ The site uses the **"Warm Minimal"** identity: light-only, warm off-white backgr
 | Background (base)          | `#FAF7F2` | `bg-background`    |
 | Surface (cards, inputs)    | `#FFFEFB` | `bg-card`          |
 | Muted (hover, 2nd areas)   | `#F5F1E8` | `bg-muted`         |
-| Accent — mustard (fills)   | `#C99A2E` | `bg-mustard`       |
+| Accent — mustard (fills)   | `#C99A2D` | `bg-mustard`       |
 | Accent text (small/icons)  | `#8B6F2C` | `text-mustard-ink` |
 | Text — primary (ink)       | `#2C2820` | `text-foreground`  |
 | Text — muted               | `#8B7E68` | `text-ink-muted`   |
@@ -51,7 +51,7 @@ The site uses the **"Warm Minimal"** identity: light-only, warm off-white backgr
 - **Light-only — sem dark mode.** Never use `dark:` variants, theme toggles, or `prefers-color-scheme`.
 - Fonts: **Fraunces** (serif → headings `h1`/`h2`), **Inter** (sans → body/UI/`h3`), **JetBrains Mono** (technical). Loaded in `app/layout.tsx`.
 - Headings are serif **500** — don't use `font-bold` on display headings; accent words use `italic text-mustard`.
-- Mustard `#C99A2E` only for fills / large display; for **small text, icons, links use `text-mustard-ink`** (`#8B6F2C`).
+- Mustard `#C99A2D` only for fills / large display; for **small text, icons, links use `text-mustard-ink`** (`#8B6F2C`).
 - Warm, subtle shadows (`shadow-md`); generous radii (cards `rounded-2xl`).
 - Clean, minimal — avoid visual clutter. Professional but approachable tone.
 - All user-facing copy should be in **Portuguese (Portugal)**.
@@ -114,9 +114,9 @@ The site uses the **"Warm Minimal"** identity: light-only, warm off-white backgr
 
 ---
 
-## 📦 Produto: Strutura CRM
+## 📦 Produto: Strutura Pharos
 
-Primeiro produto da casa, vendido no site institucional (seção `#crm` da homepage) e operado em `crm.strutura.ai`. Usar **apenas** os fatos abaixo ao escrever sobre o CRM — não inventar features.
+Primeiro produto da casa, vendido no site institucional (seção `#pharos` da homepage) e operado em `crm.strutura.ai`. Usar **apenas** os fatos abaixo ao escrever sobre o Pharos — não inventar features.
 
 **O que é (1 frase):** CRM de WhatsApp e Instagram que usa IA para ler todas as conversas toda madrugada e dizer ao vendedor exatamente com quem precisa falar — e o que falar — sem que ninguém atualize status manualmente.
 
@@ -124,7 +124,7 @@ Primeiro produto da casa, vendido no site institucional (seção `#crm` da homep
 
 **Features reais (lista fechada):**
 
-1. Multi-conta WhatsApp por vendedor — cada um conecta o próprio número; tudo unificado no CRM
+1. Multi-conta WhatsApp por vendedor — cada um conecta o próprio número; tudo unificado no Pharos
 2. Instagram Direct integrado — mesmo contato em IG + WhatsApp é tratado como uma pessoa só
 3. IA noturna lê todas as conversas que mexeram no dia — decide etapa do funil, próxima ação (e quando), e se está "aguardando resposta" do cliente (com prazo)
 4. Transcrição automática de áudio (Whisper) — WhatsApp e Instagram; vira texto pesquisável e entra no contexto da IA
@@ -143,7 +143,7 @@ Primeiro produto da casa, vendido no site institucional (seção `#crm` da homep
 - Sem app mobile nativo — é web responsivo
 - Usa WAHA self-hosted (QR code), não WhatsApp API oficial (BSP)
 
-**Tom de voz da copy do CRM:** português **brasileiro** (exceção à regra pt-PT do resto do site — público BR/LATAM), direto, frases curtas, verbos no presente, gírias leves de comercial ("a bola está com você", "lead quente"). Banidos: "revolucionário", "transformação digital", "potencialize", "alavancar", "boost", "unlock", emoji. Preços só em página de pricing, nunca na seção institucional.
+**Tom de voz da copy do Pharos:** português **brasileiro** (exceção à regra pt-PT do resto do site — público BR/LATAM), direto, frases curtas, verbos no presente, gírias leves de comercial ("a bola está com você", "lead quente"). Banidos: "revolucionário", "transformação digital", "potencialize", "alavancar", "boost", "unlock", emoji. Preços só em página de pricing, nunca na seção institucional.
 
 ---
 
