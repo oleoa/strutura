@@ -29,11 +29,22 @@ The core message is: **"Automação personalizada para empresas portuguesas. Aud
 
 ## 🎨 Brand & Design
 
-> **Design system completo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md) — consultar antes de criar/alterar qualquer UI.** Tokens implementados em `app/globals.css`.
+> **Design system: "Nature Warm"** — fonte de verdade em [`public/design.html`](public/design.html) (`strutura.ai/design.html`); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). **Consultar antes de criar/alterar qualquer peça ou UI.**
 
-The site uses the **"Warm Minimal"** identity: light-only, warm off-white backgrounds, mustard accent, serif headings.
+### Identidade "Nature Warm" (posts, templates do Studio, materiais)
 
-### Colors
+- **Dois climas:** **Campo** (claro, quente, texturizado, editorial — a casa/default) e **Bosque** (escuro verde-floresta — acento raro, **~1 a cada 5–6 posts**, só pro "susto visual").
+- **Acento mostarda envelhecido:** `#A9741F` (`--mostarda-queimado`, sobre claro) e `#C98A2B` (`--mostarda`, sobre escuro). Evolução do `#C99A2D` antigo, não ruptura.
+- **Grão em toda peça** (SVG `feTurbulence`) + furniture editorial com função (eyebrow, índice só em sequência real, selo de data, meta). Regra central: **claro mas não limpo; calmo mas não vazio.**
+- **Capa = pôster** (Fraunces enorme, texto mínimo) · **slide = ensino** (legibilidade manda, método à vista, rodapé com motivo de salvar). A estética nunca custa a legibilidade.
+- Palavra sempre seca e informativa — **nunca motivacional vazio.**
+- **Assinatura padrão: `Leo Abreu · Strutura`** (nunca "Leonardo Abreu").
+- Fontes: **Fraunces** (display 300–600, itálico de ênfase na cor de acento do clima) + **Inter** (utilitária 400–600).
+- Post: **1080 × 1350 (4:5)**; pensar o mosaico do feed, não só a peça.
+
+### Site (implementação atual — ainda "Warm Minimal", migração pendente)
+
+O código do site (`app/globals.css`, componentes) **ainda roda nos tokens Warm Minimal**. Até a migração, UI do site usa estes utilitários (tabela completa no apêndice do [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)):
 
 | Name                       | Hex       | Tailwind           |
 | -------------------------- | --------- | ------------------ |
@@ -46,9 +57,9 @@ The site uses the **"Warm Minimal"** identity: light-only, warm off-white backgr
 | Text — muted               | `#8B7E68` | `text-ink-muted`   |
 | Border                     | `#E8E0D0` | `border-border`    |
 
-### Typography & Style
+### Typography & Style (regras do site)
 
-- **Light-only — sem dark mode.** Never use `dark:` variants, theme toggles, or `prefers-color-scheme`.
+- **Light-only — sem dark mode.** Never use `dark:` variants, theme toggles, or `prefers-color-scheme`. (Vale nos dois sistemas — o Bosque é clima de peça, não dark mode do site.)
 - Fonts: **Fraunces** (serif → headings `h1`/`h2`), **Inter** (sans → body/UI/`h3`), **JetBrains Mono** (technical). Loaded in `app/layout.tsx`.
 - Headings are serif **500** — don't use `font-bold` on display headings; accent words use `italic text-mustard`.
 - Mustard `#C99A2D` only for fills / large display; for **small text, icons, links use `text-mustard-ink`** (`#8B6F2C`).
@@ -155,4 +166,4 @@ Primeiro produto da casa, vendido no site institucional (seção `#pharos` da ho
 
 ---
 
-_Last updated: June 2026 — migrated to the "Warm Minimal" design system (see [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md))._
+_Last updated: July 2026 — adopted the "Nature Warm" design system (source of truth: [`public/design.html`](public/design.html); summary in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)). Site code still runs on Warm Minimal tokens until migration._
