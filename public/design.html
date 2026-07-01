@@ -3,106 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strutura — Design System Warm Minimal</title>
+    <title>Strutura — Design System Nature Warm</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <style>
       :root {
-        /* ─────── PALETA NEUTRA (warm) ─────── */
-        --bg-base: #faf7f2; /* fundo da página */
-        --bg-surface: #fffefb; /* cards, inputs, áreas elevadas */
-        --bg-muted: #f5f1e8; /* hover, áreas secundárias */
-        --bg-subtle: #f0ebdf; /* dividers visuais, inputs */
+        /* ─────── CAMPO (claro / casa) ─────── */
+        --campo-base: #f1e8d4; /* fundo base (creme quente) */
+        --campo-bone: #efe7d6; /* superfície alternativa */
+        --campo-haze: #e4d2a8; /* brilho de alvorada / glow superior */
+        --campo-ink: #1e2b22; /* tinta principal (verde-escuro) */
+        --campo-verde: #788c56; /* verde-campo (horizonte, natureza) */
+        --campo-verde-deep: #5e6b3e; /* verde mais fundo (sombra de natureza) */
 
-        --border-base: #e8e0d0; /* bordas padrão */
-        --border-subtle: #efe8d8; /* bordas mais leves */
-        --border-strong: #d8cdb5; /* hover, focus */
+        /* ─────── BOSQUE (escuro / acento raro) ─────── */
+        --bosque-deep: #14201a; /* fundo base (floresta profunda) */
+        --bosque-mid: #26382b; /* verde médio (gradiente, divisórias) */
+        --bosque-bone: #efe7d6; /* texto/tinta clara sobre escuro */
+        --bosque-haze: #e4d2a8; /* luz de dossel, itálico de ênfase */
 
-        /* ─────── TEXTO ─────── */
-        --text-primary: #2c2820; /* títulos, texto forte */
-        --text-secondary: #5c5448; /* corpo, descrições */
-        --text-muted: #8b7e68; /* labels, meta */
-        --text-faint: #a89a7e; /* placeholders, hints */
+        /* ─────── ACENTO COMPARTILHADO ─────── */
+        --mostarda: #c98a2b; /* acento sobre escuro (Bosque) */
+        --mostarda-queimado: #a9741f; /* acento sobre claro (Campo) */
 
-        /* ─────── ACENTO MOSTARDA ─────── */
-        --accent: #c99a2e; /* primário — não usar em texto pequeno */
-        --accent-hover: #b58825;
-        --accent-soft: #f5efe0; /* fundo de elementos com acento */
-        --accent-soft-hover: #efe6cd;
-        --accent-text: #8b6f2c; /* texto sobre fundo accent-soft */
-        --accent-border: #e8ddb8;
+        /* ─────── DERIVADOS DA DOC (não são tokens do sistema) ─────── */
+        --ink: var(--campo-ink);
+        --ink-soft: rgba(30, 43, 34, 0.78);
+        --ink-muted: rgba(30, 43, 34, 0.56);
+        --ink-faint: rgba(30, 43, 34, 0.38);
+        --line: rgba(30, 43, 34, 0.16);
+        --line-soft: rgba(30, 43, 34, 0.1);
+        --surface: rgba(239, 231, 214, 0.65);
 
-        /* ─────── SEMÂNTICOS ─────── */
-        --success: #5c7a3a;
-        --success-soft: #eaf0dd;
-        --success-text: #3f5526;
-        --success-border: #d5dfc0;
-
-        --warning: #c99a2e; /* mesmo do accent (intencional) */
-        --warning-soft: #f5efe0;
-        --warning-text: #8b6f2c;
-
-        --danger: #b5462e;
-        --danger-soft: #f5e6df;
-        --danger-text: #7a2f1e;
-        --danger-border: #e5cfc2;
-
-        --info: #4a6b8b;
-        --info-soft: #e5ebf2;
-        --info-text: #2f4760;
-        --info-border: #c8d4e0;
-
-        /* ─────── CANAIS (origem do contato) ─────── */
-        --whatsapp-soft: #e8f0e0;
-        --whatsapp-text: #4a6b2c;
-
-        --instagram-soft: #f5e8ee;
-        --instagram-text: #8b3a5c;
-
-        /* ─────── TEMPERATURA ─────── */
-        --hot-soft: #f5e0dc;
-        --hot-text: #a03e2a;
-
-        --warm-soft: #f5ebda;
-        --warm-text: #a0712a;
-
-        --cold-soft: #e0e8f0;
-        --cold-text: #3a5570;
-
-        /* ─────── SOMBRAS (sutis, NUNCA pesadas) ─────── */
-        --shadow-sm: 0 1px 2px rgba(44, 40, 32, 0.04);
-        --shadow-md: 0 2px 8px rgba(44, 40, 32, 0.06);
-        --shadow-lg: 0 8px 24px rgba(44, 40, 32, 0.08);
-        --shadow-focus: 0 0 0 3px rgba(201, 154, 46, 0.18);
-
-        /* ─────── RADIUS ─────── */
-        --radius-sm: 6px; /* badges, pills pequenos */
-        --radius-md: 10px; /* botões, inputs */
-        --radius-lg: 14px; /* cards internos */
-        --radius-xl: 16px; /* cards principais */
-        --radius-2xl: 20px; /* hero, modais */
-        --radius-pill: 100px; /* pills, status */
-
-        /* ─────── ESPAÇAMENTO ─────── */
-        --space-1: 4px;
-        --space-2: 8px;
-        --space-3: 12px;
-        --space-4: 16px;
-        --space-5: 20px;
-        --space-6: 24px;
-        --space-8: 32px;
-        --space-10: 40px;
-        --space-12: 48px;
+        /* ─────── GRÃO (feTurbulence, reutilizável) ─────── */
+        --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.87' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 
         /* ─────── TIPOGRAFIA ─────── */
-        --font-sans:
-          "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        --font-serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-        --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+        --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+        --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas,
+          monospace;
       }
 
       * {
@@ -116,203 +61,584 @@
       }
 
       body {
-        background: var(--bg-base);
-        color: var(--text-primary);
-        font-family: var(--font-sans);
+        background: var(--campo-base);
+        color: var(--ink);
+        font-family: var(--font-ui);
         font-size: 15px;
-        line-height: 1.6;
+        line-height: 1.65;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+        position: relative;
+      }
+
+      /* Grão sutil na própria doc — a página vive no clima Campo */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: var(--grain-url);
+        mix-blend-mode: overlay;
+        opacity: 0.28;
+        pointer-events: none;
+        z-index: 1;
       }
 
       .container {
         max-width: 1080px;
         margin: 0 auto;
-        padding: 48px 32px 96px;
+        padding: 56px 32px 96px;
+        position: relative;
+        z-index: 2;
       }
 
-      /* ─────── HEADER ─────── */
-      .header {
-        margin-bottom: 64px;
-        padding-bottom: 32px;
-        border-bottom: 1px solid var(--border-base);
+      a {
+        color: var(--mostarda-queimado);
       }
 
-      .header-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        background: var(--accent-soft);
-        border: 1px solid var(--accent-border);
-        border-radius: var(--radius-pill);
+      :focus-visible {
+        outline: 2px solid var(--mostarda-queimado);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+        *,
+        *::before,
+        *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+
+      /* ─────── GRÃO REUTILIZÁVEL (toda peça) ─────── */
+      .grain {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .grain::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: var(--grain-url);
+        mix-blend-mode: overlay;
+        opacity: 0.45;
+        pointer-events: none;
+        border-radius: inherit;
+        z-index: 3;
+      }
+
+      /* Bosque: blend mais suave, grão mais pesado */
+      .grain--bosque::after {
+        mix-blend-mode: soft-light;
+        opacity: 0.55;
+      }
+
+      /* ─────── FURNITURE COMPARTILHADO ─────── */
+      .eyebrow {
+        font-family: var(--font-ui);
         font-size: 11px;
         font-weight: 600;
-        color: var(--accent-text);
-        letter-spacing: 0.4px;
+        letter-spacing: 0.24em;
         text-transform: uppercase;
-        margin-bottom: 20px;
+        color: var(--mostarda-queimado);
+      }
+
+      .assinatura {
+        font-family: var(--font-ui);
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--mostarda-queimado);
+      }
+
+      .selo {
+        font-family: var(--font-ui);
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+      }
+
+      /* ─────── HEADER (statement em modo pôster) ─────── */
+      .header {
+        margin-bottom: 72px;
+        padding: 48px 44px 44px;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        background:
+          radial-gradient(
+            120% 90% at 50% -20%,
+            var(--campo-haze) 0%,
+            rgba(228, 210, 168, 0) 55%
+          ),
+          var(--campo-bone);
+        overflow: hidden;
+      }
+
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 40px;
       }
 
       .header h1 {
-        font-family: var(--font-serif);
-        font-size: 48px;
-        font-weight: 500;
-        color: var(--text-primary);
-        letter-spacing: -1px;
-        line-height: 1.05;
-        margin-bottom: 14px;
-        font-variation-settings:
-          "opsz" 144,
-          "SOFT" 50;
+        font-family: var(--font-display);
+        font-size: clamp(44px, 7vw, 72px);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+        line-height: 1.02;
+        margin-bottom: 20px;
+        font-variation-settings: "opsz" 144;
+        max-width: 15ch;
       }
 
       .header h1 em {
         font-style: italic;
-        color: var(--accent);
-        font-variation-settings:
-          "opsz" 144,
-          "SOFT" 100;
+        font-weight: 480;
+        color: var(--mostarda-queimado);
       }
 
-      .header p {
-        font-size: 17px;
-        color: var(--text-secondary);
-        max-width: 640px;
-        line-height: 1.65;
+      .header .lede {
+        font-size: 16px;
+        color: var(--ink-soft);
+        max-width: 620px;
+        line-height: 1.7;
+      }
+
+      .header .lede strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .header-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        margin-top: 36px;
+        padding-top: 20px;
+        border-top: 1px solid var(--line-soft);
       }
 
       /* ─────── SEÇÕES ─────── */
       .section {
-        margin-bottom: 64px;
+        margin-bottom: 80px;
+        scroll-margin-top: 32px;
       }
 
       .section-header {
         display: flex;
         align-items: baseline;
         gap: 16px;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         padding-bottom: 12px;
-        border-bottom: 1px solid var(--border-subtle);
+        border-bottom: 1px solid var(--line);
       }
 
       .section-num {
-        font-family: var(--font-serif);
+        font-family: var(--font-display);
         font-size: 14px;
-        color: var(--accent);
+        color: var(--mostarda-queimado);
         font-weight: 500;
         font-style: italic;
       }
 
       .section-header h2 {
-        font-family: var(--font-serif);
-        font-size: 28px;
+        font-family: var(--font-display);
+        font-size: 30px;
         font-weight: 500;
-        color: var(--text-primary);
-        letter-spacing: -0.5px;
+        letter-spacing: -0.01em;
+        font-variation-settings: "opsz" 60;
       }
 
       .section-header .meta {
         margin-left: auto;
-        font-size: 13px;
-        color: var(--text-muted);
+        font-size: 12px;
+        color: var(--ink-muted);
+        text-align: right;
       }
 
       .section-intro {
-        font-size: 14px;
-        color: var(--text-secondary);
-        margin-bottom: 24px;
-        max-width: 720px;
-        line-height: 1.7;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        margin-bottom: 28px;
+        max-width: 740px;
+        line-height: 1.75;
       }
 
-      .section-intro code {
+      .section-intro strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .section-intro code,
+      .prose code {
         font-family: var(--font-mono);
         font-size: 12px;
-        background: var(--bg-muted);
+        background: rgba(30, 43, 34, 0.07);
         padding: 2px 6px;
-        border-radius: var(--radius-sm);
-        color: var(--accent-text);
+        border-radius: 3px;
+        color: var(--ink);
       }
 
-      /* ─────── PALETA DE CORES ─────── */
+      .subhead {
+        font-family: var(--font-ui);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        margin: 36px 0 14px;
+      }
+
+      /* ─────── CALLOUTS ─────── */
+      .callout {
+        border-left: 3px solid var(--mostarda-queimado);
+        background: var(--surface);
+        padding: 18px 22px;
+        margin: 24px 0;
+        max-width: 740px;
+        font-size: 14px;
+        line-height: 1.7;
+        color: var(--ink-soft);
+      }
+
+      .callout strong {
+        color: var(--ink);
+      }
+
+      .callout .callout-title {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 17px;
+        color: var(--ink);
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .tag-pendente {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--campo-bone);
+        background: var(--mostarda-queimado);
+        padding: 3px 10px;
+        border-radius: 2px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      /* ─────── STATEMENT ─────── */
+      .statement-quote {
+        font-family: var(--font-display);
+        font-size: clamp(30px, 4.5vw, 44px);
+        font-weight: 400;
+        line-height: 1.15;
+        letter-spacing: -0.015em;
+        font-variation-settings: "opsz" 144;
+        max-width: 20ch;
+        margin: 8px 0 28px;
+      }
+
+      .statement-quote em {
+        font-style: italic;
+        color: var(--mostarda-queimado);
+      }
+
+      .prose {
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        line-height: 1.75;
+        max-width: 740px;
+      }
+
+      .prose + .prose {
+        margin-top: 14px;
+      }
+
+      .prose strong {
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      /* ─────── GRID DE CARDS ─────── */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line-soft);
+        border-radius: 4px;
+        padding: 22px 24px;
+      }
+
+      .card .card-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        margin-bottom: 10px;
+      }
+
+      .card h3 {
+        font-family: var(--font-display);
+        font-size: 19px;
+        font-weight: 500;
+        line-height: 1.25;
+        margin-bottom: 8px;
+        font-variation-settings: "opsz" 40;
+      }
+
+      .card h3 em {
+        font-style: italic;
+        color: var(--mostarda-queimado);
+      }
+
+      .card p {
+        font-size: 13.5px;
+        color: var(--ink-soft);
+        line-height: 1.65;
+      }
+
+      /* ─────── OS DOIS CLIMAS ─────── */
+      .climas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 20px;
+      }
+
+      .clima {
+        border-radius: 4px;
+        padding: 30px 30px 26px;
+        overflow: hidden;
+      }
+
+      .clima-campo {
+        background:
+          radial-gradient(
+            130% 70% at 50% -15%,
+            var(--campo-haze) 0%,
+            rgba(228, 210, 168, 0) 60%
+          ),
+          var(--campo-bone);
+        border: 1px solid var(--line);
+        color: var(--ink);
+      }
+
+      .clima-bosque {
+        background:
+          radial-gradient(
+            120% 65% at 50% -15%,
+            rgba(228, 210, 168, 0.22) 0%,
+            rgba(228, 210, 168, 0) 60%
+          ),
+          linear-gradient(175deg, var(--bosque-mid) 0%, var(--bosque-deep) 62%);
+        color: var(--bosque-bone);
+      }
+
+      .clima .clima-role {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .clima-campo .clima-role {
+        color: var(--mostarda-queimado);
+      }
+
+      .clima-bosque .clima-role {
+        color: var(--mostarda);
+      }
+
+      .clima h3 {
+        font-family: var(--font-display);
+        font-size: 34px;
+        font-weight: 450;
+        letter-spacing: -0.01em;
+        line-height: 1.05;
+        margin-bottom: 14px;
+        font-variation-settings: "opsz" 100;
+      }
+
+      .clima p {
+        font-size: 13.5px;
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+
+      .clima-campo p {
+        color: var(--ink-soft);
+      }
+
+      .clima-bosque p {
+        color: rgba(239, 231, 214, 0.82);
+      }
+
+      .clima p strong {
+        font-weight: 600;
+      }
+
+      .clima-campo p strong {
+        color: var(--ink);
+      }
+
+      .clima-bosque p strong {
+        color: var(--bosque-bone);
+      }
+
+      .clima-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 16px;
+      }
+
+      .clima-chips span {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 4px 10px;
+        border-radius: 2px;
+      }
+
+      .clima-campo .clima-chips span {
+        border: 1px solid var(--line);
+        color: var(--ink-muted);
+      }
+
+      .clima-bosque .clima-chips span {
+        border: 1px solid rgba(239, 231, 214, 0.25);
+        color: rgba(239, 231, 214, 0.7);
+      }
+
+      /* Cadência 1:5–6 — visualização do feed */
+      .cadencia {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 8px;
+        max-width: 560px;
+        margin: 18px 0 8px;
+      }
+
+      .cadencia .tile {
+        aspect-ratio: 4 / 5;
+        border-radius: 3px;
+        border: 1px solid var(--line);
+        background: var(--campo-bone);
+        position: relative;
+      }
+
+      .cadencia .tile--bosque {
+        background: linear-gradient(
+          170deg,
+          var(--bosque-mid),
+          var(--bosque-deep)
+        );
+        border-color: var(--bosque-deep);
+      }
+
+      .cadencia-legenda {
+        font-size: 12px;
+        color: var(--ink-muted);
+        max-width: 560px;
+      }
+
+      /* ─────── PALETA ─────── */
       .swatch-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(158px, 1fr));
         gap: 12px;
+        margin-bottom: 8px;
       }
 
       .swatch {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-lg);
+        background: var(--campo-bone);
+        border: 1px solid var(--line-soft);
+        border-radius: 4px;
         overflow: hidden;
-        transition:
-          transform 0.15s,
-          box-shadow 0.15s;
-      }
-
-      .swatch:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-md);
       }
 
       .swatch-color {
-        height: 80px;
-        border-bottom: 1px solid var(--border-base);
+        height: 78px;
+        border-bottom: 1px solid var(--line-soft);
       }
 
       .swatch-info {
-        padding: 12px 14px;
+        padding: 11px 13px 12px;
       }
 
       .swatch-name {
         font-size: 12px;
         font-weight: 600;
-        color: var(--text-primary);
-        margin-bottom: 4px;
+        color: var(--ink);
+        margin-bottom: 3px;
       }
 
       .swatch-token {
         font-family: var(--font-mono);
         font-size: 10px;
-        color: var(--text-muted);
+        color: var(--ink-muted);
         margin-bottom: 2px;
       }
 
       .swatch-hex {
         font-family: var(--font-mono);
         font-size: 11px;
-        color: var(--text-secondary);
+        color: var(--ink-soft);
+        margin-bottom: 5px;
+      }
+
+      .swatch-uso {
+        font-size: 11px;
+        color: var(--ink-muted);
+        line-height: 1.45;
       }
 
       /* ─────── TIPOGRAFIA ─────── */
       .type-stack {
         display: flex;
         flex-direction: column;
-        gap: 24px;
+        gap: 14px;
       }
 
       .type-row {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-lg);
+        background: var(--surface);
+        border: 1px solid var(--line-soft);
+        border-radius: 4px;
         padding: 24px 28px;
         display: grid;
-        grid-template-columns: 200px 1fr;
+        grid-template-columns: 210px 1fr;
         gap: 32px;
         align-items: center;
       }
 
       .type-meta {
         font-size: 12px;
-        color: var(--text-muted);
-        line-height: 1.5;
+        color: var(--ink-muted);
+        line-height: 1.55;
       }
 
       .type-meta strong {
         display: block;
-        color: var(--text-primary);
+        color: var(--ink);
         font-size: 13px;
         font-weight: 600;
         margin-bottom: 4px;
@@ -321,1791 +647,1794 @@
       .type-meta code {
         font-family: var(--font-mono);
         font-size: 10px;
-        color: var(--accent-text);
-        background: var(--accent-soft);
+        color: var(--mostarda-queimado);
+        background: rgba(169, 116, 31, 0.1);
         padding: 1px 5px;
         border-radius: 3px;
       }
 
-      .type-display-1 {
-        font-family: var(--font-serif);
-        font-size: 56px;
+      .t-display {
+        font-family: var(--font-display);
+        font-size: clamp(34px, 5vw, 54px);
+        font-weight: 400;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        font-variation-settings: "opsz" 144;
+      }
+
+      .t-display em,
+      .t-slide em {
+        font-style: italic;
+        font-weight: 480;
+        color: var(--mostarda-queimado);
+      }
+
+      .t-slide {
+        font-family: var(--font-display);
+        font-size: 30px;
         font-weight: 500;
-        line-height: 1.05;
-        letter-spacing: -1.5px;
-        color: var(--text-primary);
-        font-variation-settings:
-          "opsz" 144,
-          "SOFT" 50;
+        line-height: 1.12;
+        letter-spacing: -0.01em;
+        font-variation-settings: "opsz" 80;
       }
 
-      .type-display-2 {
-        font-family: var(--font-serif);
-        font-size: 40px;
-        font-weight: 500;
-        line-height: 1.1;
-        letter-spacing: -1px;
-        color: var(--text-primary);
-        font-variation-settings:
-          "opsz" 144,
-          "SOFT" 50;
-      }
-
-      .type-h1 {
-        font-family: var(--font-serif);
-        font-size: 28px;
-        font-weight: 500;
-        line-height: 1.2;
-        letter-spacing: -0.5px;
-        color: var(--text-primary);
-      }
-
-      .type-h2 {
-        font-family: var(--font-serif);
-        font-size: 22px;
-        font-weight: 500;
-        line-height: 1.3;
-        letter-spacing: -0.3px;
-        color: var(--text-primary);
-      }
-
-      .type-h3 {
-        font-family: var(--font-sans);
-        font-size: 17px;
-        font-weight: 600;
-        line-height: 1.4;
-        color: var(--text-primary);
-      }
-
-      .type-body-lg {
-        font-family: var(--font-sans);
+      .t-body {
+        font-family: var(--font-ui);
         font-size: 16px;
         font-weight: 400;
         line-height: 1.65;
-        color: var(--text-secondary);
+        color: var(--ink-soft);
+        max-width: 46ch;
       }
 
-      .type-body {
-        font-family: var(--font-sans);
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.6;
-        color: var(--text-secondary);
-      }
-
-      .type-small {
-        font-family: var(--font-sans);
+      .t-meta {
+        font-family: var(--font-ui);
         font-size: 13px;
         font-weight: 400;
         line-height: 1.5;
-        color: var(--text-muted);
+        color: var(--ink-muted);
       }
 
-      .type-label {
-        font-family: var(--font-sans);
-        font-size: 11px;
-        font-weight: 600;
-        line-height: 1.4;
-        letter-spacing: 0.5px;
-        text-transform: uppercase;
-        color: var(--text-muted);
-      }
-
-      .type-mono {
-        font-family: var(--font-mono);
+      /* Escala de referência (post 1080×1350) */
+      .spec-table {
+        width: 100%;
+        border-collapse: collapse;
         font-size: 13px;
-        color: var(--text-secondary);
+        margin-top: 8px;
       }
 
-      /* ─────── COMPONENTES ─────── */
-      .component-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
-      }
-
-      .demo-card {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-lg);
-        padding: 24px;
-      }
-
-      .demo-card-label {
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        margin-bottom: 16px;
-      }
-
-      /* ─────── BOTÕES ─────── */
-      .btn-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        align-items: center;
-      }
-
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 10px 18px;
-        font-family: var(--font-sans);
-        font-size: 14px;
-        font-weight: 500;
-        border-radius: var(--radius-md);
-        cursor: pointer;
-        transition: all 0.15s;
-        border: 1px solid transparent;
-        white-space: nowrap;
-      }
-
-      .btn-primary {
-        background: var(--accent);
-        color: #fffefb;
-        border-color: var(--accent);
-      }
-
-      .btn-primary:hover {
-        background: var(--accent-hover);
-        border-color: var(--accent-hover);
-      }
-
-      .btn-secondary {
-        background: var(--bg-surface);
-        color: var(--text-primary);
-        border-color: var(--border-base);
-      }
-
-      .btn-secondary:hover {
-        background: var(--bg-muted);
-        border-color: var(--border-strong);
-      }
-
-      .btn-ghost {
-        background: transparent;
-        color: var(--text-secondary);
-        border-color: transparent;
-      }
-
-      .btn-ghost:hover {
-        background: var(--bg-muted);
-        color: var(--text-primary);
-      }
-
-      .btn-danger {
-        background: var(--bg-surface);
-        color: var(--danger-text);
-        border-color: var(--danger-border);
-      }
-
-      .btn-danger:hover {
-        background: var(--danger-soft);
-      }
-
-      .btn-sm {
-        padding: 6px 12px;
-        font-size: 12px;
-      }
-      .btn-lg {
-        padding: 13px 24px;
-        font-size: 15px;
-      }
-
-      /* ─────── BADGES ─────── */
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        padding: 3px 10px;
-        font-size: 11px;
-        font-weight: 500;
-        border-radius: var(--radius-sm);
-        white-space: nowrap;
-      }
-
-      .badge-lead {
-        background: var(--info-soft);
-        color: var(--info-text);
-      }
-      .badge-cliente {
-        background: var(--success-soft);
-        color: var(--success-text);
-      }
-      .badge-equipe {
-        background: var(--accent-soft);
-        color: var(--accent-text);
-      }
-      .badge-whatsapp {
-        background: var(--whatsapp-soft);
-        color: var(--whatsapp-text);
-      }
-      .badge-instagram {
-        background: var(--instagram-soft);
-        color: var(--instagram-text);
-      }
-      .badge-hot {
-        background: var(--hot-soft);
-        color: var(--hot-text);
-      }
-      .badge-warm {
-        background: var(--warm-soft);
-        color: var(--warm-text);
-      }
-      .badge-cold {
-        background: var(--cold-soft);
-        color: var(--cold-text);
-      }
-
-      /* ─────── INPUTS ─────── */
-      .input-group {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        margin-bottom: 14px;
-      }
-
-      .input-group label {
-        font-size: 12px;
-        font-weight: 500;
-        color: var(--text-secondary);
-      }
-
-      .input {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-md);
-        padding: 10px 14px;
-        font-family: var(--font-sans);
-        font-size: 14px;
-        color: var(--text-primary);
-        transition: all 0.15s;
-        width: 100%;
-      }
-
-      .input:hover {
-        border-color: var(--border-strong);
-      }
-      .input:focus {
-        outline: none;
-        border-color: var(--accent);
-        box-shadow: var(--shadow-focus);
-      }
-      .input::placeholder {
-        color: var(--text-faint);
-      }
-
-      .select {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-md);
-        padding: 10px 14px;
-        font-family: var(--font-sans);
-        font-size: 14px;
-        color: var(--text-primary);
-        cursor: pointer;
-        width: 100%;
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238B7E68' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 12px center;
-        padding-right: 36px;
-      }
-
-      /* ─────── CARDS DE STATS ─────── */
-      .stat-card {
-        background: var(--bg-base);
-        border-radius: var(--radius-lg);
-        padding: 20px;
-      }
-
-      .stat-card.featured {
-        background: var(--accent-soft);
-        border: 1px solid var(--accent-border);
-      }
-
-      .stat-label {
-        font-size: 12px;
-        color: var(--text-muted);
-        margin-bottom: 8px;
-        font-weight: 500;
-      }
-
-      .stat-card.featured .stat-label {
-        color: var(--accent-text);
-      }
-
-      .stat-value {
-        font-family: var(--font-serif);
-        font-size: 32px;
-        font-weight: 500;
-        color: var(--text-primary);
-        line-height: 1;
-        letter-spacing: -0.5px;
-      }
-
-      .stat-card.featured .stat-value {
-        color: var(--accent-text);
-      }
-
-      .stat-meta {
-        font-size: 11px;
-        color: var(--text-faint);
-        margin-top: 6px;
-      }
-
-      .stat-card.featured .stat-meta {
-        color: var(--accent-text);
-        opacity: 0.7;
-      }
-
-      /* ─────── TABELA ─────── */
-      .demo-table {
-        width: 100%;
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-lg);
-        overflow: hidden;
-        border-collapse: separate;
-        border-spacing: 0;
-      }
-
-      .demo-table th {
-        background: var(--bg-muted);
-        padding: 11px 16px;
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--text-muted);
+      .spec-table th {
         text-align: left;
-        text-transform: uppercase;
-        letter-spacing: 0.4px;
-        border-bottom: 1px solid var(--border-base);
-      }
-
-      .demo-table td {
-        padding: 14px 16px;
-        font-size: 13px;
-        color: var(--text-secondary);
-        border-bottom: 1px solid var(--border-subtle);
-      }
-
-      .demo-table tr:last-child td {
-        border-bottom: none;
-      }
-      .demo-table tr:hover td {
-        background: var(--bg-muted);
-      }
-
-      .demo-table .name {
-        font-weight: 500;
-        color: var(--text-primary);
-      }
-
-      .demo-table .name-meta {
-        font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--text-muted);
-        margin-top: 2px;
-      }
-
-      .avatar {
-        width: 32px;
-        height: 32px;
-        border-radius: 50%;
-        background: var(--accent-soft);
-        color: var(--accent-text);
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
+        font-size: 10px;
         font-weight: 600;
-        margin-right: 10px;
-        vertical-align: middle;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        padding: 8px 14px;
+        border-bottom: 1px solid var(--line);
       }
 
-      /* ─────── DASHBOARD MOCKUP ─────── */
-      .dashboard-preview {
-        background: var(--bg-base);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-2xl);
-        padding: 4px;
-        box-shadow: var(--shadow-lg);
+      .spec-table td {
+        padding: 10px 14px;
+        border-bottom: 1px solid var(--line-soft);
+        color: var(--ink-soft);
+        vertical-align: top;
       }
 
-      .dashboard-chrome {
-        background: var(--bg-muted);
-        border-radius: 18px 18px 0 0;
-        padding: 12px 16px;
-        display: flex;
-        gap: 8px;
-        align-items: center;
+      .spec-table td:first-child {
+        color: var(--ink);
+        font-weight: 500;
+        white-space: nowrap;
       }
 
-      .chrome-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--border-strong);
-      }
-      .chrome-dot.r {
-        background: #e5a8a0;
-      }
-      .chrome-dot.y {
-        background: #e5c99d;
-      }
-      .chrome-dot.g {
-        background: #b5c9a8;
-      }
-
-      .chrome-url {
-        margin-left: 16px;
-        background: var(--bg-surface);
-        padding: 4px 12px;
-        border-radius: var(--radius-pill);
+      .spec-table code {
         font-family: var(--font-mono);
-        font-size: 11px;
-        color: var(--text-muted);
+        font-size: 11.5px;
+        color: var(--ink-soft);
+        background: none;
+        padding: 0;
       }
 
-      .dashboard-body {
-        background: var(--bg-base);
-        border-radius: 0 0 18px 18px;
-        padding: 28px 32px;
-      }
-
-      /* ─────── COMPARISON ─────── */
-      .compare {
+      /* ─────── TEXTURA & FURNITURE ─────── */
+      .grain-demo {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
-        margin-bottom: 24px;
+        gap: 16px;
+        margin: 20px 0;
       }
 
-      .compare-col {
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-lg);
-        padding: 24px;
+      .grain-demo .demo-tile {
+        border-radius: 4px;
+        padding: 34px 28px;
+        min-height: 190px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        background:
+          radial-gradient(
+            130% 80% at 50% -20%,
+            var(--campo-haze) 0%,
+            rgba(228, 210, 168, 0) 60%
+          ),
+          var(--campo-bone);
+        border: 1px solid var(--line);
+        overflow: hidden;
       }
 
-      .compare-col h4 {
-        font-family: var(--font-sans);
+      .grain-demo .demo-tile h4 {
+        font-family: var(--font-display);
+        font-size: 26px;
+        font-weight: 450;
+        line-height: 1.1;
+        font-variation-settings: "opsz" 100;
+      }
+
+      .grain-demo .demo-tag {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        margin-bottom: auto;
+      }
+
+      .code-block {
+        background: var(--bosque-deep);
+        color: var(--bosque-bone);
+        border-radius: 4px;
+        padding: 20px 24px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        line-height: 1.7;
+        overflow-x: auto;
+        margin: 16px 0 8px;
+      }
+
+      .code-block .c {
+        color: rgba(239, 231, 214, 0.45);
+      }
+
+      .code-block .k {
+        color: var(--bosque-haze);
+      }
+
+      .code-block .v {
+        color: #b8c99a;
+      }
+
+      .furniture-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 16px;
+      }
+
+      .furniture-item {
+        background: var(--surface);
+        border: 1px solid var(--line-soft);
+        border-radius: 4px;
+        padding: 20px 22px;
+      }
+
+      .furniture-sample {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .furniture-item h4 {
         font-size: 13px;
         font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .furniture-item p {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .indice-num {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 26px;
+        font-weight: 400;
+        color: var(--mostarda-queimado);
+      }
+
+      .barcode {
+        display: inline-block;
+        height: 26px;
+        width: 92px;
+        background: repeating-linear-gradient(
+          90deg,
+          var(--ink) 0 2px,
+          transparent 2px 5px,
+          var(--ink) 5px 6px,
+          transparent 6px 10px,
+          var(--ink) 10px 13px,
+          transparent 13px 16px
+        );
+        opacity: 0.55;
+      }
+
+      /* ─────── CAPA VS SLIDE ─────── */
+      .modos {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .modo {
+        background: var(--surface);
+        border: 1px solid var(--line-soft);
+        border-radius: 4px;
+        padding: 24px 26px;
+      }
+
+      .modo h3 {
+        font-family: var(--font-display);
+        font-size: 21px;
+        font-weight: 500;
+        margin-bottom: 4px;
+        font-variation-settings: "opsz" 60;
+      }
+
+      .modo .modo-sub {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
+        color: var(--mostarda-queimado);
         margin-bottom: 14px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid var(--border-subtle);
       }
 
-      .compare-col.before h4 {
-        color: var(--danger-text);
-      }
-      .compare-col.after h4 {
-        color: var(--success-text);
-      }
-
-      .compare-col ul {
+      .modo ul {
         list-style: none;
         display: flex;
         flex-direction: column;
         gap: 8px;
       }
 
+      .modo li {
+        font-size: 13px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        padding-left: 16px;
+        position: relative;
+      }
+
+      .modo li::before {
+        content: "";
+        position: absolute;
+        left: 2px;
+        top: 8px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--mostarda-queimado);
+      }
+
+      /* ─────── NATUREZA: NÍVEIS DE FIDELIDADE ─────── */
+      .niveis {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin: 20px 0;
+      }
+
+      .nivel {
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid var(--line-soft);
+        background: var(--surface);
+      }
+
+      .nivel-preview {
+        height: 200px;
+        position: relative;
+      }
+
+      .nivel-1 .nivel-preview {
+        background:
+          radial-gradient(
+            140% 85% at 50% -25%,
+            var(--campo-haze) 0%,
+            rgba(228, 210, 168, 0) 62%
+          ),
+          var(--campo-bone);
+      }
+
+      .nivel-2 .nivel-preview {
+        background:
+          radial-gradient(
+            120% 60% at 50% -10%,
+            rgba(228, 210, 168, 0.9) 0%,
+            rgba(228, 210, 168, 0) 55%
+          ),
+          linear-gradient(
+            180deg,
+            var(--campo-bone) 0%,
+            var(--campo-haze) 46%,
+            var(--campo-verde) 72%,
+            var(--campo-verde-deep) 100%
+          );
+      }
+
+      .nivel-info {
+        padding: 18px 22px;
+      }
+
+      .nivel-info h4 {
+        font-size: 13px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+
+      .nivel-info p {
+        font-size: 12.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+
+      .nivel-badge {
+        position: absolute;
+        top: 14px;
+        left: 16px;
+        font-size: 9px;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        background: rgba(241, 232, 212, 0.75);
+        padding: 3px 8px;
+        border-radius: 2px;
+        z-index: 4;
+      }
+
+      /* ─────── EXEMPLOS AO VIVO (peças 4:5) ─────── */
+      .pieces {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+      }
+
+      .piece-wrap .piece-label {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-muted);
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .piece-wrap .piece-label code {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        text-transform: none;
+        letter-spacing: 0;
+        color: var(--ink-faint);
+      }
+
+      .piece {
+        aspect-ratio: 4 / 5; /* 1080 × 1350 */
+        border-radius: 4px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 7.5% 8%;
+        container-type: inline-size;
+      }
+
+      .piece-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+
+      .piece-foot {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+        margin-top: auto;
+      }
+
+      .piece .p-eyebrow {
+        font-size: clamp(9px, 2.6cqw, 12px);
+        font-weight: 600;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+      }
+
+      .piece .p-selo {
+        font-size: clamp(8px, 2.2cqw, 10px);
+        font-weight: 500;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .piece .p-assinatura {
+        font-size: clamp(8px, 2.3cqw, 11px);
+        font-weight: 600;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      /* Campo — capa (pôster) */
+      .piece--campo-capa {
+        background:
+          radial-gradient(
+            135% 70% at 50% -18%,
+            var(--campo-haze) 0%,
+            rgba(228, 210, 168, 0) 58%
+          ),
+          radial-gradient(
+            180% 42% at 50% 118%,
+            rgba(120, 140, 86, 0.5) 0%,
+            rgba(120, 140, 86, 0) 60%
+          ),
+          var(--campo-base);
+        color: var(--campo-ink);
+      }
+
+      .piece--campo-capa .p-eyebrow,
+      .piece--campo-capa .p-assinatura {
+        color: var(--mostarda-queimado);
+      }
+
+      .piece--campo-capa .p-selo {
+        color: rgba(30, 43, 34, 0.5);
+      }
+
+      .piece--campo-capa .p-title {
+        font-family: var(--font-display);
+        font-size: clamp(26px, 11cqw, 52px);
+        font-weight: 400;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+        font-variation-settings: "opsz" 144;
+        margin-top: auto;
+        margin-bottom: 7%;
+      }
+
+      .piece--campo-capa .p-title em {
+        font-style: italic;
+        font-weight: 480;
+        color: var(--mostarda-queimado);
+      }
+
+      /* Campo — slide (ensino) */
+      .piece--campo-slide {
+        background: var(--campo-bone);
+        color: var(--campo-ink);
+      }
+
+      .piece--campo-slide::after {
+        opacity: 0.35; /* slide de ensino: grão mais leve, legibilidade manda */
+      }
+
+      .piece--campo-slide .p-eyebrow {
+        color: var(--mostarda-queimado);
+      }
+
+      .piece--campo-slide .p-indice {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(11px, 3.4cqw, 16px);
+        color: rgba(30, 43, 34, 0.5);
+      }
+
+      .piece--campo-slide .p-title {
+        font-family: var(--font-display);
+        font-size: clamp(19px, 7.4cqw, 36px);
+        font-weight: 500;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        font-variation-settings: "opsz" 80;
+        margin: 6% 0 7%;
+      }
+
+      .p-steps {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .p-step {
+        display: grid;
+        grid-template-columns: 2.4em 1fr; /* coluna fixa alinha os numerais */
+        gap: 2.5cqw;
+        padding: 4.2% 0;
+        border-top: 1px solid rgba(30, 43, 34, 0.16);
+        align-items: baseline;
+      }
+
+      .p-step .n {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(12px, 4cqw, 19px);
+        color: var(--mostarda-queimado);
+      }
+
+      .p-step .n--bosque {
+        color: var(--mostarda);
+      }
+
+      .p-step .s-title {
+        font-weight: 600;
+        font-size: clamp(11px, 3.5cqw, 16px);
+        line-height: 1.35;
+        margin-bottom: 2px;
+      }
+
+      .p-step .s-body {
+        font-size: clamp(10px, 3cqw, 13.5px);
+        line-height: 1.5;
+        color: rgba(30, 43, 34, 0.72);
+      }
+
+      .piece--campo-slide .p-save {
+        font-size: clamp(9px, 2.8cqw, 12px);
+        font-weight: 500;
+        color: rgba(30, 43, 34, 0.62);
+      }
+
+      .piece--campo-slide .p-assinatura {
+        color: var(--mostarda-queimado);
+      }
+
+      /* Bosque — capa (pôster) */
+      .piece--bosque-capa {
+        background:
+          radial-gradient(
+            95% 55% at 50% -12%,
+            rgba(228, 210, 168, 0.32) 0%,
+            rgba(228, 210, 168, 0) 58%
+          ),
+          linear-gradient(178deg, var(--bosque-mid) 0%, var(--bosque-deep) 66%);
+        color: var(--bosque-bone);
+      }
+
+      .piece--bosque-capa .p-eyebrow,
+      .piece--bosque-capa .p-assinatura {
+        color: var(--mostarda);
+      }
+
+      .piece--bosque-capa .p-selo {
+        color: rgba(239, 231, 214, 0.5);
+      }
+
+      .piece--bosque-capa .p-title {
+        font-family: var(--font-display);
+        font-size: clamp(24px, 10cqw, 47px);
+        font-weight: 350;
+        line-height: 1.06;
+        letter-spacing: -0.015em;
+        font-variation-settings: "opsz" 144;
+        margin-top: auto;
+        margin-bottom: 7%;
+      }
+
+      .piece--bosque-capa .p-title em {
+        font-style: italic;
+        font-weight: 420;
+        color: var(--bosque-haze);
+      }
+
+      /* Bosque — slide (ensino) */
+      .piece--bosque-slide {
+        background: linear-gradient(
+          178deg,
+          #1a2a20 0%,
+          var(--bosque-deep) 55%
+        );
+        color: var(--bosque-bone);
+      }
+
+      .piece--bosque-slide::after {
+        opacity: 0.45;
+      }
+
+      .piece--bosque-slide .p-eyebrow {
+        color: var(--mostarda);
+      }
+
+      .piece--bosque-slide .p-indice {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: clamp(11px, 3.4cqw, 16px);
+        color: rgba(239, 231, 214, 0.5);
+      }
+
+      .piece--bosque-slide .p-title {
+        font-family: var(--font-display);
+        font-size: clamp(19px, 7.4cqw, 36px);
+        font-weight: 450;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+        font-variation-settings: "opsz" 80;
+        margin: 6% 0 7%;
+      }
+
+      .piece--bosque-slide .p-step {
+        border-top-color: rgba(239, 231, 214, 0.18);
+      }
+
+      .piece--bosque-slide .s-title {
+        color: var(--bosque-bone);
+      }
+
+      .piece--bosque-slide .s-body {
+        color: rgba(239, 231, 214, 0.7);
+      }
+
+      .piece--bosque-slide .p-save {
+        font-size: clamp(9px, 2.8cqw, 12px);
+        font-weight: 500;
+        color: rgba(239, 231, 214, 0.6);
+      }
+
+      .piece--bosque-slide .p-assinatura {
+        color: var(--mostarda);
+      }
+
+      /* ─────── DO / DON'T ─────── */
+      .compare {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .compare-col {
+        background: var(--surface);
+        border: 1px solid var(--line-soft);
+        border-radius: 4px;
+        padding: 24px 26px;
+      }
+
+      .compare-col h4 {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--line-soft);
+      }
+
+      .compare-col.do h4 {
+        color: var(--campo-verde-deep);
+      }
+
+      .compare-col.dont h4 {
+        color: #8a4a26;
+      }
+
+      .compare-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
       .compare-col li {
         font-size: 13px;
-        color: var(--text-secondary);
-        line-height: 1.55;
+        color: var(--ink-soft);
+        line-height: 1.6;
         padding-left: 18px;
         position: relative;
+      }
+
+      .compare-col li strong {
+        color: var(--ink);
+        font-weight: 600;
       }
 
       .compare-col li::before {
         content: "";
         position: absolute;
-        left: 4px;
-        top: 7px;
+        left: 3px;
+        top: 8px;
         width: 5px;
         height: 5px;
         border-radius: 50%;
       }
 
-      .compare-col.before li::before {
-        background: var(--danger-text);
-        opacity: 0.5;
+      .compare-col.do li::before {
+        background: var(--campo-verde);
       }
-      .compare-col.after li::before {
-        background: var(--success-text);
+
+      .compare-col.dont li::before {
+        background: #8a4a26;
+      }
+
+      /* ─────── FOOTER ─────── */
+      .footer {
+        border-top: 1px solid var(--line);
+        padding-top: 24px;
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        flex-wrap: wrap;
+        font-size: 12px;
+        color: var(--ink-muted);
       }
 
       /* ─────── TOC FLUTUANTE ─────── */
       .toc {
         position: fixed;
-        top: 48px;
+        top: 56px;
         right: 24px;
-        background: var(--bg-surface);
-        border: 1px solid var(--border-base);
-        border-radius: var(--radius-lg);
-        padding: 14px 18px;
-        box-shadow: var(--shadow-md);
-        width: 200px;
+        background: var(--campo-bone);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 16px 18px;
+        width: 210px;
         font-size: 12px;
+        z-index: 5;
       }
 
       .toc-title {
-        font-size: 10px;
+        font-size: 9px;
         font-weight: 600;
         text-transform: uppercase;
-        letter-spacing: 0.5px;
-        color: var(--text-muted);
+        letter-spacing: 0.22em;
+        color: var(--ink-muted);
         margin-bottom: 10px;
       }
 
       .toc a {
         display: block;
-        color: var(--text-secondary);
+        color: var(--ink-soft);
         text-decoration: none;
-        padding: 4px 0;
+        padding: 3px 0;
         transition: color 0.15s;
       }
 
       .toc a:hover {
-        color: var(--accent);
+        color: var(--mostarda-queimado);
       }
 
-      @media (max-width: 1280px) {
+      .toc a .n {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-size: 11px;
+        color: var(--mostarda-queimado);
+        display: inline-block;
+        width: 22px;
+      }
+
+      /* abaixo disso a TOC invadiria a coluna de conteúdo */
+      @media (max-width: 1580px) {
         .toc {
           display: none;
         }
       }
 
+      @media (max-width: 860px) {
+        .climas,
+        .modos,
+        .niveis,
+        .grain-demo,
+        .compare,
+        .pieces {
+          grid-template-columns: 1fr;
+        }
+      }
+
       @media (max-width: 720px) {
         .container {
-          padding: 32px 20px 64px;
+          padding: 28px 18px 64px;
         }
-        .header h1 {
-          font-size: 36px;
+        .header {
+          padding: 32px 24px 28px;
         }
-        .type-display-1 {
-          font-size: 38px;
+        .header-top,
+        .header-foot {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
         }
-        .type-display-2 {
-          font-size: 30px;
+        .section-header {
+          flex-wrap: wrap;
+        }
+        .section-header .meta {
+          width: 100%;
+          margin-left: 0;
+          text-align: left;
         }
         .type-row {
           grid-template-columns: 1fr;
-          gap: 12px;
+          gap: 14px;
+          padding: 20px;
         }
-        .compare {
-          grid-template-columns: 1fr;
+        .spec-table {
+          font-size: 12px;
         }
-      }
-
-      /* ─────── DOWNLOAD BLOCK ─────── */
-      .download-block {
-        background: linear-gradient(
-          180deg,
-          var(--accent-soft) 0%,
-          var(--bg-base) 100%
-        );
-        border: 1px solid var(--accent-border);
-        border-radius: var(--radius-xl);
-        padding: 32px 36px;
-        margin-top: 24px;
-      }
-
-      .code-block {
-        background: #2c2820;
-        color: #f5f1e8;
-        border-radius: var(--radius-lg);
-        padding: 20px 24px;
-        font-family: var(--font-mono);
-        font-size: 12px;
-        line-height: 1.7;
-        overflow-x: auto;
-        margin-top: 16px;
-      }
-
-      .code-block .comment {
-        color: #a89a7e;
-      }
-      .code-block .key {
-        color: #e5c99d;
-      }
-      .code-block .val {
-        color: #c9d6a8;
-      }
-      .code-block .punct {
-        color: #8b7e68;
+        .spec-table th,
+        .spec-table td {
+          padding: 8px 8px;
+        }
       }
     </style>
   </head>
   <body>
     <aside class="toc" aria-label="Índice">
       <div class="toc-title">Navegação</div>
-      <a href="#filosofia">Filosofia</a>
-      <a href="#cores">Cores</a>
-      <a href="#tipografia">Tipografia</a>
-      <a href="#radius">Radius e sombras</a>
-      <a href="#botoes">Botões</a>
-      <a href="#badges">Badges</a>
-      <a href="#inputs">Inputs</a>
-      <a href="#stats">Stats</a>
-      <a href="#tabela">Tabela</a>
-      <a href="#dashboard">Dashboard</a>
-      <a href="#contraste">Antes e depois</a>
-      <a href="#tokens">Tokens</a>
+      <a href="#statement"><span class="n">01</span>Statement</a>
+      <a href="#principios"><span class="n">02</span>Princípios</a>
+      <a href="#climas"><span class="n">03</span>Os dois climas</a>
+      <a href="#paleta"><span class="n">04</span>Paleta</a>
+      <a href="#tipografia"><span class="n">05</span>Tipografia</a>
+      <a href="#textura"><span class="n">06</span>Textura &amp; furniture</a>
+      <a href="#capa-slide"><span class="n">07</span>Capa vs. slide</a>
+      <a href="#natureza"><span class="n">08</span>Imagem de natureza</a>
+      <a href="#exemplos"><span class="n">09</span>Exemplos ao vivo</a>
+      <a href="#do-dont"><span class="n">10</span>Do / Don't</a>
     </aside>
 
     <div class="container">
-      <!-- ─────── HEADER ─────── -->
-      <header class="header">
-        <div class="header-tag">
-          <span
-            style="
-              width: 6px;
-              height: 6px;
-              background: var(--accent);
-              border-radius: 50%;
-            "
-          ></span>
-          Strutura · Design System v2
+      <!-- ─────── HEADER / STATEMENT EM MODO PÔSTER ─────── -->
+      <header class="header grain">
+        <div class="header-top">
+          <span class="eyebrow">Strutura · Design System v3 · Fonte de verdade</span>
+          <span class="selo">Julho 2026</span>
         </div>
-        <h1>Warm <em>Minimal</em></h1>
-        <p>
-          O sistema de design completo do novo Strutura Pharos. Light-first,
-          tipografia humana com Fraunces nos momentos de destaque, paleta
-          off-white quente, e linguagem que conversa em vez de relatar.
+        <h1>Nature <em>Warm</em></h1>
+        <p class="lede">
+          O sistema visual da Strutura para posts, templates do Studio, site e
+          materiais. Dois climas — <strong>Campo</strong> (a casa) e
+          <strong>Bosque</strong> (o acento raro) — amarrados por grão, serifa
+          e mostarda envelhecido. Esta página é a referência de trabalho:
+          quem abre aqui reproduz qualquer peça sem adivinhar nada.
         </p>
+        <div class="header-foot">
+          <span class="assinatura">Leo Abreu · Strutura</span>
+          <span class="selo">Substitui o Warm Minimal (v2)</span>
+        </div>
       </header>
 
-      <!-- ─────── FILOSOFIA ─────── -->
-      <section class="section" id="filosofia">
+      <!-- ─────── 01 · STATEMENT ─────── -->
+      <section class="section" id="statement">
         <div class="section-header">
           <span class="section-num">01.</span>
-          <h2>Filosofia</h2>
-          <span class="meta">Princípios que guiam toda decisão</span>
+          <h2>Statement</h2>
+          <span class="meta">A frase-núcleo e o porquê do sistema</span>
         </div>
-        <div class="section-intro">
-          Antes da paleta, antes dos componentes, vêm os princípios. Toda
-          decisão visual e de microcópia no Strutura segue estas regras.
-        </div>
-        <div class="component-grid">
-          <div class="demo-card">
-            <div class="demo-card-label">01. Calmo, não vazio</div>
-            <p class="type-body">
-              Respiração não é desperdício de espaço. Padding generoso,
-              hierarquia clara com tamanho real (não só com cor), e nunca mais
-              de 3 níveis de informação na mesma vista.
-            </p>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">02. Humano, não corporativo</div>
-            <p class="type-body">
-              "Pessoas no radar" em vez de "Total de Contatos". "Precisam de
-              você hoje" em vez de "Follow-ups pendentes". A UI fala como um
-              assistente atento, não como um relatório.
-            </p>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">03. Quente, não frio</div>
-            <p class="type-body">
-              Off-white em vez de branco puro. Tons de marrom e mostarda em vez
-              de cinza neutro. Nunca pretos absolutos em fundos ou textos
-              primários — sempre uma camada de calor.
-            </p>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">04. Acentos com propósito</div>
-            <p class="type-body">
-              A cor mostarda só aparece para destacar o que importa: ações
-              primárias, métricas críticas, estados positivos. Se tudo é
-              destacado, nada é destacado.
-            </p>
-          </div>
+
+        <p class="statement-quote">
+          Claro, mas <em>não limpo.</em><br />
+          Calmo, mas <em>não vazio.</em>
+        </p>
+
+        <p class="prose">
+          O Warm Minimal (off-white + mostarda <code>#C99A2E</code> +
+          Fraunces/Inter) foi aposentado por um motivo:
+          <strong>ficou "morto" — calmo virou vazio.</strong> O diagnóstico não
+          é a cor, é a falta de tensão: espaçamento uniforme, acento tímido,
+          zero textura, zero personalidade. O Nature Warm corrige isso sem
+          trocar de alma — a base continua quente e clara, mas ganha grão,
+          furniture editorial, natureza como device e um segundo clima escuro
+          usado como pontuação.
+        </p>
+        <p class="prose">
+          O sistema cai direto da marca, não é "aesthetic por fora". Cada
+          decisão visual abaixo tem um dogma por trás — e quando a estética e a
+          informação disputam espaço num slide, <strong>a informação
+          ganha.</strong>
+        </p>
+
+        <div class="callout">
+          <span class="callout-title">A regra anti-genérico (a mais importante)</span>
+          Creme quente calmo é o visual mais copiado da internet. O que nos
+          separa da multidão é ser <strong>claro mas NÃO limpo</strong> —
+          texturizado e editorial. Se cair no minimalista liso, some no meio de
+          mil. <strong>Grão, furniture de revista e mostarda queimado</strong>
+          são o que impedem isso.
         </div>
       </section>
 
-      <!-- ─────── CORES ─────── -->
-      <section class="section" id="cores">
+      <!-- ─────── 02 · PRINCÍPIOS ─────── -->
+      <section class="section" id="principios">
         <div class="section-header">
           <span class="section-num">02.</span>
-          <h2>Paleta de cores</h2>
-          <span class="meta">Light mode only</span>
+          <h2>Princípios</h2>
+          <span class="meta">Dogma → forma. O design obedece a estes cinco.</span>
         </div>
 
-        <div class="section-intro">
-          Toda a paleta é construída sobre uma base off-white quente (#FAF7F2)
-          em vez de branco puro. Isso já distancia o produto de SaaS genéricos.
-          O acento mostarda (#C99A2E) substitui o amarelo neon — mais
-          sofisticado, mais brasileiro, envelhece melhor.
-        </div>
-
-        <h3 class="type-h3" style="margin-bottom: 14px">
-          Neutros (warm grays)
-        </h3>
-        <div class="swatch-grid" style="margin-bottom: 32px">
-          <div class="swatch">
-            <div class="swatch-color" style="background: #faf7f2"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Base</div>
-              <div class="swatch-token">--bg-base</div>
-              <div class="swatch-hex">#FAF7F2</div>
-            </div>
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-label">Princípio 01</div>
+            <h3>"A IA é o braço, <em>não a cabeça</em>"</h3>
+            <p>
+              Cada elemento tem função. Nada decora à toa. Se um número, uma
+              linha ou um selo não carrega informação ou estrutura, ele sai.
+              Seco.
+            </p>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #fffefb"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Surface</div>
-              <div class="swatch-token">--bg-surface</div>
-              <div class="swatch-hex">#FFFEFB</div>
-            </div>
+          <div class="card">
+            <div class="card-label">Princípio 02</div>
+            <h3>"Calma é <em>método</em>"</h3>
+            <p>
+              Respiro e ritmo — mas calma ≠ vazio (esse foi o erro do sistema
+              antigo). O alvo é <strong>densidade com fôlego</strong>: conteúdo
+              denso, hierarquia clara, espaço que trabalha.
+            </p>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #f5f1e8"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Muted</div>
-              <div class="swatch-token">--bg-muted</div>
-              <div class="swatch-hex">#F5F1E8</div>
-            </div>
+          <div class="card">
+            <div class="card-label">Princípio 03</div>
+            <h3>"Construtor, <em>não guru</em>"</h3>
+            <p>
+              Textura, grão, imperfeição honesta. O oposto do gradiente-startup
+              limpo. A peça pode parecer papel, filme, oficina — nunca pitch
+              deck.
+            </p>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #f0ebdf"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Subtle</div>
-              <div class="swatch-token">--bg-subtle</div>
-              <div class="swatch-hex">#F0EBDF</div>
-            </div>
+          <div class="card">
+            <div class="card-label">Princípio 04</div>
+            <h3>"Aesthetic na forma, <em>seco na palavra</em>"</h3>
+            <p>
+              A estética pode ser cinematográfica; a palavra é sempre teto de
+              informação, nunca motivacional vazio. Se a frase serve pra
+              qualquer marca, ela não serve pra nenhuma peça nossa.
+            </p>
           </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #e8e0d0"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Border</div>
-              <div class="swatch-token">--border-base</div>
-              <div class="swatch-hex">#E8E0D0</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #d8cdb5"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Border strong</div>
-              <div class="swatch-token">--border-strong</div>
-              <div class="swatch-hex">#D8CDB5</div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="type-h3" style="margin-bottom: 14px">Texto</h3>
-        <div class="swatch-grid" style="margin-bottom: 32px">
-          <div class="swatch">
-            <div class="swatch-color" style="background: #2c2820"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Primary</div>
-              <div class="swatch-token">--text-primary</div>
-              <div class="swatch-hex">#2C2820</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #5c5448"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Secondary</div>
-              <div class="swatch-token">--text-secondary</div>
-              <div class="swatch-hex">#5C5448</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #8b7e68"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Muted</div>
-              <div class="swatch-token">--text-muted</div>
-              <div class="swatch-hex">#8B7E68</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #a89a7e"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Faint</div>
-              <div class="swatch-token">--text-faint</div>
-              <div class="swatch-hex">#A89A7E</div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="type-h3" style="margin-bottom: 14px">Acento mostarda</h3>
-        <div class="swatch-grid" style="margin-bottom: 32px">
-          <div class="swatch">
-            <div class="swatch-color" style="background: #c99a2e"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Accent</div>
-              <div class="swatch-token">--accent</div>
-              <div class="swatch-hex">#C99A2E</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #b58825"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Accent hover</div>
-              <div class="swatch-token">--accent-hover</div>
-              <div class="swatch-hex">#B58825</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #f5efe0"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Accent soft</div>
-              <div class="swatch-token">--accent-soft</div>
-              <div class="swatch-hex">#F5EFE0</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #8b6f2c"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Accent text</div>
-              <div class="swatch-token">--accent-text</div>
-              <div class="swatch-hex">#8B6F2C</div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="type-h3" style="margin-bottom: 14px">Semânticos</h3>
-        <div class="swatch-grid" style="margin-bottom: 32px">
-          <div class="swatch">
-            <div class="swatch-color" style="background: #5c7a3a"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Success</div>
-              <div class="swatch-token">--success</div>
-              <div class="swatch-hex">#5C7A3A</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #b5462e"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Danger</div>
-              <div class="swatch-token">--danger</div>
-              <div class="swatch-hex">#B5462E</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #4a6b8b"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Info</div>
-              <div class="swatch-token">--info</div>
-              <div class="swatch-hex">#4A6B8B</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #c99a2e"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Warning</div>
-              <div class="swatch-token">--warning</div>
-              <div class="swatch-hex">#C99A2E</div>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="type-h3" style="margin-bottom: 14px">
-          Canais e temperatura
-        </h3>
-        <div class="swatch-grid">
-          <div class="swatch">
-            <div class="swatch-color" style="background: #e8f0e0"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">WhatsApp soft</div>
-              <div class="swatch-token">--whatsapp-soft</div>
-              <div class="swatch-hex">#E8F0E0</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #f5e8ee"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Instagram soft</div>
-              <div class="swatch-token">--instagram-soft</div>
-              <div class="swatch-hex">#F5E8EE</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #f5e0dc"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Hot</div>
-              <div class="swatch-token">--hot-soft</div>
-              <div class="swatch-hex">#F5E0DC</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #f5ebda"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Warm</div>
-              <div class="swatch-token">--warm-soft</div>
-              <div class="swatch-hex">#F5EBDA</div>
-            </div>
-          </div>
-          <div class="swatch">
-            <div class="swatch-color" style="background: #e0e8f0"></div>
-            <div class="swatch-info">
-              <div class="swatch-name">Cold</div>
-              <div class="swatch-token">--cold-soft</div>
-              <div class="swatch-hex">#E0E8F0</div>
-            </div>
+          <div class="card">
+            <div class="card-label">Princípio 05</div>
+            <h3>"Natureza como <em>device</em>"</h3>
+            <p>
+              Paisagem entra como prova do ambiente calmo — o oposto do
+              escritório caótico que o Diego vive. Nunca como wallpaper
+              motivacional.
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- ─────── TIPOGRAFIA ─────── -->
-      <section class="section" id="tipografia">
+      <!-- ─────── 03 · OS DOIS CLIMAS ─────── -->
+      <section class="section" id="climas">
         <div class="section-header">
           <span class="section-num">03.</span>
-          <h2>Tipografia</h2>
-          <span class="meta">Fraunces · Inter · JetBrains Mono</span>
+          <h2>Os dois climas</h2>
+          <span class="meta">Não são intercambiáveis — cada um tem função</span>
         </div>
 
-        <div class="section-intro">
-          Três famílias com papéis bem definidos. <strong>Fraunces</strong> nos
-          momentos de destaque e respiro (dashboards, hero, números
-          importantes). <strong>Inter</strong> para todo o resto da UI — botões,
-          inputs, corpo. <strong>JetBrains Mono</strong> apenas em IDs, números
-          técnicos, e campos onde monoespaço importa funcionalmente.
+        <p class="section-intro">
+          O sistema tem dois climas. É isso que transforma a dualidade em
+          <strong>sinal, não ruído</strong>: o Campo carrega o conteúdo e
+          acolhe; o Bosque quebra o ritmo e acorda o olho. Cada card abaixo
+          está renderizado no próprio clima — com grão, gradiente e acento
+          reais.
+        </p>
+
+        <div class="climas">
+          <div class="clima clima-campo grain">
+            <div class="clima-role">A casa · default</div>
+            <h3>Campo</h3>
+            <p>
+              Claro, quente, texturizado, editorial.
+              <strong>Carrega o grosso do conteúdo, inclusive o denso.</strong>
+            </p>
+            <p>
+              Por que é a casa: o público é o Diego — empreendedor que
+              <strong>não</strong> quer virar técnico e já se sente por fora. O
+              claro desarma o medo, acolhe, reduz a barreira de entrada. Casa
+              com o core statement (tirar o medo da IA). Escuro como default
+              sussurraria "isso é pra quem manja" na cara de quem a gente quer
+              desintimidar.
+            </p>
+            <div class="clima-chips">
+              <span>claro</span><span>quente</span><span>texturizado</span
+              ><span>editorial</span>
+            </div>
+          </div>
+
+          <div class="clima clima-bosque grain grain--bosque">
+            <div class="clima-role">O acento raro · ~1 a cada 5–6 posts</div>
+            <h3>Bosque</h3>
+            <p>
+              Escuro, verde-floresta, grão pesado, luz de dossel.
+              <strong>Aparece pontualmente — nunca vira default.</strong>
+            </p>
+            <p>
+              Por que existe (e por que raro): o Bosque cria contraste e quebra
+              de ritmo — a pessoa rola o feed, bate no escuro, o olho acorda.
+              Isso é <strong>retenção de perfil, não decoração.</strong> Como é
+              raro, carrega peso por contraste (um marco, uma opinião mais
+              firme, um respiro de curiosidade) sem intimidar. Um feed de uma
+              cor só achata; o Bosque pontual mantém o feed vivo.
+            </p>
+            <div class="clima-chips">
+              <span>escuro</span><span>verde-floresta</span
+              ><span>grão pesado</span><span>luz de dossel</span>
+            </div>
+          </div>
         </div>
+
+        <div class="callout">
+          <span class="callout-title">A regra que amarra os dois</span>
+          <strong>Peso normal mora no Campo</strong> — resolvido com tipografia
+          + mostarda queimado (título maior, mais contraste, menos respiro).
+          Não precisa apagar a luz pra falar firme.
+          <strong>Bosque só entra quando se quer o "susto visual"</strong> —
+          por sensação, não por cota. Se aparecer demais, vira barulho e perde
+          a graça.
+        </div>
+
+        <div class="subhead">Cadência de referência no feed</div>
+        <div class="cadencia" role="img" aria-label="Seis miniaturas de posts: cinco claras (Campo) e uma escura (Bosque)">
+          <div class="tile"></div>
+          <div class="tile"></div>
+          <div class="tile tile--bosque"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+          <div class="tile"></div>
+        </div>
+        <p class="cadencia-legenda">
+          ~1 Bosque a cada 5–6 posts. A posição não é fixa — a decisão é por
+          sensação (o post pede o susto?), a cadência é só o teto de
+          frequência.
+        </p>
+      </section>
+
+      <!-- ─────── 04 · PALETA ─────── -->
+      <section class="section" id="paleta">
+        <div class="section-header">
+          <span class="section-num">04.</span>
+          <h2>Paleta</h2>
+          <span class="meta">Tokens como CSS custom properties em <code style="font-size: 11px">:root</code></span>
+        </div>
+
+        <p class="section-intro">
+          Três grupos: os dois climas e o acento compartilhado. Os swatches
+          abaixo são renderizados sem grão de propósito — aqui vale a
+          fidelidade do hex; o grão entra na peça, não no token.
+        </p>
+
+        <div class="subhead">Campo (claro / casa)</div>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #f1e8d4"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Base</div>
+              <div class="swatch-token">--campo-base</div>
+              <div class="swatch-hex">#F1E8D4</div>
+              <div class="swatch-uso">fundo base (creme quente)</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #efe7d6"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Bone</div>
+              <div class="swatch-token">--campo-bone</div>
+              <div class="swatch-hex">#EFE7D6</div>
+              <div class="swatch-uso">superfície alternativa</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #e4d2a8"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Haze</div>
+              <div class="swatch-token">--campo-haze</div>
+              <div class="swatch-hex">#E4D2A8</div>
+              <div class="swatch-uso">brilho de alvorada / glow superior</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #1e2b22"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Ink</div>
+              <div class="swatch-token">--campo-ink</div>
+              <div class="swatch-hex">#1E2B22</div>
+              <div class="swatch-uso">tinta principal (verde-escuro, texto)</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #788c56"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Verde</div>
+              <div class="swatch-token">--campo-verde</div>
+              <div class="swatch-hex">#788C56</div>
+              <div class="swatch-uso">verde-campo (horizonte, acento natureza)</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #5e6b3e"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Verde deep</div>
+              <div class="swatch-token">--campo-verde-deep</div>
+              <div class="swatch-hex">#5E6B3E</div>
+              <div class="swatch-uso">verde mais fundo (sombra de natureza)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subhead">Bosque (escuro / acento)</div>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #14201a"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Deep</div>
+              <div class="swatch-token">--bosque-deep</div>
+              <div class="swatch-hex">#14201A</div>
+              <div class="swatch-uso">fundo base (floresta profunda)</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #26382b"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Mid</div>
+              <div class="swatch-token">--bosque-mid</div>
+              <div class="swatch-hex">#26382B</div>
+              <div class="swatch-uso">verde médio (gradiente, divisórias)</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #efe7d6"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Bone</div>
+              <div class="swatch-token">--bosque-bone</div>
+              <div class="swatch-hex">#EFE7D6</div>
+              <div class="swatch-uso">texto/tinta clara sobre escuro</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #e4d2a8"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Haze</div>
+              <div class="swatch-token">--bosque-haze</div>
+              <div class="swatch-hex">#E4D2A8</div>
+              <div class="swatch-uso">luz de dossel, itálico de ênfase</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subhead">Acento compartilhado — o mostarda envelhecido</div>
+        <p class="section-intro" style="margin-bottom: 16px">
+          O mostarda <strong>não sai</strong> — é o único sinal ownable de
+          hoje. Mas <strong>envelhece</strong>: sai do <code>#C99A2E</code>
+          puro (amarelo-startup) pra um queimado/terroso que corta sem gritar.
+        </p>
+        <div class="swatch-grid">
+          <div class="swatch">
+            <div class="swatch-color" style="background: #c98a2b"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Mostarda</div>
+              <div class="swatch-token">--mostarda</div>
+              <div class="swatch-hex">#C98A2B</div>
+              <div class="swatch-uso">acento sobre escuro (Bosque)</div>
+            </div>
+          </div>
+          <div class="swatch">
+            <div class="swatch-color" style="background: #a9741f"></div>
+            <div class="swatch-info">
+              <div class="swatch-name">Mostarda queimado</div>
+              <div class="swatch-token">--mostarda-queimado</div>
+              <div class="swatch-hex">#A9741F</div>
+              <div class="swatch-uso">acento sobre claro (Campo), o "corte" seco</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <span class="callout-title">Nota de transição</span>
+          Onde o sistema antigo usava <code>#C99A2E</code>, o novo usa
+          <code>#C98A2B</code> (sobre escuro) ou <code>#A9741F</code> (sobre
+          claro), conforme o clima. É <strong>evolução, não ruptura</strong> —
+          o sinal continua sendo mostarda; só perdeu o brilho de startup.
+        </div>
+      </section>
+
+      <!-- ─────── 05 · TIPOGRAFIA ─────── -->
+      <section class="section" id="tipografia">
+        <div class="section-header">
+          <span class="section-num">05.</span>
+          <h2>Tipografia</h2>
+          <span class="meta">Fraunces (display) · Inter (utilitária) · Google Fonts</span>
+        </div>
+
+        <p class="section-intro">
+          <strong>Fraunces</strong> é onde mora a personalidade — alta
+          personalidade, usada com <strong>restrição e em corpo grande</strong>
+          (pesos 300–600, eixo <code>opsz</code> alto no display).
+          <strong>Inter</strong> faz todo o resto: corpo, legendas, meta,
+          eyebrow (400–600). O <strong>itálico</strong> da Fraunces marca a
+          ênfase de uma palavra — o "não a cabeça", o "genérica" — sempre na
+          cor de acento do clima.
+        </p>
 
         <div class="type-stack">
           <div class="type-row">
             <div class="type-meta">
-              <strong>Display 1</strong>
-              <code>Fraunces 56/500</code><br />
-              opsz: 144, soft: 50<br />
-              letter-spacing: -1.5px
+              <strong>Display (capa)</strong>
+              <code>Fraunces 300–500 it.</code><br />
+              opsz 144 · tracking −0.02em<br />
+              leading 1.02–1.06 · corpo grande
             </div>
-            <div class="type-display-1">
-              Bom dia,
-              <em style="font-style: italic; color: var(--accent)">Leonardo</em>
+            <div class="t-display">O braço, <em>não a cabeça.</em></div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Título de slide</strong>
+              <code>Fraunces 500</code><br />
+              opsz 80 · tracking −0.01em<br />
+              leading 1.1
+            </div>
+            <div class="t-slide">Onde a IA para</div>
+          </div>
+
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Corpo</strong>
+              <code>Inter 400</code><br />
+              leading 1.5–1.65<br />
+              máx. ~46ch por linha
+            </div>
+            <div class="t-body">
+              A IA lê, organiza e aponta. Decidir prioridade, preço e promessa
+              continua sendo trabalho seu.
             </div>
           </div>
 
           <div class="type-row">
             <div class="type-meta">
-              <strong>Display 2</strong>
-              <code>Fraunces 40/500</code><br />
-              Hero secundário
+              <strong>Meta / legenda</strong>
+              <code>Inter 400</code><br />
+              cor rebaixada (ink ~55%)
             </div>
-            <div class="type-display-2">36 pessoas no radar</div>
+            <div class="t-meta">Método completo no post fixado do perfil.</div>
           </div>
 
           <div class="type-row">
             <div class="type-meta">
-              <strong>H1</strong>
-              <code>Fraunces 28/500</code><br />
-              Títulos de seção
+              <strong>Eyebrow</strong>
+              <code>Inter 600 · UPPERCASE</code><br />
+              letter-spacing 0.2–0.28em<br />
+              corpo pequeno · rótulo do pilar/seção
             </div>
-            <div class="type-h1">Precisam de você hoje</div>
+            <div><span class="eyebrow">Método · Automação</span></div>
           </div>
 
           <div class="type-row">
             <div class="type-meta">
-              <strong>H2</strong>
-              <code>Fraunces 22/500</code><br />
-              Subtítulos
+              <strong>Assinatura</strong>
+              <code>Inter 600 · UPPERCASE</code><br />
+              small caps / uppercase pequeno,<br />
+              cor de acento do clima
             </div>
-            <div class="type-h2">Pipeline de vendas</div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <strong>H3</strong>
-              <code>Inter 17/600</code><br />
-              Títulos de cards
-            </div>
-            <div class="type-h3">Conexões ativas</div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <strong>Body lg</strong>
-              <code>Inter 16/400</code><br />
-              Texto introdutório
-            </div>
-            <div class="type-body-lg">
-              Você tem 2 leads quentes esperando contato hoje.
-            </div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <strong>Body</strong>
-              <code>Inter 14/400</code><br />
-              Texto padrão de UI
-            </div>
-            <div class="type-body">
-              A IA do Strutura analisou suas conversas durante a noite e
-              identificou três oportunidades.
-            </div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <strong>Small</strong>
-              <code>Inter 13/400</code><br />
-              Texto auxiliar
-            </div>
-            <div class="type-small">
-              Última análise às 03:00 UTC · próxima em 15h 43min
-            </div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <strong>Label</strong>
-              <code>Inter 11/600</code><br />
-              uppercase + letter-spacing
-            </div>
-            <div class="type-label">Pessoas no radar</div>
-          </div>
-
-          <div class="type-row">
-            <div class="type-meta">
-              <strong>Mono</strong>
-              <code>JetBrains 13/400</code><br />
-              IDs, números técnicos
-            </div>
-            <div class="type-mono">+55 11 98765-4321 · prod_U5WRaYYxUxu2Py</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─────── RADIUS E SOMBRAS ─────── -->
-      <section class="section" id="radius">
-        <div class="section-header">
-          <span class="section-num">04.</span>
-          <h2>Radius e sombras</h2>
-          <span class="meta">Curvas generosas, sombras quase invisíveis</span>
-        </div>
-
-        <div class="section-intro">
-          Cantos arredondados em todos os elementos. A escala vai de 6px
-          (badges) a 20px (modais). Sombras são ferramenta de elevação sutil —
-          nunca dramáticas, nunca pesadas, sempre quentes (RGB com tom marrom).
-        </div>
-
-        <div class="component-grid" style="margin-bottom: 24px">
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 6px;
-              padding: 20px;
-              text-align: center;
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">SM</div>
-            <div class="type-mono">6px · badges, pills</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 10px;
-              padding: 20px;
-              text-align: center;
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">MD</div>
-            <div class="type-mono">10px · botões, inputs</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 14px;
-              padding: 20px;
-              text-align: center;
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">LG</div>
-            <div class="type-mono">14px · cards internos</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 16px;
-              padding: 20px;
-              text-align: center;
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">XL</div>
-            <div class="type-mono">16px · cards principais</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 20px;
-              padding: 20px;
-              text-align: center;
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">2XL</div>
-            <div class="type-mono">20px · modais, hero</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 100px;
-              padding: 20px;
-              text-align: center;
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">PILL</div>
-            <div class="type-mono">100px · status, tags</div>
-          </div>
-        </div>
-
-        <h3 class="type-h3" style="margin-bottom: 14px">Sombras</h3>
-        <div class="component-grid">
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 14px;
-              padding: 24px;
-              box-shadow: var(--shadow-sm);
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">SM</div>
-            <div class="type-small">Cards em repouso</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 14px;
-              padding: 24px;
-              box-shadow: var(--shadow-md);
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">MD</div>
-            <div class="type-small">Hover, dropdowns</div>
-          </div>
-          <div
-            style="
-              background: var(--bg-surface);
-              border: 1px solid var(--border-base);
-              border-radius: 14px;
-              padding: 24px;
-              box-shadow: var(--shadow-lg);
-            "
-          >
-            <div class="type-label" style="margin-bottom: 8px">LG</div>
-            <div class="type-small">Modais, popovers</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─────── BOTÕES ─────── -->
-      <section class="section" id="botoes">
-        <div class="section-header">
-          <span class="section-num">05.</span>
-          <h2>Botões</h2>
-          <span class="meta">4 variantes · 3 tamanhos</span>
-        </div>
-
-        <div class="component-grid">
-          <div class="demo-card">
-            <div class="demo-card-label">Primary · ação principal</div>
-            <div class="btn-row">
-              <button class="btn btn-primary btn-sm">Salvar</button>
-              <button class="btn btn-primary">Salvar contato</button>
-              <button class="btn btn-primary btn-lg">Conectar WhatsApp</button>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Secondary · ação alternativa</div>
-            <div class="btn-row">
-              <button class="btn btn-secondary btn-sm">Cancelar</button>
-              <button class="btn btn-secondary">Ver detalhes</button>
-              <button class="btn btn-secondary btn-lg">
-                Importar contatos
-              </button>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Ghost · ação sutil</div>
-            <div class="btn-row">
-              <button class="btn btn-ghost btn-sm">Editar</button>
-              <button class="btn btn-ghost">Marcar como feito</button>
-              <button class="btn btn-ghost btn-lg">Ver tudo</button>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Danger · ação destrutiva</div>
-            <div class="btn-row">
-              <button class="btn btn-danger btn-sm">Apagar</button>
-              <button class="btn btn-danger">Desconectar conta</button>
-              <button class="btn btn-danger btn-lg">Excluir workspace</button>
+            <div>
+              <span class="assinatura">Leo Abreu · Strutura</span>
             </div>
           </div>
         </div>
-      </section>
 
-      <!-- ─────── BADGES ─────── -->
-      <section class="section" id="badges">
-        <div class="section-header">
-          <span class="section-num">06.</span>
-          <h2>Badges e tags</h2>
-          <span class="meta">Sempre com fundo soft, nunca saturado</span>
+        <div class="callout">
+          <span class="callout-title">Padrão de assinatura</span>
+          Toda peça assina <strong>"Leo Abreu · Strutura"</strong> — uppercase
+          pequeno, na cor de acento do clima (<code>--mostarda-queimado</code>
+          no Campo, <code>--mostarda</code> no Bosque).
+          <strong>Não usar mais "Leonardo Abreu".</strong>
         </div>
 
-        <div class="component-grid">
-          <div class="demo-card">
-            <div class="demo-card-label">Tipo de contato</div>
-            <div class="btn-row">
-              <span class="badge badge-lead">Lead</span>
-              <span class="badge badge-cliente">Cliente</span>
-              <span class="badge badge-equipe">Equipe</span>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Canal de origem</div>
-            <div class="btn-row">
-              <span class="badge badge-whatsapp">WhatsApp</span>
-              <span class="badge badge-instagram">Instagram</span>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Temperatura</div>
-            <div class="btn-row">
-              <span class="badge badge-hot">Quente</span>
-              <span class="badge badge-warm">Morno</span>
-              <span class="badge badge-cold">Frio</span>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Estados</div>
-            <div class="btn-row">
-              <span class="badge badge-cliente">Ativo</span>
-              <span class="badge badge-warm">Pendente</span>
-              <span class="badge badge-hot">Vencido</span>
-              <span class="badge badge-cold">Arquivado</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─────── INPUTS ─────── -->
-      <section class="section" id="inputs">
-        <div class="section-header">
-          <span class="section-num">07.</span>
-          <h2>Inputs e formulários</h2>
-          <span class="meta">Foco com glow mostarda</span>
-        </div>
-
-        <div class="component-grid">
-          <div class="demo-card">
-            <div class="demo-card-label">Text input</div>
-            <div class="input-group">
-              <label>Nome do contato</label>
-              <input class="input" type="text" placeholder="Maria Silva" />
-            </div>
-            <div class="input-group">
-              <label>Telefone</label>
-              <input
-                class="input"
-                type="text"
-                placeholder="+55 11 98765-4321"
-              />
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Select</div>
-            <div class="input-group">
-              <label>Temperatura</label>
-              <select class="select">
-                <option>Selecione...</option>
-                <option>Quente</option>
-                <option>Morno</option>
-                <option>Frio</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <label>Estágio do funil</label>
-              <select class="select">
-                <option>Curioso</option>
-                <option>Interessado</option>
-                <option>Proposta enviada</option>
-              </select>
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Search</div>
-            <div class="input-group">
-              <input
-                class="input"
-                type="text"
-                placeholder="🔍  Buscar contatos, mensagens, tags..."
-              />
-            </div>
-          </div>
-          <div class="demo-card">
-            <div class="demo-card-label">Textarea</div>
-            <div class="input-group">
-              <label>Próxima ação</label>
-              <textarea
-                class="input"
-                rows="3"
-                placeholder="O que precisa ser feito com este contato?"
-              ></textarea>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─────── STATS ─────── -->
-      <section class="section" id="stats">
-        <div class="section-header">
-          <span class="section-num">08.</span>
-          <h2>Cards de estatísticas</h2>
-          <span class="meta">Números em Fraunces, contexto em Inter</span>
-        </div>
-
-        <div class="section-intro">
-          O número é a estrela — usar Fraunces 32px com letter-spacing apertado.
-          Label acima em Inter pequeno e muted. Meta abaixo opcional, sempre
-          faint. Um stat por vez pode ser "featured" (fundo accent-soft) para
-          destacar o número crítico do dia.
-        </div>
-
-        <div
-          style="
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-          "
-        >
-          <div class="stat-card">
-            <div class="stat-label">Pessoas no radar</div>
-            <div class="stat-value">36</div>
-            <div class="stat-meta">+3 esta semana</div>
-          </div>
-          <div class="stat-card featured">
-            <div class="stat-label">Quentes agora</div>
-            <div class="stat-value">2</div>
-            <div class="stat-meta">prontas para fechar</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Análises este mês</div>
-            <div class="stat-value">426</div>
-            <div class="stat-meta">de 500 disponíveis</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-label">Próxima análise</div>
-            <div class="stat-value" style="font-size: 24px">15h 43m</div>
-            <div class="stat-meta">diariamente às 03:00</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ─────── TABELA ─────── -->
-      <section class="section" id="tabela">
-        <div class="section-header">
-          <span class="section-num">09.</span>
-          <h2>Tabela de contatos</h2>
-          <span class="meta">Densidade humana</span>
-        </div>
-
-        <div class="section-intro">
-          Comparada à tabela atual: padding maior nas células (14px vs 8px),
-          avatar com inicial em vez de só texto, headers em uppercase
-          letterspaced para hierarquia clara, hover sutil. Linhas separadas por
-          borders sutis (não linhas duras).
-        </div>
-
-        <table class="demo-table">
+        <div class="subhead">Escala de referência — post 1080 × 1350</div>
+        <table class="spec-table">
           <thead>
             <tr>
-              <th>Nome</th>
-              <th>Tipo</th>
-              <th>Temperatura</th>
-              <th>Origem</th>
-              <th>Último</th>
-              <th>Próxima ação</th>
+              <th>Papel</th>
+              <th>Família / peso</th>
+              <th>Corpo (px no post)</th>
+              <th>Tracking / notas</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td>
-                <span class="avatar">L</span>
-                <span class="name">Leonardo</span>
-                <div class="name-meta" style="margin-left: 42px">
-                  +351 931 135 852
-                </div>
-              </td>
-              <td><span class="badge badge-lead">Lead</span></td>
-              <td>—</td>
-              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
-              <td><span style="color: var(--text-muted)">há 20h</span></td>
-              <td>—</td>
+              <td>Display (capa)</td>
+              <td><code>Fraunces 300–500, opsz 144</code></td>
+              <td>88–128</td>
+              <td>−0.02em · leading 1.02–1.06 · itálico só na palavra de ênfase</td>
             </tr>
             <tr>
-              <td>
-                <span
-                  class="avatar"
-                  style="
-                    background: var(--success-soft);
-                    color: var(--success-text);
-                  "
-                  >LW</span
-                >
-                <span class="name">Luciano Weber</span>
-                <div class="name-meta" style="margin-left: 42px">
-                  +55 11 98755-6622
-                </div>
-              </td>
-              <td><span class="badge badge-cliente">Cliente</span></td>
-              <td><span class="badge badge-hot">Quente</span></td>
-              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
-              <td><span style="color: var(--text-muted)">há 22h</span></td>
-              <td>
-                <span style="color: var(--text-secondary)"
-                  >Implementar ajustes finais conforme email</span
-                >
-              </td>
+              <td>Título de slide</td>
+              <td><code>Fraunces 500, opsz 80</code></td>
+              <td>56–72</td>
+              <td>−0.01em · leading 1.1</td>
             </tr>
             <tr>
-              <td>
-                <span class="avatar">M</span>
-                <span class="name">Matheus</span>
-                <div class="name-meta" style="margin-left: 42px">
-                  +55 11 97487-3081
-                </div>
-              </td>
-              <td><span class="badge badge-lead">Lead</span></td>
-              <td>—</td>
-              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
-              <td><span style="color: var(--text-muted)">há 1d</span></td>
-              <td>—</td>
+              <td>Corpo (slide)</td>
+              <td><code>Inter 400–500</code></td>
+              <td>28–34</td>
+              <td>leading 1.5 · máx. ~46ch</td>
             </tr>
             <tr>
-              <td>
-                <span class="avatar" style="background: var(--accent-soft)"
-                  >GA</span
-                >
-                <span class="name">Greece Aviation</span>
-                <div class="name-meta" style="margin-left: 42px">
-                  +30 6955 193 957
-                </div>
-              </td>
-              <td><span class="badge badge-lead">Lead</span></td>
-              <td><span class="badge badge-hot">Quente</span></td>
-              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
-              <td><span style="color: var(--text-muted)">há 1d</span></td>
-              <td>
-                <span style="color: var(--text-secondary)"
-                  >Ajustar informações no site Brazil Aviation</span
-                >
-              </td>
+              <td>Meta / rodapé</td>
+              <td><code>Inter 400–500</code></td>
+              <td>22–26</td>
+              <td>cor rebaixada · uma linha</td>
             </tr>
             <tr>
-              <td>
-                <span class="avatar">V</span>
-                <span class="name">Valquiria</span>
-                <div class="name-meta" style="margin-left: 42px">
-                  +351 933 144 559
-                </div>
-              </td>
-              <td><span class="badge badge-lead">Lead</span></td>
-              <td><span class="badge badge-cold">Frio</span></td>
-              <td><span class="badge badge-whatsapp">WhatsApp</span></td>
-              <td><span style="color: var(--text-muted)">há 1d</span></td>
-              <td>—</td>
+              <td>Eyebrow</td>
+              <td><code>Inter 600, uppercase</code></td>
+              <td>22–26</td>
+              <td>letter-spacing 0.2–0.28em</td>
+            </tr>
+            <tr>
+              <td>Assinatura</td>
+              <td><code>Inter 600, uppercase</code></td>
+              <td>20–24</td>
+              <td>letter-spacing ~0.22em · cor de acento do clima</td>
             </tr>
           </tbody>
         </table>
       </section>
 
-      <!-- ─────── DASHBOARD MOCKUP ─────── -->
-      <section class="section" id="dashboard">
+      <!-- ─────── 06 · TEXTURA & FURNITURE ─────── -->
+      <section class="section" id="textura">
         <div class="section-header">
-          <span class="section-num">10.</span>
-          <h2>Tudo junto: o dashboard</h2>
-          <span class="meta">Como tudo se compõe</span>
+          <span class="section-num">06.</span>
+          <h2>Textura &amp; furniture</h2>
+          <span class="meta">O que faz "editorial, não Pinterest"</span>
         </div>
 
-        <div class="dashboard-preview">
-          <div class="dashboard-chrome">
-            <div class="chrome-dot r"></div>
-            <div class="chrome-dot y"></div>
-            <div class="chrome-dot g"></div>
-            <div class="chrome-url">lcrm.strutura.ai/dashboard</div>
+        <p class="section-intro">
+          O grão está presente em <strong>toda peça</strong> — é o que separa o
+          Nature Warm do calmo-liso genérico. Imperfeição honesta &gt; limpeza
+          perfeita: grão, papel, filme.
+        </p>
+
+        <div class="subhead">Spec do grão</div>
+        <p class="prose">
+          Overlay SVG com <code>feTurbulence</code>
+          (<code>fractalNoise</code>, <code>baseFrequency ≈ 0.85–0.9</code>,
+          <code>numOctaves 2</code>), aplicado num pseudo-elemento por cima da
+          peça com <code>mix-blend-mode: overlay</code> (Campo) ou
+          <code>soft-light</code> (Bosque) e opacidade ~0.4–0.5. No slide de
+          ensino, baixar para ~0.35 — legibilidade manda.
+        </p>
+
+        <div class="code-block"><span class="c">/* grão reutilizável — data-URI, sem asset externo */</span>
+<span class="k">--grain-url</span>: url(<span class="v">"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.87' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"</span>);
+
+.grain::after {
+  <span class="k">content</span>: <span class="v">""</span>;
+  <span class="k">position</span>: <span class="v">absolute</span>; <span class="k">inset</span>: <span class="v">0</span>;
+  <span class="k">background-image</span>: <span class="v">var(--grain-url)</span>;
+  <span class="k">mix-blend-mode</span>: <span class="v">overlay</span>; <span class="c">/* Bosque: soft-light */</span>
+  <span class="k">opacity</span>: <span class="v">0.45</span>;         <span class="c">/* slide de ensino: ~0.35 */</span>
+  <span class="k">pointer-events</span>: <span class="v">none</span>;
+}</div>
+
+        <div class="grain-demo">
+          <div class="demo-tile">
+            <div class="demo-tag">Sem grão — genérico</div>
+            <h4>Calmo que vira liso.<br />Some no feed.</h4>
           </div>
-          <div class="dashboard-body">
-            <div
-              style="
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-end;
-                margin-bottom: 32px;
-              "
-            >
-              <div>
-                <div class="type-display-2" style="margin-bottom: 6px">
-                  Bom dia,
-                  <em style="font-style: italic; color: var(--accent)"
-                    >Leonardo</em
-                  >
-                </div>
-                <div class="type-body-lg">
-                  Você tem 2 pessoas prontas para fechar hoje.
-                </div>
-              </div>
-              <div
-                style="
-                  display: flex;
-                  gap: 8px;
-                  align-items: center;
-                  padding: 7px 14px;
-                  background: var(--accent-soft);
-                  border: 1px solid var(--accent-border);
-                  border-radius: var(--radius-pill);
-                  font-size: 12px;
-                  color: var(--accent-text);
-                  font-weight: 500;
-                "
-              >
-                <span
-                  style="
-                    width: 6px;
-                    height: 6px;
-                    background: var(--accent);
-                    border-radius: 50%;
-                  "
-                ></span>
-                análise em 15h 43min
-              </div>
-            </div>
+          <div class="demo-tile grain">
+            <div class="demo-tag">Com grão — Nature Warm</div>
+            <h4>Mesma peça, com filme.<br />Editorial.</h4>
+          </div>
+        </div>
 
-            <div
-              style="
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 12px;
-                margin-bottom: 32px;
-              "
-            >
-              <div class="stat-card">
-                <div class="stat-label">No radar</div>
-                <div class="stat-value">36</div>
-                <div class="stat-meta">34 leads · 1 cliente</div>
-              </div>
-              <div class="stat-card featured">
-                <div class="stat-label">Quentes</div>
-                <div class="stat-value">2</div>
-                <div class="stat-meta">prontas para fechar</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Créditos IA</div>
-                <div class="stat-value">426</div>
-                <div class="stat-meta">de 500 — Starter</div>
-              </div>
-              <div class="stat-card">
-                <div class="stat-label">Pipeline IA</div>
-                <div class="stat-value" style="font-size: 22px">15h 43m</div>
-                <div class="stat-meta">próxima análise</div>
-              </div>
-            </div>
+        <div class="subhead">Inventário de furniture editorial</div>
+        <p class="section-intro" style="margin-bottom: 18px">
+          Furniture de revista, sempre <strong>com propósito</strong> — nunca
+          decorar à toa (princípio 01).
+        </p>
 
-            <div
-              style="
-                display: flex;
-                align-items: baseline;
-                justify-content: space-between;
-                margin-bottom: 14px;
-              "
-            >
-              <h3 class="type-h2">Precisam de você hoje</h3>
-              <span class="type-small">2 follow-ups pendentes</span>
+        <div class="furniture-grid">
+          <div class="furniture-item">
+            <div class="furniture-sample">
+              <span class="eyebrow">Método</span>
             </div>
-
-            <div
-              style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px"
-            >
-              <div
-                style="
-                  background: var(--bg-surface);
-                  border: 1px solid var(--border-base);
-                  border-radius: var(--radius-lg);
-                  padding: 18px 20px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    margin-bottom: 12px;
-                  "
-                >
-                  <span class="avatar">L</span>
-                  <div style="flex: 1">
-                    <div class="type-h3" style="font-size: 14px">Leonardo</div>
-                    <div class="type-small">
-                      Instagram · há 44 dias sem contato
-                    </div>
-                  </div>
-                  <span class="badge badge-instagram">IG</span>
-                </div>
-                <div
-                  style="
-                    font-size: 13px;
-                    color: var(--text-secondary);
-                    line-height: 1.5;
-                    padding: 10px 12px;
-                    background: var(--bg-base);
-                    border-radius: var(--radius-md);
-                    margin-bottom: 12px;
-                  "
-                >
-                  Só um exemplo de teste aqui 2
-                </div>
-                <button
-                  class="btn btn-secondary btn-sm"
-                  style="width: 100%; justify-content: center"
-                >
-                  Marcar como feito
-                </button>
-              </div>
-
-              <div
-                style="
-                  background: var(--bg-surface);
-                  border: 1px solid var(--border-base);
-                  border-radius: var(--radius-lg);
-                  padding: 18px 20px;
-                "
-              >
-                <div
-                  style="
-                    display: flex;
-                    align-items: center;
-                    gap: 10px;
-                    margin-bottom: 12px;
-                  "
-                >
-                  <span
-                    class="avatar"
-                    style="
-                      background: var(--whatsapp-soft);
-                      color: var(--whatsapp-text);
-                    "
-                    >S</span
-                  >
-                  <div style="flex: 1">
-                    <div class="type-h3" style="font-size: 14px">Santiago</div>
-                    <div class="type-small">WhatsApp · há 1 dia</div>
-                  </div>
-                  <span class="badge badge-whatsapp">WA</span>
-                </div>
-                <div
-                  style="
-                    font-size: 13px;
-                    color: var(--text-secondary);
-                    line-height: 1.5;
-                    padding: 10px 12px;
-                    background: var(--bg-base);
-                    border-radius: var(--radius-md);
-                    margin-bottom: 12px;
-                  "
-                >
-                  Tenho que mandar uma confirmação
-                </div>
-                <button
-                  class="btn btn-secondary btn-sm"
-                  style="width: 100%; justify-content: center"
-                >
-                  Marcar como feito
-                </button>
-              </div>
+            <h4>Eyebrow</h4>
+            <p>
+              Rótulo do pilar de conteúdo (Método, Opinião, Bastidor…). Inter
+              600, uppercase, tracking largo, na cor de acento do clima.
+            </p>
+          </div>
+          <div class="furniture-item">
+            <div class="furniture-sample">
+              <span class="indice-num">02/05</span>
             </div>
+            <h4>Índice numérico</h4>
+            <p>
+              <strong>Só quando é sequência real</strong> — ordem de slide num
+              carrossel conta; número solto por enfeite, não.
+            </p>
+          </div>
+          <div class="furniture-item">
+            <div class="furniture-sample">
+              <span class="selo">Jul 2026 · Ed. 03</span>
+            </div>
+            <h4>Selo de data / edição</h4>
+            <p>
+              No canto da peça, corpo pequeno. Marca a peça no tempo — device
+              de revista, não carimbo decorativo.
+            </p>
+          </div>
+          <div class="furniture-item">
+            <div class="furniture-sample">
+              <span class="selo">strutura.ai</span>
+            </div>
+            <h4>Meta em small caps</h4>
+            <p>
+              Informação auxiliar de canto (origem, contexto, referência).
+              Uppercase pequeno, cor rebaixada.
+            </p>
+          </div>
+          <div class="furniture-item">
+            <div class="furniture-sample">
+              <span class="barcode" role="img" aria-label="Barcode decorativo de assinatura"></span>
+            </div>
+            <h4>Barcode / marca discreta</h4>
+            <p>
+              Assinatura visual <strong>opcional</strong> — usada com
+              parcimônia, num canto, quando a peça pede um fecho gráfico.
+            </p>
+          </div>
+          <div class="furniture-item">
+            <div class="furniture-sample">
+              <span class="assinatura">Leo Abreu · Strutura</span>
+            </div>
+            <h4>Assinatura</h4>
+            <p>
+              Obrigatória em toda peça. Uppercase pequeno na cor de acento do
+              clima. Padrão único: "Leo Abreu · Strutura".
+            </p>
           </div>
         </div>
       </section>
 
-      <!-- ─────── CONTRASTE ─────── -->
-      <section class="section" id="contraste">
+      <!-- ─────── 07 · CAPA VS. SLIDE ─────── -->
+      <section class="section" id="capa-slide">
         <div class="section-header">
-          <span class="section-num">11.</span>
-          <h2>Antes e depois</h2>
-          <span class="meta">O que muda na prática</span>
+          <span class="section-num">07.</span>
+          <h2>Capa vs. slide</h2>
+          <span class="meta">Dois modos — vale nos dois climas</span>
+        </div>
+
+        <div class="modos">
+          <div class="modo">
+            <h3>Capa — modo pôster</h3>
+            <div class="modo-sub">O gancho · para o scroll</div>
+            <ul>
+              <li>Título Fraunces enorme, imagem-forward, texto mínimo.</li>
+              <li>Pode ser cinematográfica — é onde a estética estica.</li>
+              <li>Eyebrow do pilar + assinatura; furniture no mínimo.</li>
+              <li>Uma ideia só. Se precisa de segunda frase, é slide.</li>
+            </ul>
+          </div>
+          <div class="modo">
+            <h3>Slide — modo ensino</h3>
+            <div class="modo-sub">Legibilidade manda</div>
+            <ul>
+              <li>Texto denso, método à vista: linhas e passos numerados.</li>
+              <li>
+                Rodapé com o <strong>motivo de salvar</strong> ("Salva pra
+                lembrar onde a IA para").
+              </li>
+              <li>
+                Mesma alma — grão + paleta + serifada + furniture — mas a
+                informação domina.
+              </li>
+              <li>Grão mais leve (~0.35), corpo confortável, contraste alto.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <span class="callout-title">Regra de ouro</span>
+          A estética <strong>nunca</strong> pode custar a legibilidade do
+          slide. Pôster no gancho, clareza no ensino.
+        </div>
+      </section>
+
+      <!-- ─────── 08 · IMAGEM DE NATUREZA ─────── -->
+      <section class="section" id="natureza">
+        <div class="section-header">
+          <span class="section-num">08.</span>
+          <h2>Imagem de natureza</h2>
+          <span class="meta">A peça pesada — decisão em aberto</span>
+        </div>
+
+        <p class="section-intro">
+          Nas referências, a foto/IA de natureza é o que carrega o clima
+          (floresta, campo, luz, alvorada). É o elemento mais caro do sistema —
+          e o que decide se o <strong>Strutura Studio consegue gerar o sistema
+          sozinho</strong>: se cada post exige imagem nova, o Studio precisa
+          gerar imagem, não só compor texto. Por isso o sistema funciona em
+          <strong>dois níveis de fidelidade</strong>:
+        </p>
+
+        <div class="niveis">
+          <div class="nivel nivel-1">
+            <div class="nivel-preview grain">
+              <span class="nivel-badge">Nível 1 · piso</span>
+            </div>
+            <div class="nivel-info">
+              <h4>Sem foto — gradiente quente + grão</h4>
+              <p>
+                O que os mockups usam. Barato, o Studio renderiza fácil (só
+                CSS: glow de <code>--campo-haze</code> + grão).
+                <strong>É o piso: a peça nunca depende da foto pra
+                existir.</strong>
+              </p>
+            </div>
+          </div>
+          <div class="nivel nivel-2">
+            <div class="nivel-preview grain">
+              <span class="nivel-badge">Nível 2 · teto (simulação)</span>
+            </div>
+            <div class="nivel-info">
+              <h4>Com foto/IA de natureza por cima</h4>
+              <p>
+                Aprofunda o clima — paisagem real ou gerada (campo, floresta,
+                alvorada) atrás do texto, com o mesmo grão por cima.
+                <strong>A foto eleva, não sustenta.</strong> (Preview acima é
+                simulado em gradiente.)
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <span class="callout-title">
+            <span class="tag-pendente">Pendente</span>Foto fixa vs. única por post
+          </span>
+          Decisão em aberto, ligada à capacidade do Studio: usar um banco fixo
+          de paisagens (barato, repete) ou gerar imagem única por post (caro,
+          exige geração de imagem no pipeline). Enquanto não decidir, o
+          <strong>nível 1 é o default de produção.</strong>
+        </div>
+      </section>
+
+      <!-- ─────── 09 · EXEMPLOS AO VIVO ─────── -->
+      <section class="section" id="exemplos">
+        <div class="section-header">
+          <span class="section-num">09.</span>
+          <h2>Exemplos ao vivo</h2>
+          <span class="meta">HTML real, 4:5 (1080 × 1350) · nível 1 de fidelidade</span>
+        </div>
+
+        <p class="section-intro">
+          Quatro peças renderizadas nesta página (não são prints): capa e
+          slide de cada clima, com grão, furniture e copy real das âncoras da
+          marca. As duas primeiras formam um carrossel ("O braço, não a
+          cabeça"); as duas últimas, outro ("Arruma antes de automatizar").
+        </p>
+
+        <div class="pieces">
+          <!-- CAMPO · CAPA -->
+          <div class="piece-wrap">
+            <div class="piece-label">
+              <span>Campo · capa (pôster)</span>
+              <code>--campo-* · grão 0.45 · overlay</code>
+            </div>
+            <div class="piece piece--campo-capa grain">
+              <div class="piece-head">
+                <span class="p-eyebrow">Método</span>
+                <span class="p-selo">Jul 2026</span>
+              </div>
+              <div class="p-title">
+                A IA é o braço.<br />
+                <em>Não a cabeça.</em>
+              </div>
+              <div class="piece-foot">
+                <span class="p-assinatura">Leo Abreu · Strutura</span>
+                <span class="p-selo">01/05</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CAMPO · SLIDE -->
+          <div class="piece-wrap">
+            <div class="piece-label">
+              <span>Campo · slide (ensino)</span>
+              <code>grão 0.35 · legibilidade manda</code>
+            </div>
+            <div class="piece piece--campo-slide grain">
+              <div class="piece-head">
+                <span class="p-eyebrow">Método</span>
+                <span class="p-indice">02/05</span>
+              </div>
+              <div class="p-title">Onde a IA para</div>
+              <div class="p-steps">
+                <div class="p-step">
+                  <span class="n">01</span>
+                  <div>
+                    <div class="s-title">A IA lê, organiza e aponta.</div>
+                    <div class="s-body">
+                      Volume, triagem, resumo. Isso ela faz melhor que você — e
+                      de madrugada.
+                    </div>
+                  </div>
+                </div>
+                <div class="p-step">
+                  <span class="n">02</span>
+                  <div>
+                    <div class="s-title">A IA não decide.</div>
+                    <div class="s-body">
+                      Prioridade, preço e promessa continuam sendo decisão sua.
+                    </div>
+                  </div>
+                </div>
+                <div class="p-step">
+                  <span class="n">03</span>
+                  <div>
+                    <div class="s-title">A IA não fala com o seu cliente.</div>
+                    <div class="s-body">
+                      Quem conversa e quem fecha é gente. Sempre.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="piece-foot">
+                <span class="p-save">Salva pra lembrar onde a IA para.</span>
+                <span class="p-assinatura">Leo Abreu · Strutura</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOSQUE · CAPA -->
+          <div class="piece-wrap">
+            <div class="piece-label">
+              <span>Bosque · capa (pôster)</span>
+              <code>--bosque-* · grão 0.55 · soft-light</code>
+            </div>
+            <div class="piece piece--bosque-capa grain grain--bosque">
+              <div class="piece-head">
+                <span class="p-eyebrow">Opinião</span>
+                <span class="p-selo">Jul 2026</span>
+              </div>
+              <div class="p-title">
+                Automação <em>genérica</em> é só bagunça mais rápida.
+              </div>
+              <div class="piece-foot">
+                <span class="p-assinatura">Leo Abreu · Strutura</span>
+                <span class="p-selo">01/04</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- BOSQUE · SLIDE -->
+          <div class="piece-wrap">
+            <div class="piece-label">
+              <span>Bosque · slide (ensino)</span>
+              <code>bone sobre deep · acento --mostarda</code>
+            </div>
+            <div class="piece piece--bosque-slide grain grain--bosque">
+              <div class="piece-head">
+                <span class="p-eyebrow">Opinião</span>
+                <span class="p-indice">02/04</span>
+              </div>
+              <div class="p-title">Arruma antes de automatizar</div>
+              <div class="p-steps">
+                <div class="p-step">
+                  <span class="n n--bosque">01</span>
+                  <div>
+                    <div class="s-title">Processo bagunçado + IA = bagunça mais rápida.</div>
+                    <div class="s-body">
+                      A ferramenta acelera o que existe — inclusive o erro.
+                    </div>
+                  </div>
+                </div>
+                <div class="p-step">
+                  <span class="n n--bosque">02</span>
+                  <div>
+                    <div class="s-title">Desenha o passo a passo no papel primeiro.</div>
+                    <div class="s-body">
+                      Se você não consegue explicar o processo, não dá pra
+                      automatizar ele.
+                    </div>
+                  </div>
+                </div>
+                <div class="p-step">
+                  <span class="n n--bosque">03</span>
+                  <div>
+                    <div class="s-title">Automatiza só o que já funciona sem você.</div>
+                    <div class="s-body">
+                      O resto é decisão — e decisão fica com a cabeça, não com
+                      o braço.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="piece-foot">
+                <span class="p-save">Salva pra fazer antes de contratar qualquer IA.</span>
+                <span class="p-assinatura">Leo Abreu · Strutura</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <span class="callout-title">Pensar o mosaico, não só a peça</span>
+          O perfil mostra grid em 4:5 — a peça vive ao lado das vizinhas.
+          <strong>Variar dentro do clima</strong> (título grande, luz
+          deslocada, mais/menos texto) pra o feed não virar "mesmo template
+          9×". O Bosque pontual (seção 03) é a outra metade dessa variação.
+        </div>
+      </section>
+
+      <!-- ─────── 10 · DO / DON'T ─────── -->
+      <section class="section" id="do-dont">
+        <div class="section-header">
+          <span class="section-num">10.</span>
+          <h2>Do / Don't</h2>
+          <span class="meta">Guard-rails — em dúvida, volte aqui</span>
         </div>
 
         <div class="compare">
-          <div class="compare-col before">
-            <h4>Antes (atual)</h4>
+          <div class="compare-col do">
+            <h4>Faça</h4>
             <ul>
-              <li>Fundo preto-terminal (#111110)</li>
-              <li>IBM Plex Mono em toda a UI — cara de ferramenta para devs</li>
-              <li>Amarelo neon (#e9d73a) — datado, agressivo</li>
-              <li>Cantos retos (radius 6px) — frio, corporativo</li>
-              <li>Densidade alta sem hierarquia clara</li>
-              <li>Linguagem técnica: "Total de Contatos", "Follow-ups"</li>
-              <li>Sem distinção visual entre dados críticos e secundários</li>
-              <li>Dark mode forçado — desconfortável de dia</li>
+              <li>
+                <strong>Claro e texturizado</strong> — grão sempre presente, em
+                toda peça.
+              </li>
+              <li>
+                <strong>Fraunces grande com restrição</strong>; itálico só pra
+                ênfase de uma palavra, na cor de acento do clima.
+              </li>
+              <li>
+                <strong>Mostarda queimado como corte seco</strong> — o acento
+                corta, não grita.
+              </li>
+              <li>
+                <strong>Furniture editorial com função</strong> — índice
+                numérico só em sequência real.
+              </li>
+              <li>
+                <strong>Peso via tipografia dentro do Campo</strong>; Bosque só
+                pro susto visual (~1:5–6).
+              </li>
             </ul>
           </div>
-          <div class="compare-col after">
-            <h4>Depois (warm minimal)</h4>
+          <div class="compare-col dont">
+            <h4>Nunca</h4>
             <ul>
-              <li>Off-white quente (#FAF7F2) — convidativo, calmo</li>
               <li>
-                Inter para UI + Fraunces serif para destaques — humano e premium
+                <strong>Limpo/liso sem textura</strong> — é o calmo genérico, o
+                espaço mais lotado da internet.
               </li>
-              <li>Mostarda (#C99A2E) — sofisticado, brasileiro, atemporal</li>
-              <li>Cantos generosos (radius 14-16px) — acolhedor, moderno</li>
-              <li>Respiração entre seções, hierarquia tipográfica real</li>
               <li>
-                Linguagem que conversa: "Pessoas no radar", "Precisam de você
-                hoje"
+                <strong>Palavra motivacional/vibe</strong> — "simplicity is the
+                purest form…", frases de efeito vazias.
               </li>
-              <li>Card "featured" mostarda destaca o número crítico do dia</li>
-              <li>Light only — claro de dia, no celular, em qualquer lugar</li>
+              <li>
+                <strong>Escuro como default</strong> — afasta o não-técnico, o
+                Diego.
+              </li>
+              <li>
+                <strong>Bege sem o mostarda</strong> — perde o único sinal
+                ownable.
+              </li>
+              <li>
+                <strong>Estética custando legibilidade</strong> no slide de
+                ensino.
+              </li>
+              <li>
+                <strong>Bosque frequente demais</strong> — vira barulho, perde
+                o contraste.
+              </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- ─────── TOKENS ─────── -->
-      <section class="section" id="tokens">
-        <div class="section-header">
-          <span class="section-num">12.</span>
-          <h2>Tokens prontos</h2>
-          <span class="meta">Para o tailwind.config.ts</span>
-        </div>
-
-        <div class="section-intro">
-          Estes são os tokens que vão direto no
-          <code>tailwind.config.ts</code> do Strutura. Eles substituem
-          completamente a paleta atual. Variáveis CSS são definidas em
-          <code>globals.css</code> para permitir usar tanto pelo Tailwind quanto
-          direto em CSS quando necessário.
-        </div>
-
-        <div class="download-block">
-          <div class="type-h3" style="margin-bottom: 8px">Próximo passo</div>
-          <p class="type-body" style="margin-bottom: 16px">
-            Estes tokens estão prontos para implementação. O arquivo
-            <code>tailwind.config.ts</code> e o <code>globals.css</code> serão
-            entregues separadamente, junto com o prompt completo para o Claude
-            Code aplicar o redesign progressivamente.
-          </p>
-          <div style="display: flex; gap: 10px; flex-wrap: wrap">
-            <button class="btn btn-primary">Ver tailwind.config.ts</button>
-            <button class="btn btn-secondary">Ver globals.css</button>
-            <button class="btn btn-secondary">Ver prompt do Claude Code</button>
-          </div>
-        </div>
-      </section>
+      <!-- ─────── FOOTER ─────── -->
+      <footer class="footer">
+        <span>
+          Nature Warm v3 · substitui o Warm Minimal (v2) · fonte de verdade do
+          sistema
+        </span>
+        <span class="assinatura">Leo Abreu · Strutura</span>
+      </footer>
     </div>
   </body>
 </html>
