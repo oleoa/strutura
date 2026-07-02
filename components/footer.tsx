@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { EMAIL, INSTAGRAM_URL, LINKEDIN_URL, PHAROS_URL, STUDIO_URL, WHATSAPP_URL } from "@/lib/site";
+import { EMAIL, INSTAGRAM_URL, LINKEDIN_URL, PHAROS_URL, WHATSAPP_URL } from "@/lib/site";
 
 const SECTIONS = [
   { label: "A Strutura", href: "/#a-strutura" },
@@ -13,7 +13,6 @@ const SECTIONS = [
 
 const PRODUCTS = [
   { label: "Pharos", href: PHAROS_URL },
-  { label: "Studio", href: STUDIO_URL },
 ];
 
 const SOCIALS = [
@@ -36,8 +35,7 @@ const SOCIALS = [
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname.startsWith("/links") || pathname.startsWith("/brand"))
-    return null;
+  if (pathname.startsWith("/brand")) return null;
 
   return (
     <footer className="grain-bosque grain-soft w-full bg-linear-175 from-bosque-mid to-bosque-deep to-62% text-bone">

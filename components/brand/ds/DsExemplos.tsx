@@ -4,7 +4,8 @@ import { Callout, Container, Section } from "../ui";
 /* As quatro peças 4:5 do design.html §09, renderizadas ao vivo (não são
    prints): capa e slide de cada clima, com grão, furniture e copy real das
    âncoras. Tipografia fluida via container queries (cqw), como nas peças
-   originais — mesmo padrão do StudioPieces. */
+   originais — mesmo padrão do StudioPieces (componente hoje sem uso; o
+   Studio foi arquivado em jul/2026). */
 
 function PieceLabel({ title, code }: { title: string; code: string }) {
   return (

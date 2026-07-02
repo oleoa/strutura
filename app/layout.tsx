@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { INSTAGRAM_URL, LINKEDIN_URL, PHAROS_URL, STUDIO_URL } from "@/lib/site";
+import { INSTAGRAM_URL, LINKEDIN_URL, PHAROS_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,7 +32,7 @@ const jetBrainsMono = JetBrains_Mono({
 const siteUrl = "https://strutura.ai";
 
 const siteDescription =
-  "A Strutura é a empresa onde Leonardo Abreu constrói os próprios produtos — Pharos e Studio — com método e com a IA no lugar certo.";
+  "A Strutura é a empresa onde Leonardo Abreu constrói os próprios produtos, como o Pharos, com método e com a IA no lugar certo.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     template: "%s | Strutura",
   },
   description: siteDescription,
-  keywords: ["Strutura", "Pharos", "Strutura Studio", "Leo Abreu", "Leonardo Abreu"],
+  keywords: ["Strutura", "Pharos", "Leo Abreu", "Leonardo Abreu"],
   authors: [{ name: "Leonardo Abreu de Paulo", url: siteUrl }],
   creator: "Leonardo Abreu de Paulo",
   publisher: "Strutura",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: "Strutura",
     title: "Strutura — A IA no lugar certo",
     description:
-      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes; o Studio faz o post comercial. Construídos com método, usados todos os dias.",
+      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes. Construído com método, usado todos os dias.",
     images: [
       {
         url: "/banner.png",
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Strutura — A IA no lugar certo",
     description:
-      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes; o Studio faz o post comercial.",
+      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes.",
     images: ["/banner.png"],
   },
   verification: {
@@ -96,12 +96,6 @@ const jsonLd = {
       name: "Pharos",
       url: PHAROS_URL,
       applicationCategory: "BusinessApplication",
-    },
-    {
-      "@type": "SoftwareApplication",
-      name: "Strutura Studio",
-      url: STUDIO_URL,
-      applicationCategory: "DesignApplication",
     },
   ],
   sameAs: [INSTAGRAM_URL, LINKEDIN_URL],

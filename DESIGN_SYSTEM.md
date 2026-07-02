@@ -2,7 +2,7 @@
 
 > **Fonte de verdade: a página [`/brand`](app/brand/page.tsx)** (`strutura.ai/brand`, seção 10 — componentes em `components/brand/ds/`) — a página renderiza tokens, tipografia, grão e exemplos ao vivo, além da identidade estratégica da marca. O antigo `design.html` foi aposentado (redirect permanente `/design.html` → `/brand`). Este arquivo é o resumo de trabalho para consulta rápida. **Consultar antes de criar ou alterar qualquer peça.**
 
-> ✅ **Estado da migração:** o **site** (`app/globals.css`, componentes) já roda nos tokens Nature Warm (clima Campo + footer Bosque). Peças (posts, templates do Strutura Studio, materiais) seguem o mesmo sistema. Os utilitários Tailwind do site estão no [Apêndice](#apêndice--utilitários-tailwind-do-site-nature-warm).
+> ✅ **Estado da migração:** o **site** (`app/globals.css`, componentes) já roda nos tokens Nature Warm (clima Campo + footer Bosque). Peças (posts, templates, materiais) seguem o mesmo sistema. Os utilitários Tailwind do site estão no [Apêndice](#apêndice--utilitários-tailwind-do-site-nature-warm).
 
 ---
 
@@ -121,10 +121,10 @@ Imperfeição honesta > limpeza perfeita. Grão, papel, filme.
 
 A peça nunca depende da foto pra existir — **a foto eleva, não sustenta**:
 
-1. **Piso (default de produção):** gradiente quente + grão. Barato, o Strutura Studio renderiza fácil.
+1. **Piso (default de produção):** gradiente quente + grão. Barato, renderiza fácil.
 2. **Teto:** foto/IA de natureza por cima (campo, floresta, alvorada), aprofundando o clima.
 
-> 🔶 **PENDENTE:** foto fixa (banco de paisagens) vs. única por post — decisão ligada à capacidade do Studio gerar imagem no pipeline.
+> 🔶 **PENDENTE:** foto fixa (banco de paisagens) vs. única por post — decisão ligada à capacidade do pipeline de gerar imagem.
 
 ---
 

@@ -6,7 +6,7 @@ This file provides Claude Code with context about the Strutura project, conventi
 
 ## 🏢 Project Overview
 
-**Strutura** é a empresa onde Leonardo Abreu constrói os próprios produtos (Pharos e Studio). O site `strutura.ai` é uma **vitrine de marca, não uma máquina de conversão**: quem chega vem do Instagram (@leoabreu.ia) e já conhece o Leonardo. A régua de tudo é *"isto está à altura do Leo que a pessoa já conheceu?"* — a execução do site é o portfólio.
+**Strutura** é a empresa onde Leonardo Abreu constrói os próprios produtos (hoje, o Pharos; o Studio foi arquivado em jul/2026). O site `strutura.ai` é uma **vitrine de marca, não uma máquina de conversão**: quem chega vem do Instagram (@leoabreu.ia) e já conhece o Leonardo. A régua de tudo é *"isto está à altura do Leo que a pessoa já conheceu?"* — a execução do site é o portfólio.
 
 O que a pessoa leva ao sair: **"esse cara constrói a própria estrutura digital, com método, e a IA fica no lugar certo — de braço, não de cabeça."**
 
@@ -33,7 +33,7 @@ O que a pessoa leva ao sair: **"esse cara constrói a própria estrutura digital
 
 > **Design system: "Nature Warm"** — fonte de verdade na página [`/brand`](app/brand/page.tsx) (`strutura.ai/brand`, seção 10; componentes em `components/brand/ds/`), que também é a source of truth da marca inteira; resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). O antigo `design.html` foi aposentado (redirect permanente `/design.html` → `/brand`). **Consultar antes de criar/alterar qualquer peça ou UI.**
 
-### Identidade "Nature Warm" (posts, templates do Studio, materiais)
+### Identidade "Nature Warm" (posts, templates, materiais)
 
 - **Dois climas:** **Campo** (claro, quente, texturizado, editorial — a casa/default) e **Bosque** (escuro verde-floresta — acento raro, **~1 a cada 5–6 posts**, só pro "susto visual").
 - **Acento mostarda envelhecido:** `#A9741F` (`--mostarda-queimado`, sobre claro) e `#C98A2B` (`--mostarda`, sobre escuro). Evolução do `#C99A2D` antigo, não ruptura.
@@ -125,10 +125,11 @@ O código do site (`app/globals.css`, componentes) roda nos tokens **Nature Warm
 
 | Route       | Purpose                                                                 |
 | ----------- | ----------------------------------------------------------------------- |
-| `/`         | Home — Hero (Bosque) → A Strutura → Produtos (Pharos + Studio) → Quem sou eu → Comunidade → Contato → Footer (Bosque) |
-| `/links`    | Linktree próprio (Pharos, Studio, site, WhatsApp) — navbar/footer ocultos |
+| `/`         | Home — Hero (Bosque) → A Strutura → Produtos (Pharos) → Quem sou eu → Comunidade → Contato → Footer (Bosque) |
 
-**Home:** cada seção é um componente server em `components/` (`HeroSection`, `StruturaSection`, `ProductsSection`/`PharosShowcase`/`StudioShowcase`, `AboutMeSection`, `CommunitySection`, `ContactSection`). URLs/constantes centrais em `lib/site.ts` (WhatsApp, Pharos, Studio, Instagram, `HERO_IMAGE`).
+> A antiga página `/links` (linktree próprio) foi apagada em jul/2026: o Instagram passou a apontar direto para a home. Sem redirect, a URL cai no 404.
+
+**Home:** cada seção é um componente server em `components/` (`HeroSection`, `StruturaSection`, `ProductsSection`/`PharosShowcase`, `AboutMeSection`, `CommunitySection`, `ContactSection`). URLs/constantes centrais em `lib/site.ts` (WhatsApp, Pharos, Instagram, `HERO_IMAGE`).
 
 **Imagem do hero:** a imagem escolhida vive em `public/` e é apontada por `HERO_IMAGE` em `lib/site.ts`; `null` faz rollback para a cena CSS/SVG ("floresta-catedral") em `HeroBackdrop`. Ao trocar a imagem, manter ≤ 350 KB (webp de preferência).
 
@@ -169,13 +170,11 @@ Produto principal da casa, apresentado na seção `#pharos` da homepage (porta: 
 
 ---
 
-## 🎨 Produto: Strutura Studio
+## 🗄️ Produto: Strutura Studio (ARQUIVADO em jul/2026)
 
-Produto de apoio, apresentado na seção `#studio` da homepage (porta: `studio.strutura.ai`).
+O Studio foi **arquivado** e não aparece em nenhuma superfície pública: fora da home, do footer, da metadata/SEO, do 404 e da página `/brand`. **Não reintroduzir menções ao Studio no site sem pedido explícito do Leonardo.**
 
-**O que é:** ferramenta da Strutura para posts comerciais — "quase um Canva que faz por você": descreve a peça, o Studio gera, e depois você gerencia e organiza tudo num lugar só. É post de negócio, não arte — por isso aqui a IA pode fazer o trabalho inteiro sem violar o dogma (função/encanamento, não autoria).
-
-**Prova de funcionamento:** o Instagram do Leonardo (@leoabreu.ia) é feito inteiro no Studio. No site, a prova visual é o `StudioPieces.tsx` — 3 peças 4:5 renderizadas ao vivo em HTML/CSS (receitas da seção 10.9 de `/brand`, `components/brand/ds/DsExemplos.tsx`).
+O que era: ferramenta da Strutura para posts comerciais ("quase um Canva que faz por você"). O código continua no repo, apenas desmontado: `components/StudioShowcase.tsx` e `components/StudioPieces.tsx` estão sem uso, e `STUDIO_URL` permanece em `lib/site.ts` só para o typecheck desses componentes órfãos.
 
 ---
 
@@ -186,4 +185,4 @@ Produto de apoio, apresentado na seção `#studio` da homepage (porta: `studio.s
 
 ---
 
-_Last updated: July 2026 — site reescrito como **vitrine de marca** (copy pt-BR, voz 3ª pessoa, hero Bosque "floresta-catedral", seções A Strutura / Produtos / Quem sou eu / Comunidade / Contato). Source of truth da marca + design system "Nature Warm" unificados na página [`/brand`](app/brand/page.tsx) (`strutura.ai/brand`, noindex; `design.html` aposentado com redirect permanente); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)._
+_Last updated: July 2026 — site reescrito como **vitrine de marca** (copy pt-BR, voz 3ª pessoa, hero Bosque "floresta-catedral", seções A Strutura / Produtos / Quem sou eu / Comunidade / Contato). Source of truth da marca + design system "Nature Warm" unificados na página [`/brand`](app/brand/page.tsx) (`strutura.ai/brand`, noindex; `design.html` aposentado com redirect permanente); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). Strutura Studio arquivado e página `/links` apagada._

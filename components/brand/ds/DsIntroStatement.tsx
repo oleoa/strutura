@@ -17,8 +17,7 @@ export default function DsIntroStatement() {
         meta="Substitui o Warm Minimal (v2)"
       >
         <Prose>
-          O sistema visual da Strutura para posts, templates do Studio, site e
-          materiais. Dois climas — <strong>Campo</strong> (a casa) e{" "}
+          O sistema visual da Strutura para posts, site e materiais. Dois climas — <strong>Campo</strong> (a casa) e{" "}
           <strong>Bosque</strong> (o acento raro) — amarrados por grão, serifa
           e mostarda envelhecido. Esta seção é a referência de trabalho: quem
           abre aqui reproduz qualquer peça sem adivinhar nada.

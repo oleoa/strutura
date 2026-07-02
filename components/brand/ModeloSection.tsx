@@ -33,10 +33,9 @@ export default function ModeloSection() {
           </Card>
           <Card label="Ativo" title={<><em>SaaS</em></>}>
             <p>
-              Produtos próprios sob a Strutura: <strong>Strutura Pharos</strong>{" "}
-              (flagship) e <strong>Strutura Studio</strong>. Usados por
-              clientes do mercado <em>e</em> pela própria marca — servem de
-              prova.
+              Produto próprio sob a Strutura: <strong>Strutura Pharos</strong>{" "}
+              (flagship). Usado por clientes do mercado <em>e</em> pela própria
+              marca — serve de prova.
             </p>
           </Card>
           <Card label="Renda-ponte · hoje" title={<><em>Serviço direto</em></>}>

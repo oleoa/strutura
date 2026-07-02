@@ -39,7 +39,7 @@ export default function IdentidadeSection() {
             items={[
               <>
                 <strong>Strutura deliberadamente FORA da bio</strong> — o
-                contexto dos posts e o domínio strutura.ai/links contextualizam
+                contexto dos posts e o domínio strutura.ai contextualizam
                 sem gastar espaço de bio.
               </>,
               <>
@@ -60,13 +60,6 @@ export default function IdentidadeSection() {
             ]}
           />
         </div>
-
-        <Subhead>Página de links — strutura.ai/links</Subhead>
-        <Prose>
-          Build próprio em Next.js (dogfooding, não Linktree). Links
-          self-serve de produto primeiro, WhatsApp/contato por último; futuro
-          lead magnet assume a primeira posição quando existir.
-        </Prose>
 
         <Subhead>Dispositivo pessoal — os óculos</Subhead>
         <Prose>

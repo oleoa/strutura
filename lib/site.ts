@@ -2,6 +2,7 @@
 
 export const WHATSAPP_URL = "https://wa.me/351931135852";
 export const PHAROS_URL = "https://pharos.strutura.ai";
+// Studio arquivado (jul/2026): sem uso público; só o StudioShowcase (desmontado) importa.
 export const STUDIO_URL = "https://studio.strutura.ai";
 export const INSTAGRAM_URL = "https://www.instagram.com/leoabreu.ia/";
 export const INSTAGRAM_HANDLE = "@leoabreu.ia";

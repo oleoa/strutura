@@ -40,8 +40,7 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (pathname.startsWith("/links") || pathname.startsWith("/brand"))
-    return null;
+  if (pathname.startsWith("/brand")) return null;
 
   // Sobre o hero Bosque a pílula veste o clima escuro; no Campo, o claro.
   const dark = isHome && !pastHero;

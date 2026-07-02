@@ -55,10 +55,9 @@ export default function DogmaSection() {
               </h4>
               <p className="text-[13.5px] leading-[1.65] text-bone/[0.78]">
                 Um Instagram comercial é operação/finança, não arte — nenhuma
-                autoria é violada. Por isso o Studio gera o post inteiro. (É um
-                Canva onde você <em>fala</em> em vez de arrastar: a cabeça
-                continua sendo você, ditando frase por frase, layout por
-                layout.)
+                autoria é violada. Por isso aqui a IA pode gerar o post
+                inteiro: a cabeça continua sendo você, ditando frase por
+                frase, layout por layout.
               </p>
             </div>
             <div className="rounded-[4px] border border-bone/20 px-6 py-5.5">

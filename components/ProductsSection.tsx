@@ -1,7 +1,6 @@
 import RevealOnScroll from "@/components/RevealOnScroll";
 import SectionHeader from "@/components/SectionHeader";
 import PharosShowcase from "@/components/PharosShowcase";
-import StudioShowcase from "@/components/StudioShowcase";
 
 export default function ProductsSection() {
   return (
@@ -19,13 +18,12 @@ export default function ProductsSection() {
             }
           />
           <p className="mt-6 max-w-2xl text-lg text-ink-soft">
-            Dois produtos no ar. Os dois rodam todos os dias dentro da própria
+            O Pharos está no ar e roda todos os dias dentro da própria
             Strutura.
           </p>
         </RevealOnScroll>
 
         <PharosShowcase />
-        <StudioShowcase />
       </div>
     </section>
   );

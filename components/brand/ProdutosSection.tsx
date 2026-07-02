@@ -7,7 +7,7 @@ export default function ProdutosSection() {
         id="produtos"
         num="06."
         title="Produtos"
-        meta="Pharos · Studio · renda-ponte"
+        meta="Pharos · renda-ponte"
       >
         <Subhead>Strutura Pharos — flagship SaaS</Subhead>
         <Prose>
@@ -49,22 +49,6 @@ export default function ProdutosSection() {
           organiza, relembra o contexto e diz o próximo passo, mas para antes
           de responder.
         </Callout>
-
-        <Subhead>Strutura Studio — studio.strutura.ai</Subhead>
-        <Prose>
-          Studio de design para redes sociais: do prompt ao post de Instagram
-          pronto (carrossel ou imagem única, 1080×1350), escrito e desenhado
-          num lugar só, seguindo o Nature Warm. Hook:{" "}
-          <em className="font-serif text-base italic text-mustard-ink">
-            do prompt ao post pronto, sem fricção.
-          </em>
-        </Prose>
-        <Prose className="mt-3.5">
-          A IA gera o post inteiro; refino por conversa; export dos JPGs em
-          zip com legenda e hashtags. Usado pela própria marca pro conteúdo da
-          Strutura — <strong>produto como prova</strong>. (Post comercial é
-          função, não arte — nenhuma autoria violada sob o dogma.)
-        </Prose>
 
         <Subhead>Renda-ponte — soluções sob medida</Subhead>
         <Prose>

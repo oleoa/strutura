@@ -41,8 +41,8 @@ export default function AboutMeSection() {
               </p>
               <p>
                 A Strutura é o meu maior projeto. É onde eu construo os meus
-                próprios produtos — o Pharos e o Studio — e uso os dois todos
-                os dias, no meu próprio negócio.
+                próprios produtos, como o Pharos, que eu uso todos os dias no
+                meu próprio negócio.
               </p>
               <p>
                 O processo fica público no{" "}

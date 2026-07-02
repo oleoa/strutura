@@ -14,9 +14,9 @@ export default function DsNatureza() {
           Nas referências, a foto/IA de natureza é o que carrega o clima
           (floresta, campo, luz, alvorada). É o elemento mais caro do sistema
           — e o que decide se o{" "}
-          <strong>Strutura Studio consegue gerar o sistema sozinho</strong>:
-          se cada post exige imagem nova, o Studio precisa gerar imagem, não
-          só compor texto. Por isso o sistema funciona em{" "}
+          <strong>pipeline de geração consegue montar a peça sozinho</strong>:
+          se cada post exige imagem nova, o pipeline precisa gerar imagem,
+          não só compor texto. Por isso o sistema funciona em{" "}
           <strong>dois níveis de fidelidade</strong>:
         </p>
 
@@ -32,8 +32,8 @@ export default function DsNatureza() {
                 Sem foto — gradiente quente + grão
               </h4>
               <p className="text-[12.5px] leading-[1.6] text-ink-soft [&_code]:rounded-[3px] [&_code]:bg-ink/[0.07] [&_code]:px-1 [&_code]:py-px [&_code]:font-mono [&_code]:text-[11px]">
-                O que os mockups usam. Barato, o Studio renderiza fácil (só
-                CSS: glow de <code>--campo-haze</code> + grão).{" "}
+                O que os mockups usam. Barato, renderiza fácil (só CSS: glow
+                de <code>--campo-haze</code> + grão).{" "}
                 <strong className="font-semibold text-ink">
                   É o piso: a peça nunca depende da foto pra existir.
                 </strong>
@@ -63,9 +63,9 @@ export default function DsNatureza() {
         </div>
 
         <Callout tag="Pendente" title="Foto fixa vs. única por post">
-          Decisão em aberto, ligada à capacidade do Studio: usar um banco fixo
-          de paisagens (barato, repete) ou gerar imagem única por post (caro,
-          exige geração de imagem no pipeline). Enquanto não decidir, o{" "}
+          Decisão em aberto, ligada à capacidade do pipeline: usar um banco
+          fixo de paisagens (barato, repete) ou gerar imagem única por post
+          (caro, exige geração de imagem no pipeline). Enquanto não decidir, o{" "}
           <strong>nível 1 é o default de produção.</strong>
         </Callout>
       </Section>

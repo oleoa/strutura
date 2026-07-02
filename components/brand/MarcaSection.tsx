@@ -28,10 +28,9 @@ export default function MarcaSection() {
           </Card>
           <Card label="Produtos" title={<>Prova, <em>não negócios paralelos</em></>}>
             <p>
-              Pharos e Studio nascem do próprio negócio e aparecem como
-              evidência do pensamento — &ldquo;uma solução que já fiz pra
-              mim&rdquo;. Se um deles crescer o bastante, pode virar marca
-              própria depois —{" "}
+              O Pharos nasce do próprio negócio e aparece como evidência do
+              pensamento — &ldquo;uma solução que já fiz pra mim&rdquo;. Se
+              crescer o bastante, pode virar marca própria depois —{" "}
               <strong>optionalidade guardada, não a postura de agora.</strong>
             </p>
           </Card>

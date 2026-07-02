@@ -4,8 +4,8 @@ import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/site";
 
 const FACTS: React.ReactNode[] = [
   "Fundada e construída por Leonardo Abreu.",
-  "Dois produtos no ar: Pharos e Studio.",
-  "Tudo roda primeiro dentro de casa: o Pharos organiza os contatos da Strutura, o Studio faz o Instagram.",
+  "O Pharos no ar, construído e usado dentro de casa.",
+  "Tudo roda primeiro dentro de casa: o Pharos organiza os contatos da própria Strutura.",
   <>
     O processo é público, no{" "}
     <a

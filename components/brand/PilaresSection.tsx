@@ -45,8 +45,7 @@ export default function PilaresSection() {
                 comunidade paga.
               </>,
               <>
-                <strong>Produtos como prova (o ativo)</strong> — Pharos e
-                Studio.
+                <strong>Produtos como prova (o ativo)</strong> — o Pharos.
               </>,
               <>
                 <strong>Serviço direto com o fundador (a ponte)</strong> —
