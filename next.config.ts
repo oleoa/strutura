@@ -1,7 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async redirects() {
+    return [
+      // O design system estático foi absorvido pela página /brand.
+      {
+        source: "/design.html",
+        destination: "/brand",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

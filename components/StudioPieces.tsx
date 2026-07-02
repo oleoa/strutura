@@ -1,6 +1,6 @@
 /*
- * Mosaico de peças 4:5 renderizadas ao vivo — as receitas de
- * public/design.html (§09), portadas para Tailwind. A prova do Studio é
+ * Mosaico de peças 4:5 renderizadas ao vivo — as receitas da página /brand
+ * (seção 10.9, DsExemplos), portadas para Tailwind. A prova do Studio é
  * dupla: as peças existem no feed, e o site as renderiza nativamente.
  * Tipografia fluida via container queries (cqw), como nas peças originais.
  */

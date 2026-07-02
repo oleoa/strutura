@@ -1,6 +1,6 @@
 # Strutura — Design System "Nature Warm"
 
-> **Fonte de verdade: [`public/design.html`](public/design.html)** (`strutura.ai/design.html`) — a página renderiza tokens, tipografia, grão e exemplos ao vivo. Este arquivo é o resumo de trabalho para consulta rápida. **Consultar antes de criar ou alterar qualquer peça.**
+> **Fonte de verdade: a página [`/brand`](app/brand/page.tsx)** (`strutura.ai/brand`, seção 10 — componentes em `components/brand/ds/`) — a página renderiza tokens, tipografia, grão e exemplos ao vivo, além da identidade estratégica da marca. O antigo `design.html` foi aposentado (redirect permanente `/design.html` → `/brand`). Este arquivo é o resumo de trabalho para consulta rápida. **Consultar antes de criar ou alterar qualquer peça.**
 
 > ✅ **Estado da migração:** o **site** (`app/globals.css`, componentes) já roda nos tokens Nature Warm (clima Campo + footer Bosque). Peças (posts, templates do Strutura Studio, materiais) seguem o mesmo sistema. Os utilitários Tailwind do site estão no [Apêndice](#apêndice--utilitários-tailwind-do-site-nature-warm).
 
@@ -93,7 +93,7 @@ Fontes via Google Fonts: **Fraunces** (`ital, opsz, wght 300–600`) + **Inter**
 
 ## Textura & furniture
 
-**Grão em toda peça** — é o que separa do calmo-liso genérico. Overlay SVG `feTurbulence` (`fractalNoise`, `baseFrequency ≈ 0.85–0.9`, `numOctaves 2`), `mix-blend-mode: overlay` (Campo) ou `soft-light` (Bosque), opacidade ~0.4–0.5 (capa) / ~0.35 (slide de ensino — legibilidade manda). Snippet completo em `public/design.html` (seção 06).
+**Grão em toda peça** — é o que separa do calmo-liso genérico. Overlay SVG `feTurbulence` (`fractalNoise`, `baseFrequency ≈ 0.85–0.9`, `numOctaves 2`), `mix-blend-mode: overlay` (Campo) ou `soft-light` (Bosque), opacidade ~0.4–0.5 (capa) / ~0.35 (slide de ensino — legibilidade manda). Snippet completo na página `/brand` (seção 10.6, `components/brand/ds/DsTextura.tsx`).
 
 **Furniture editorial** (com propósito, nunca decorar à toa):
 
@@ -191,4 +191,4 @@ Regras do site:
 
 ---
 
-_Última atualização: julho de 2026 — design system "Nature Warm" (v3), substituindo o "Warm Minimal" (v2). Site migrado para os tokens Nature Warm. Fonte de verdade: [`public/design.html`](public/design.html)._
+_Última atualização: julho de 2026 — design system "Nature Warm" (v3), substituindo o "Warm Minimal" (v2). Site migrado para os tokens Nature Warm. Fonte de verdade: a página [`/brand`](app/brand/page.tsx) (`strutura.ai/brand`, seção 10)._

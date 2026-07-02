@@ -36,7 +36,8 @@ const SOCIALS = [
 
 export default function Footer() {
   const pathname = usePathname();
-  if (pathname.startsWith("/links")) return null;
+  if (pathname.startsWith("/links") || pathname.startsWith("/brand"))
+    return null;
 
   return (
     <footer className="grain-bosque grain-soft w-full bg-linear-175 from-bosque-mid to-bosque-deep to-62% text-bone">

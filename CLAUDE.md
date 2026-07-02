@@ -31,7 +31,7 @@ O que a pessoa leva ao sair: **"esse cara constrói a própria estrutura digital
 
 ## 🎨 Brand & Design
 
-> **Design system: "Nature Warm"** — fonte de verdade em [`public/design.html`](public/design.html) (`strutura.ai/design.html`); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). **Consultar antes de criar/alterar qualquer peça ou UI.**
+> **Design system: "Nature Warm"** — fonte de verdade na página [`/brand`](app/brand/page.tsx) (`strutura.ai/brand`, seção 10; componentes em `components/brand/ds/`), que também é a source of truth da marca inteira; resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md). O antigo `design.html` foi aposentado (redirect permanente `/design.html` → `/brand`). **Consultar antes de criar/alterar qualquer peça ou UI.**
 
 ### Identidade "Nature Warm" (posts, templates do Studio, materiais)
 
@@ -175,7 +175,7 @@ Produto de apoio, apresentado na seção `#studio` da homepage (porta: `studio.s
 
 **O que é:** ferramenta da Strutura para posts comerciais — "quase um Canva que faz por você": descreve a peça, o Studio gera, e depois você gerencia e organiza tudo num lugar só. É post de negócio, não arte — por isso aqui a IA pode fazer o trabalho inteiro sem violar o dogma (função/encanamento, não autoria).
 
-**Prova de funcionamento:** o Instagram do Leonardo (@leoabreu.ia) é feito inteiro no Studio. No site, a prova visual é o `StudioPieces.tsx` — 3 peças 4:5 renderizadas ao vivo em HTML/CSS (receitas de `public/design.html` §09).
+**Prova de funcionamento:** o Instagram do Leonardo (@leoabreu.ia) é feito inteiro no Studio. No site, a prova visual é o `StudioPieces.tsx` — 3 peças 4:5 renderizadas ao vivo em HTML/CSS (receitas da seção 10.9 de `/brand`, `components/brand/ds/DsExemplos.tsx`).
 
 ---
 
@@ -186,4 +186,4 @@ Produto de apoio, apresentado na seção `#studio` da homepage (porta: `studio.s
 
 ---
 
-_Last updated: July 2026 — site reescrito como **vitrine de marca** (copy pt-BR, voz 3ª pessoa, hero Bosque "floresta-catedral", seções A Strutura / Produtos / Quem sou eu / Comunidade / Contato). Design system "Nature Warm" (fonte de verdade: [`public/design.html`](public/design.html); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md))._
+_Last updated: July 2026 — site reescrito como **vitrine de marca** (copy pt-BR, voz 3ª pessoa, hero Bosque "floresta-catedral", seções A Strutura / Produtos / Quem sou eu / Comunidade / Contato). Source of truth da marca + design system "Nature Warm" unificados na página [`/brand`](app/brand/page.tsx) (`strutura.ai/brand`, noindex; `design.html` aposentado com redirect permanente); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)._
