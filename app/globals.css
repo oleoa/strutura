@@ -2,43 +2,51 @@
 @import "tw-animate-css";
 
 @theme {
-  /* ─────── Texto (warm ink) ─────── */
-  --color-ink: #2c2820;
-  --color-ink-soft: #5c5448;
-  --color-ink-muted: #8b7e68;
-  --color-ink-faint: #a89a7e;
+  /* ─────── Texto (campo-ink, verde-escuro) ─────── */
+  --color-ink: #1e2b22; /* --campo-ink */
+  --color-ink-soft: #4c5549; /* campo-ink 78% sobre campo-base */
+  --color-ink-muted: #7b7e70; /* campo-ink 56% sobre campo-base */
+  --color-ink-faint: #a1a090; /* campo-ink 38% sobre campo-base */
 
-  /* ─────── Acento mostarda ─────── */
-  --color-mustard: #c99a2d; /* preenchimentos / display grande — NÃO usar em texto pequeno */
-  --color-mustard-hover: #b58825;
-  --color-mustard-soft: #f5efe0;
-  --color-mustard-soft-hover: #efe6cd;
-  --color-mustard-ink: #8b6f2c; /* texto pequeno / ícones sobre fundo claro */
-  --color-mustard-border: #e8ddb8;
-  --color-gold-light: #e7c372; /* acento dourado sobre foto/escuro (herói) — só em texto grande */
+  /* ─────── Acento mostarda envelhecido ─────── */
+  --color-mustard: #a9741f; /* --mostarda-queimado: display grande / itálico de título — NÃO usar em texto pequeno */
+  --color-mustard-hover: #7d5514; /* hover de botão (mais escuro que --primary) */
+  --color-mustard-soft: #eadcc2; /* queimado ~10% sobre campo-base */
+  --color-mustard-soft-hover: #e5d5b7; /* queimado ~16% sobre campo-base */
+  --color-mustard-ink: #7a5415; /* texto pequeno / ícones — AA sobre base, bone e soft */
+  --color-mustard-border: #e0cca9; /* queimado ~24% sobre campo-base */
+  --color-gold-light: #e4d2a8; /* --campo-haze: acento sobre foto/escuro (herói) — só em texto grande */
+
+  /* ─────── Campo / Bosque ─────── */
+  --color-campo-verde: #788c56; /* verde-campo (horizonte, natureza) */
+  --color-campo-verde-deep: #5e6b3e; /* verde mais fundo */
+  --color-bosque-deep: #14201a; /* floresta profunda — superfície Bosque (footer) */
+  --color-bosque-mid: #26382b; /* verde médio (gradiente do Bosque) */
+  --color-bone: #efe7d6; /* tinta clara sobre Bosque (= campo-bone) */
+  --color-mustard-bosque: #c98a2b; /* --mostarda: acento sobre escuro (Bosque) */
 
   /* ─────── Fundos / bordas extra ─────── */
-  --color-subtle: #f0ebdf;
-  --color-border-strong: #d8cdb5;
+  --color-subtle: #e7dbbe;
+  --color-border-strong: #bebba9; /* campo-ink ~24% sobre base */
 
-  /* ─────── Semânticos ─────── */
-  --color-success: #5c7a3a;
-  --color-success-soft: #eaf0dd;
-  --color-success-ink: #3f5526;
-  --color-success-border: #d5dfc0;
-  --color-danger: #b5462e;
-  --color-danger-soft: #f5e6df;
-  --color-danger-ink: #7a2f1e;
-  --color-danger-border: #e5cfc2;
-  --color-info: #4a6b8b;
-  --color-info-soft: #e5ebf2;
-  --color-info-ink: #2f4760;
-  --color-info-border: #c8d4e0;
+  /* ─────── Semânticos (harmonizados à paleta Campo) ─────── */
+  --color-success: #5e6b3e;
+  --color-success-soft: #e3ddc5;
+  --color-success-ink: #47522f;
+  --color-success-border: #cfceb1;
+  --color-danger: #8a4a26;
+  --color-danger-soft: #e5d5bf;
+  --color-danger-ink: #66351a;
+  --color-danger-border: #d4bca3;
+  --color-info: #45646b;
+  --color-info-soft: #dcd8c7;
+  --color-info-ink: #32494f;
+  --color-info-border: #c1c3b7;
 
-  /* ─────── Sombras quentes (subtis, nunca pesadas) ─────── */
-  --shadow-sm: 0 1px 2px rgba(44, 40, 32, 0.04);
-  --shadow-md: 0 2px 8px rgba(44, 40, 32, 0.06);
-  --shadow-lg: 0 8px 24px rgba(44, 40, 32, 0.08);
+  /* ─────── Sombras quentes (retintadas pro campo-ink) ─────── */
+  --shadow-sm: 0 1px 2px rgba(30, 43, 34, 0.04);
+  --shadow-md: 0 2px 8px rgba(30, 43, 34, 0.06);
+  --shadow-lg: 0 8px 24px rgba(30, 43, 34, 0.08);
 
   /* ─────── Radius (escala do design system) ─────── */
   --radius-sm: 6px;
@@ -88,50 +96,41 @@
 :root {
   --radius: 0.625rem; /* base do shadcn (sonner/primitivos) ≈ 10px = --radius-md */
 
-  --background: #faf7f2; /* bg-base (warm off-white) */
-  --foreground: #2c2820; /* text-primary (ink) */
+  --background: #f1e8d4; /* --campo-base (creme quente) */
+  --foreground: #1e2b22; /* --campo-ink */
 
-  /* Section backgrounds — warm minimal */
-  --section-hero-bg: radial-gradient(
-      ellipse at center,
-      rgba(201, 154, 45, 0.06) 0%,
-      transparent 55%
-    ),
-    radial-gradient(ellipse at center, #faf7f2 0%, #fffefb 70%);
-  --section-hero-fade: #fffefb;
-  --section-how-bg: #fffefb; /* surface */
-  --section-how-fade: #f5f1e8; /* muted */
-  --section-products-bg: #f5f1e8; /* muted */
+  /* Grão (feTurbulence) — overlay global em body::after */
+  --grain-url: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.87' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
 
-  --card: #fffefb;
-  --card-foreground: #2c2820;
-  --popover: #fffefb;
-  --popover-foreground: #2c2820;
-  --primary: #c99a2d; /* mostarda — botão default */
-  --primary-foreground: #fffefb;
-  --secondary: #f5f1e8;
-  --secondary-foreground: #2c2820;
-  --muted: #f5f1e8;
-  --muted-foreground: #8b7e68;
-  --accent: #f5f1e8; /* hover bg do shadcn (NÃO é a mostarda) */
-  --accent-foreground: #2c2820;
-  --destructive: #b5462e;
-  --border: #e8e0d0;
-  --input: #e8e0d0;
-  --ring: #c99a2d; /* focus ring quente */
-  --chart-1: #c99a2d;
-  --chart-2: #5c7a3a;
-  --chart-3: #4a6b8b;
-  --chart-4: #b5462e;
-  --chart-5: #8b7e68;
-  --sidebar: #fffefb;
-  --sidebar-foreground: #2c2820;
-  --sidebar-primary: #c99a2d;
-  --sidebar-primary-foreground: #fffefb;
-  --sidebar-accent: #f5f1e8;
-  --sidebar-accent-foreground: #2c2820;
-  --sidebar-border: #e8e0d0;
-  --sidebar-ring: #c99a2d;
+  --card: #efe7d6;
+  --card-foreground: #1e2b22;
+  --popover: #efe7d6;
+  --popover-foreground: #1e2b22;
+  --primary: #8a5e16; /* mostarda-queimado escurecido p/ AA com texto bone — botão default */
+  --primary-foreground: #efe7d6;
+  --secondary: #eae0c9;
+  --secondary-foreground: #1e2b22;
+  --muted: #eae0c9;
+  --muted-foreground: #7b7e70;
+  --accent: #eae0c9; /* hover bg do shadcn (NÃO é a mostarda) */
+  --accent-foreground: #1e2b22;
+  --destructive: #8a4a26;
+  --border: #cfcab8; /* campo-ink ~16% sobre base */
+  --input: #cfcab8;
+  --ring: #a9741f; /* focus ring quente (mostarda-queimado) */
+  --chart-1: #a9741f;
+  --chart-2: #788c56;
+  --chart-3: #45646b;
+  --chart-4: #8a4a26;
+  --chart-5: #7b7e70;
+  --sidebar: #efe7d6;
+  --sidebar-foreground: #1e2b22;
+  --sidebar-primary: #8a5e16;
+  --sidebar-primary-foreground: #efe7d6;
+  --sidebar-accent: #eae0c9;
+  --sidebar-accent-foreground: #1e2b22;
+  --sidebar-border: #cfcab8;
+  --sidebar-ring: #a9741f;
 }
 
 @layer base {
@@ -148,6 +147,17 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  /* Grão global — "claro mas não limpo". Mais sutil que nas peças (site é leitura longa). */
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: var(--grain-url);
+    mix-blend-mode: overlay;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 100;
+  }
   /* Títulos em serifa (Fraunces) — corpo permanece em Inter */
   h1,
   h2 {
@@ -162,5 +172,65 @@
   }
   #inicio h1 .italic {
     font-variation-settings: "opsz" 144, "SOFT" 100;
+  }
+}
+
+@layer components {
+  /* Grão local dos blocos Bosque (hero, footer) — o global de 0.25 em overlay
+     quase desaparece sobre escuro; o sistema pede soft-light 0.45–0.55. */
+  .grain-bosque,
+  .grain-campo {
+    position: relative;
+    isolation: isolate;
+  }
+  .grain-bosque::after,
+  .grain-campo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--grain-url);
+    pointer-events: none;
+    border-radius: inherit;
+    z-index: 30;
+  }
+  .grain-bosque::after {
+    mix-blend-mode: soft-light;
+    opacity: 0.5;
+  }
+  /* Grão das peças 4:5 (StudioPieces) — spec cheio de peça, não o do site */
+  .grain-campo::after {
+    mix-blend-mode: overlay;
+    opacity: 0.45;
+  }
+  .grain-soft.grain-bosque::after {
+    opacity: 0.45; /* footer */
+  }
+  .grain-soft.grain-campo::after {
+    opacity: 0.35; /* slide de ensino: legibilidade manda */
+  }
+  .grain-strong.grain-bosque::after {
+    opacity: 0.55; /* capa Bosque */
+  }
+
+  /* Entrada do hero — CSS puro (sem gate de hidratação; LCP limpo) */
+  .animate-rise {
+    animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise {
+    animation: none;
   }
 }

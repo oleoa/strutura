@@ -8,11 +8,11 @@ const RevealOnScroll = ({
   className = "",
 }: {
   children: React.ReactNode;
-  delay: number;
+  delay?: number;
   className?: string;
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -30,9 +30,10 @@ const RevealOnScroll = ({
   return (
     <div
       ref={ref}
-      className={`transition-all duration-1000 ease-out delay-${delay * 100}
-        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"} ${className}`}
-      style={{ transitionDelay: `${delay}s` }}
+      data-reveal
+      className={`transition-all duration-700 ease-out motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none
+        ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"} ${className}`}
+      style={delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
     </div>

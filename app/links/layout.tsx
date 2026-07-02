@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Links — Strutura",
+  title: "Links",
   description:
-    "Links úteis da Strutura: WhatsApp, Pharos, sites, formulários e mais.",
+    "Os links do Leonardo Abreu: Pharos, Studio, o site da Strutura e o WhatsApp.",
 };
 
 export default function LinksLayout({

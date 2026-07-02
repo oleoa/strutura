@@ -2,7 +2,7 @@
 
 > **Fonte de verdade: [`public/design.html`](public/design.html)** (`strutura.ai/design.html`) — a página renderiza tokens, tipografia, grão e exemplos ao vivo. Este arquivo é o resumo de trabalho para consulta rápida. **Consultar antes de criar ou alterar qualquer peça.**
 
-> ⚠️ **Estado da migração:** o **site** (`app/globals.css`, componentes) ainda roda nos tokens do sistema anterior (Warm Minimal). Peças novas (posts, templates do Strutura Studio, materiais) seguem o Nature Warm; a migração do site fica para depois — ver [Apêndice](#apêndice--implementação-atual-do-site-warm-minimal-a-migrar).
+> ✅ **Estado da migração:** o **site** (`app/globals.css`, componentes) já roda nos tokens Nature Warm (clima Campo + footer Bosque). Peças (posts, templates do Strutura Studio, materiais) seguem o mesmo sistema. Os utilitários Tailwind do site estão no [Apêndice](#apêndice--utilitários-tailwind-do-site-nature-warm).
 
 ---
 
@@ -156,33 +156,39 @@ A peça nunca depende da foto pra existir — **a foto eleva, não sustenta**:
 
 ---
 
-## Apêndice — implementação atual do site (Warm Minimal, a migrar)
+## Apêndice — utilitários Tailwind do site (Nature Warm)
 
-O código do site ainda usa os tokens Warm Minimal via `@theme` em [`app/globals.css`](app/globals.css). **Quem mexer na UI do site antes da migração segue esta tabela** (não misturar os dois sistemas num mesmo contexto):
+O site roda o clima **Campo** nos tokens `@theme` de [`app/globals.css`](app/globals.css). Os **nomes** dos utilitários são os mesmos do Warm Minimal — só os valores mudaram:
 
 | Papel | Hex | Utilitário Tailwind |
 | --- | --- | --- |
-| Fundo da página | `#faf7f2` | `bg-background` |
-| Superfície (cards, inputs) | `#fffefb` | `bg-card` |
-| Muted (hover, áreas 2.ª) | `#f5f1e8` | `bg-muted` |
-| Borda padrão | `#e8e0d0` | `border-border` |
-| Texto primário | `#2c2820` | `text-foreground` |
-| Texto secundário | `#5c5448` | `text-ink-soft` |
-| Texto muted | `#8b7e68` | `text-ink-muted` |
-| Mostarda (fills/display) | `#c99a2d` | `bg-mustard` · `text-mustard` |
-| Mostarda texto pequeno/ícones | `#8b6f2c` | `text-mustard-ink` |
-| Mostarda soft (fundo) | `#f5efe0` | `bg-mustard-soft` |
+| Fundo da página (campo-base) | `#f1e8d4` | `bg-background` |
+| Superfície (campo-bone — cards, inputs) | `#efe7d6` | `bg-card` |
+| Muted (hover, áreas 2.ª) | `#eae0c9` | `bg-muted` |
+| Borda padrão (ink ~16% sobre base) | `#cfcab8` | `border-border` |
+| Texto primário (campo-ink) | `#1e2b22` | `text-foreground` |
+| Texto secundário (ink 78%) | `#4c5549` | `text-ink-soft` |
+| Texto muted (ink 56%) | `#7b7e70` | `text-ink-muted` |
+| Mostarda queimado (display/itálico de título) | `#a9741f` | `text-mustard` · `bg-mustard` |
+| Botão default (queimado escurecido p/ AA) | `#8a5e16` | `bg-primary` |
+| Mostarda texto pequeno/ícones (AA) | `#7a5415` | `text-mustard-ink` |
+| Mostarda soft (fundo, navbar) | `#eadcc2` | `bg-mustard-soft` |
+| Haze (acento sobre foto/escuro, itálico do herói) | `#e4d2a8` | `text-gold-light` |
+| Bosque profundo (footer) | `#14201a` | `bg-bosque-deep` |
+| Bosque médio (gradiente do footer) | `#26382b` | `from-bosque-mid` |
+| Bone (texto sobre Bosque) | `#efe7d6` | `text-bone` |
+| Mostarda sobre escuro (acento no Bosque) | `#c98a2b` | `text-mustard-bosque` |
 
-Regras do site que continuam valendo até (e depois de) migrar:
+Regras do site:
 
-- **Light-only — sem dark mode.** Nunca `dark:`, toggles ou `prefers-color-scheme`.
-- `h1, h2` = Fraunces 500 (`@layer base`); **não** usar `font-bold` em display. Acento de título: `<span className="italic text-mustard">…</span>`.
-- `#c99a2d` reprova WCAG AA como texto pequeno — texto/ícones/links usam `text-mustard-ink`.
-- Semânticos (`success`/`danger`/`info`/`warning`), radius, sombras e componentes shadcn: ver `app/globals.css` e `components/ui/`.
+- **Light-only — sem dark mode.** Nunca `dark:`, toggles ou `prefers-color-scheme`. O footer Bosque é superfície pontual (a única escura permitida), não dark mode.
+- **Grão global**: overlay `feTurbulence` em `body::after` (`globals.css`), `mix-blend-mode: overlay`, opacidade 0.25 — mais sutil que nas peças, porque o site é leitura longa. Superfícies não precisam de grão individual.
+- `h1, h2` = Fraunces 500 (`@layer base`); **não** usar `font-bold` em display. Acento de título: `<span className="italic text-mustard">…</span>` (renderiza no queimado).
+- `#a9741f` (queimado puro) só passa AA em texto grande — texto/ícones/links pequenos usam `text-mustard-ink` (`#7a5415`); botões usam `bg-primary` (`#8a5e16`, AA com texto bone).
+- **Eyebrows de seção**: Inter 600, uppercase, `tracking-[0.24em]`, `text-mustard-ink` — sem pill.
+- Semânticos (`success`/`danger`/`info` + soft/ink/border) rederivados na paleta Campo: ver `app/globals.css`. Pares `*-ink` sobre `*-soft` validados AA.
 - Botões via variantes de [`components/ui/button.tsx`](components/ui/button.tsx) — não passar `className` de cor.
-
-Quando o site migrar para o Nature Warm, este apêndice sai e os tokens acima são substituídos pelos do topo deste arquivo.
 
 ---
 
-_Última atualização: julho de 2026 — design system "Nature Warm" (v3), substituindo o "Warm Minimal" (v2). Fonte de verdade: [`public/design.html`](public/design.html)._
+_Última atualização: julho de 2026 — design system "Nature Warm" (v3), substituindo o "Warm Minimal" (v2). Site migrado para os tokens Nature Warm. Fonte de verdade: [`public/design.html`](public/design.html)._

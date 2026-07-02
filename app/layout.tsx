@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Fraunces, JetBrains_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import { Toaster } from "@/components/ui/sonner";
+import { INSTAGRAM_URL, LINKEDIN_URL, PHAROS_URL, STUDIO_URL } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -31,23 +31,17 @@ const jetBrainsMono = JetBrains_Mono({
 
 const siteUrl = "https://strutura.ai";
 
+const siteDescription =
+  "A Strutura é a empresa onde Leonardo Abreu constrói os próprios produtos — Pharos e Studio — com método e com a IA no lugar certo.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Strutura — Infraestrutura digital para o seu negócio",
+    default: "Strutura — A IA no lugar certo",
     template: "%s | Strutura",
   },
-  description:
-    "Sites, automações, Pharos e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
-  keywords: [
-    "infraestrutura digital",
-    "Pharos para WhatsApp",
-    "automações para empresas",
-    "sites e landing pages",
-    "agentes de IA",
-    "integrações n8n",
-    "Strutura",
-  ],
+  description: siteDescription,
+  keywords: ["Strutura", "Pharos", "Strutura Studio", "Leo Abreu", "Leonardo Abreu"],
   authors: [{ name: "Leonardo Abreu de Paulo", url: siteUrl }],
   creator: "Leonardo Abreu de Paulo",
   publisher: "Strutura",
@@ -56,32 +50,28 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
-  alternates: {
-    canonical: siteUrl,
-    languages: { "pt-BR": siteUrl },
-  },
   openGraph: {
     type: "website",
     locale: "pt_BR",
     url: siteUrl,
     siteName: "Strutura",
-    title: "Strutura — Infraestrutura digital para o seu negócio",
+    title: "Strutura — A IA no lugar certo",
     description:
-      "Sites, automações, Pharos e integrações construídos sob medida. Trabalho direto com o fundador, sem agência no meio. Atendendo empresários no Brasil e na Europa.",
+      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes; o Studio faz o post comercial. Construídos com método, usados todos os dias.",
     images: [
       {
         url: "/banner.png",
         width: 1584,
         height: 396,
-        alt: "Strutura — Infraestrutura digital para o seu negócio",
+        alt: "Strutura — A IA no lugar certo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Strutura — Infraestrutura digital para o seu negócio",
+    title: "Strutura — A IA no lugar certo",
     description:
-      "Sites, automações, Pharos e integrações construídos sob medida. Direto com o fundador, sem agência no meio.",
+      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes; o Studio faz o post comercial.",
     images: ["/banner.png"],
   },
   verification: {
@@ -95,20 +85,26 @@ const jsonLd = {
   name: "Strutura",
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
-  description:
-    "Infraestrutura digital sob medida para o seu negócio — sites, automações, Pharos e integrações, construídos direto com o fundador.",
+  description: siteDescription,
   founder: {
     "@type": "Person",
     name: "Leonardo Abreu de Paulo",
   },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer support",
-    availableLanguage: ["Portuguese", "pt-BR"],
-  },
-  sameAs: [
-    // TODO: adicionar os URLs dos perfis de redes sociais
+  owns: [
+    {
+      "@type": "SoftwareApplication",
+      name: "Pharos",
+      url: PHAROS_URL,
+      applicationCategory: "BusinessApplication",
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: "Strutura Studio",
+      url: STUDIO_URL,
+      applicationCategory: "DesignApplication",
+    },
   ],
+  sameAs: [INSTAGRAM_URL, LINKEDIN_URL],
 };
 
 export default function RootLayout({
@@ -117,26 +113,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
+    <html
+      lang="pt-BR"
+      className={`${inter.variable} ${fraunces.variable} ${jetBrainsMono.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <script
-          id="vtag-ai-js"
-          async
-          src="https://r2.leadsy.ai/tag.js"
-          data-pid="ci2KKkZ70Yi7Ww68"
-          data-version="062024"
-        ></script>
+        <noscript>
+          <style>{`[data-reveal]{opacity:1 !important;transform:none !important}`}</style>
+        </noscript>
       </head>
-      <body
-        className={`${inter.variable} ${fraunces.variable} ${jetBrainsMono.variable} bg-background antialiased`}
-      >
+      <body className="bg-background antialiased">
         <Navbar />
         {children}
-        <Toaster />
         <Footer />
       </body>
     </html>

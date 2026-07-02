@@ -6,16 +6,18 @@ This file provides Claude Code with context about the Strutura project, conventi
 
 ## 🏢 Project Overview
 
-**Strutura** is an AI automation agency based in Portugal that helps businesses scale operations without increasing headcount. The website at `strutura.ai` is the primary marketing and lead generation tool for the business.
+**Strutura** é a empresa onde Leonardo Abreu constrói os próprios produtos (Pharos e Studio). O site `strutura.ai` é uma **vitrine de marca, não uma máquina de conversão**: quem chega vem do Instagram (@leoabreu.ia) e já conhece o Leonardo. A régua de tudo é *"isto está à altura do Leo que a pessoa já conheceu?"* — a execução do site é o portfólio.
 
-The site exists to:
+O que a pessoa leva ao sair: **"esse cara constrói a própria estrutura digital, com método, e a IA fica no lugar certo — de braço, não de cabeça."**
 
-- Communicate Strutura's value proposition clearly to Portuguese SMBs
-- Generate leads through a free business audit offer
-- Build credibility and trust in a market still unfamiliar with AI automation
-- Convert visitors into booked audit sessions via Cal.com
+**Silêncios deliberados (não reintroduzir):**
 
-The core message is: **"Automação personalizada para empresas portuguesas. Auditoria gratuita, sem compromisso."**
+- **Sem venda de serviço** — nada de "o que fazemos por você", pacotes ou preços. Contato é só o CTA discreto "Falar com o Leonardo" → WhatsApp.
+- **Sem captura de email / lead magnet** — isso vive no Instagram.
+- **Sem cases/depoimentos** — não há prova externa ainda; a prova são os produtos e o próprio site.
+- **O dogma ("IA é braço, não cabeça") nunca vira manifesto escrito** — transparece pelas definições dos produtos.
+
+**Voz:** 3ª pessoa factual em todo o site ("A Strutura desenvolveu o Pharos"); **1ª pessoa só na seção "Quem sou eu"**; nunca plural corporativo de agência ("nossa equipe"). Banidos: "revolucionário", "transformação digital", "potencialize", "alavancar", "boost", "unlock", emoji, motivacional vazio.
 
 ---
 
@@ -42,30 +44,35 @@ The core message is: **"Automação personalizada para empresas portuguesas. Aud
 - Fontes: **Fraunces** (display 300–600, itálico de ênfase na cor de acento do clima) + **Inter** (utilitária 400–600).
 - Post: **1080 × 1350 (4:5)**; pensar o mosaico do feed, não só a peça.
 
-### Site (implementação atual — ainda "Warm Minimal", migração pendente)
+### Site (implementação atual — Nature Warm, clima Campo)
 
-O código do site (`app/globals.css`, componentes) **ainda roda nos tokens Warm Minimal**. Até a migração, UI do site usa estes utilitários (tabela completa no apêndice do [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)):
+O código do site (`app/globals.css`, componentes) roda nos tokens **Nature Warm**. Os nomes dos utilitários são os mesmos do sistema anterior — só os valores mudaram (tabela completa no apêndice do [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)):
 
-| Name                       | Hex       | Tailwind           |
-| -------------------------- | --------- | ------------------ |
-| Background (base)          | `#FAF7F2` | `bg-background`    |
-| Surface (cards, inputs)    | `#FFFEFB` | `bg-card`          |
-| Muted (hover, 2nd areas)   | `#F5F1E8` | `bg-muted`         |
-| Accent — mustard (fills)   | `#C99A2D` | `bg-mustard`       |
-| Accent text (small/icons)  | `#8B6F2C` | `text-mustard-ink` |
-| Text — primary (ink)       | `#2C2820` | `text-foreground`  |
-| Text — muted               | `#8B7E68` | `text-ink-muted`   |
-| Border                     | `#E8E0D0` | `border-border`    |
+| Name                        | Hex       | Tailwind              |
+| --------------------------- | --------- | --------------------- |
+| Background (campo-base)     | `#F1E8D4` | `bg-background`       |
+| Surface (campo-bone)        | `#EFE7D6` | `bg-card`             |
+| Muted (hover, 2nd areas)    | `#EAE0C9` | `bg-muted`            |
+| Mostarda queimado (display) | `#A9741F` | `text-mustard`        |
+| Botão default (AA)          | `#8A5E16` | `bg-primary`          |
+| Accent text (small/icons)   | `#7A5415` | `text-mustard-ink`    |
+| Text — primary (campo-ink)  | `#1E2B22` | `text-foreground`     |
+| Text — muted                | `#7B7E70` | `text-ink-muted`      |
+| Border                      | `#CFCAB8` | `border-border`       |
+| Bosque (footer)             | `#14201A` | `bg-bosque-deep`      |
+| Mostarda sobre escuro       | `#C98A2B` | `text-mustard-bosque` |
 
 ### Typography & Style (regras do site)
 
-- **Light-only — sem dark mode.** Never use `dark:` variants, theme toggles, or `prefers-color-scheme`. (Vale nos dois sistemas — o Bosque é clima de peça, não dark mode do site.)
+- **Light-only — sem dark mode.** Never use `dark:` variants, theme toggles, or `prefers-color-scheme`. **Hero e footer são as duas únicas superfícies Bosque (escuras)** — moldura deliberada; nenhum outro bloco escuro.
+- **Grão global** em `body::after` (`globals.css`) — overlay SVG `feTurbulence`, `mix-blend-mode: overlay`, opacidade 0.25. Blocos Bosque usam grão local extra via `.grain-bosque` (soft-light 0.5; footer `.grain-soft` 0.45). As peças 4:5 do `StudioPieces` usam `.grain-campo`/`.grain-bosque` com modificadores. Não adicionar grão individual a cards/superfícies comuns.
 - Fonts: **Fraunces** (serif → headings `h1`/`h2`), **Inter** (sans → body/UI/`h3`), **JetBrains Mono** (technical). Loaded in `app/layout.tsx`.
-- Headings are serif **500** — don't use `font-bold` on display headings; accent words use `italic text-mustard`.
-- Mustard `#C99A2D` only for fills / large display; for **small text, icons, links use `text-mustard-ink`** (`#8B6F2C`).
+- Headings are serif **500** — don't use `font-bold` on display headings; accent words use `italic text-mustard` (renderiza no queimado `#A9741F`).
+- Queimado `#A9741F` only for large display; for **small text, icons, links use `text-mustard-ink`** (`#7A5415`); button fills use `bg-primary` (`#8A5E16` — o queimado escurecido para passar WCAG AA com texto bone).
+- Eyebrows de seção: Inter 600, uppercase, `tracking-[0.24em]`, `text-mustard-ink` — sem pill.
 - Warm, subtle shadows (`shadow-md`); generous radii (cards `rounded-2xl`).
-- Clean, minimal — avoid visual clutter. Professional but approachable tone.
-- All user-facing copy should be in **Portuguese (Portugal)**.
+- Texturizado e editorial — "claro mas não limpo; calmo mas não vazio". Professional but approachable tone.
+- All user-facing copy is in **Portuguese (Brazil)** — a voz do Instagram @leoabreu.ia. (Regra antiga de pt-PT foi aposentada com o reposicionamento de julho/2026.)
 
 ---
 
@@ -116,20 +123,24 @@ O código do site (`app/globals.css`, componentes) **ainda roda nos tokens Warm 
 
 ## 📁 Key Pages & Structure
 
-| Route             | Purpose                                      |
-| ----------------- | -------------------------------------------- |
-| `/`               | Homepage — hero, services, how it works, CTA |
-| `/privacidade`    | Privacy Policy (WhatsApp Business)           |
-| `/termos`         | Terms of Service (WhatsApp Business)         |
-| `/eliminar-dados` | User Data Deletion instructions              |
+| Route       | Purpose                                                                 |
+| ----------- | ----------------------------------------------------------------------- |
+| `/`         | Home — Hero (Bosque) → A Strutura → Produtos (Pharos + Studio) → Quem sou eu → Comunidade → Contato → Footer (Bosque) |
+| `/links`    | Linktree próprio (Pharos, Studio, site, WhatsApp) — navbar/footer ocultos |
+
+**Home:** cada seção é um componente server em `components/` (`HeroSection`, `StruturaSection`, `ProductsSection`/`PharosShowcase`/`StudioShowcase`, `AboutMeSection`, `CommunitySection`, `ContactSection`). URLs/constantes centrais em `lib/site.ts` (WhatsApp, Pharos, Studio, Instagram, `HERO_IMAGE`).
+
+**Imagem do hero:** a imagem escolhida vive em `public/` e é apontada por `HERO_IMAGE` em `lib/site.ts`; `null` faz rollback para a cena CSS/SVG ("floresta-catedral") em `HeroBackdrop`. Ao trocar a imagem, manter ≤ 350 KB (webp de preferência).
 
 ---
 
 ## 📦 Produto: Strutura Pharos
 
-Primeiro produto da casa, vendido no site institucional (seção `#pharos` da homepage) e operado em `crm.strutura.ai`. Usar **apenas** os fatos abaixo ao escrever sobre o Pharos — não inventar features.
+Produto principal da casa, apresentado na seção `#pharos` da homepage (porta: `pharos.strutura.ai`). Usar **apenas** os fatos abaixo ao escrever sobre o Pharos — não inventar features.
 
-**O que é (1 frase):** CRM de WhatsApp e Instagram que usa IA para ler todas as conversas toda madrugada e dizer ao vendedor exatamente com quem precisa falar — e o que falar — sem que ninguém atualize status manualmente.
+**O que é (1 frase):** sistema que classifica e organiza leads e clientes automaticamente — lê as conversas de WhatsApp e Instagram, interpreta e deixa preparado o que responder, o que falta responder e a próxima ação. **Ele não responde por você — de propósito.**
+
+> ⚠️ No site, o Pharos **nunca** é chamado de "CRM", nem posicionado como "automatize seu WhatsApp" ou "IA que responde". A prova visual é um screenshot real do produto (`public/pharos.png`) emoldurado no `PharosShowcase.tsx`. (Existe também um mock HTML/CSS em `PharosMock.tsx`, hoje sem uso — alternativa caso o screenshot saia de sincronia com o produto.)
 
 **Para quem:** PMEs brasileiras e LATAM que vendem por WhatsApp/Instagram Direct (clínicas, imobiliárias, infoprodutos, agências, lojas de alto ticket, consultorias). Times de 1–30 vendedores. Cobrança em BRL, USD e EUR.
 
@@ -154,16 +165,25 @@ Primeiro produto da casa, vendido no site institucional (seção `#pharos` da ho
 - Sem app mobile nativo — é web responsivo
 - Usa WAHA self-hosted (QR code), não WhatsApp API oficial (BSP)
 
-**Tom de voz da copy do Pharos:** português **brasileiro** (exceção à regra pt-PT do resto do site — público BR/LATAM), direto, frases curtas, verbos no presente, gírias leves de comercial ("a bola está com você", "lead quente"). Banidos: "revolucionário", "transformação digital", "potencialize", "alavancar", "boost", "unlock", emoji. Preços só em página de pricing, nunca na seção institucional.
+**Tom de voz da copy do Pharos:** direto, frases curtas, verbos no presente, gírias leves de comercial ("a bola está com você", "lead quente"). Preços só em página de pricing, nunca na seção institucional.
+
+---
+
+## 🎨 Produto: Strutura Studio
+
+Produto de apoio, apresentado na seção `#studio` da homepage (porta: `studio.strutura.ai`).
+
+**O que é:** ferramenta da Strutura para posts comerciais — "quase um Canva que faz por você": descreve a peça, o Studio gera, e depois você gerencia e organiza tudo num lugar só. É post de negócio, não arte — por isso aqui a IA pode fazer o trabalho inteiro sem violar o dogma (função/encanamento, não autoria).
+
+**Prova de funcionamento:** o Instagram do Leonardo (@leoabreu.ia) é feito inteiro no Studio. No site, a prova visual é o `StudioPieces.tsx` — 3 peças 4:5 renderizadas ao vivo em HTML/CSS (receitas de `public/design.html` §09).
 
 ---
 
 ## 🔗 Integrations & External Services
 
-- **Cal.com** — appointment booking for free business audits
-- **WhatsApp Business** — primary communication channel with leads
-- **n8n** — backend workflow automation
+- **WhatsApp** (`wa.me/351931135852`) — único canal de contato do site; CTA "Falar com o Leonardo"
+- Sem analytics de lead-gen, sem Cal.com, sem formulários — removidos no reposicionamento
 
 ---
 
-_Last updated: July 2026 — adopted the "Nature Warm" design system (source of truth: [`public/design.html`](public/design.html); summary in [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md)). Site code still runs on Warm Minimal tokens until migration._
+_Last updated: July 2026 — site reescrito como **vitrine de marca** (copy pt-BR, voz 3ª pessoa, hero Bosque "floresta-catedral", seções A Strutura / Produtos / Quem sou eu / Comunidade / Contato). Design system "Nature Warm" (fonte de verdade: [`public/design.html`](public/design.html); resumo em [`DESIGN_SYSTEM.md`](DESIGN_SYSTEM.md))._
