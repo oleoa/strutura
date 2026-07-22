@@ -3,10 +3,9 @@ import HeroSection from "@/components/HeroSection";
 import StruturaSection from "@/components/StruturaSection";
 import ProductsSection from "@/components/ProductsSection";
 import AboutMeSection from "@/components/AboutMeSection";
-import CommunitySection from "@/components/CommunitySection";
 import ContactSection from "@/components/ContactSection";
 
-// Canonical só da home — no layout raiz seria herdado por /links e afins.
+// Canonical só da home: no layout raiz seria herdado por qualquer outra rota.
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
@@ -21,7 +20,6 @@ export default function Home() {
       <StruturaSection />
       <ProductsSection />
       <AboutMeSection />
-      <CommunitySection />
       <ContactSection />
     </main>
   );

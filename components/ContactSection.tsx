@@ -10,25 +10,29 @@ export default function ContactSection() {
       <div className="mx-auto flex max-w-2xl flex-col items-center px-6 text-center">
         <RevealOnScroll className="flex flex-col items-center">
           <SectionHeader
-            num="05"
+            num="04"
             eyebrow="Contato"
             align="center"
             title={
               <>
-                A porta é o{" "}
+                A conversa começa no{" "}
                 <span className="italic text-mustard">WhatsApp</span>.
               </>
             }
           />
 
           <p className="mt-6 text-lg text-ink-soft">
-            Sem formulário: quem responde é o Leonardo.
+            Sem formulário: quem responde sou eu.
+          </p>
+
+          <p className="mt-3 text-base text-ink-muted">
+            E não esqueço ninguém. Se eu demorar, o Pharos me cobra.
           </p>
 
           <Button asChild size="xl" className="mt-8 rounded-full">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon className="size-5" />
-              Falar com o Leonardo
+              Falar comigo
             </a>
           </Button>
 

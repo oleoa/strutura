@@ -68,6 +68,11 @@ export default function NotFound() {
             </div>
           ))}
         </nav>
+
+        <p className="mt-10 font-serif text-sm text-ink-muted">
+          Não é disciplina. É{" "}
+          <span className="italic text-mustard-ink">strutura</span>.
+        </p>
       </div>
     </main>
   );

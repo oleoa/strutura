@@ -62,19 +62,19 @@ export default function DsTipografia() {
     <Container>
       <Section
         id="ds-tipografia"
-        num="10.5"
+        num="11.5"
         title="Tipografia"
         meta="Fraunces (display) · Inter (utilitária) · Google Fonts"
         sub
       >
         <p className="mb-7 max-w-[740px] text-[14.5px] leading-[1.75] text-ink-soft [&_strong]:font-semibold [&_strong]:text-ink [&_code]:rounded-[3px] [&_code]:bg-ink/[0.07] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs [&_code]:text-ink">
-          <strong>Fraunces</strong> é onde mora a personalidade — alta
+          <strong>Fraunces</strong> é onde mora a personalidade: alta
           personalidade, usada com{" "}
           <strong>restrição e em corpo grande</strong> (pesos 300–600, eixo{" "}
           <code>opsz</code> alto no display). <strong>Inter</strong> faz todo
           o resto: corpo, legendas, meta, eyebrow (400–600). O{" "}
-          <strong>itálico</strong> da Fraunces marca a ênfase de uma palavra —
-          o &ldquo;não a cabeça&rdquo;, o &ldquo;genérica&rdquo; — sempre na
+          <strong>itálico</strong> da Fraunces marca a ênfase de uma palavra
+          (o &ldquo;não a cabeça&rdquo;, o &ldquo;genérica&rdquo;), sempre na
           cor de acento do clima.
         </p>
 
@@ -178,13 +178,13 @@ export default function DsTipografia() {
         </div>
 
         <Callout title="Padrão de assinatura">
-          Toda peça assina <strong>&ldquo;Leo Abreu · Strutura&rdquo;</strong>{" "}
-          — uppercase pequeno, na cor de acento do clima
+          Toda peça assina <strong>&ldquo;Leo Abreu · Strutura&rdquo;</strong>:
+          uppercase pequeno, na cor de acento do clima
           (<code>--mostarda-queimado</code> no Campo, <code>--mostarda</code>{" "}
           no Bosque). <strong>Não usar mais &ldquo;Leonardo Abreu&rdquo;.</strong>
         </Callout>
 
-        <Subhead>Escala de referência — post 1080 × 1350</Subhead>
+        <Subhead>Escala de referência · post 1080 × 1350</Subhead>
         <div className="overflow-x-auto">
           <table className="mt-2 w-full border-collapse text-[13px]">
             <thead>

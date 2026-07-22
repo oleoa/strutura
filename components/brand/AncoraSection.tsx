@@ -7,29 +7,28 @@ export default function AncoraSection() {
         id="ancora"
         num="01."
         title="A âncora"
-        meta="Essência, statement e o teste de tudo"
+        meta="Missão, statement e o teste de tudo"
       >
-        <Subhead>Essência — o DNA, uma linha</Subhead>
+        <Subhead>Missão: o DNA, uma linha</Subhead>
         <p className="mb-7 mt-2 max-w-[24ch] font-serif text-[clamp(30px,4.5vw,44px)] font-normal leading-[1.15] tracking-[-0.015em] [font-variation-settings:'opsz'_144]">
-          Tirar o medo da IA e transformá-la em{" "}
-          <em className="italic text-mustard">vantagem real</em> — com calma,
-          profundidade e a mão na massa à vista.
+          Trazer <em className="italic text-mustard">controle</em> sobre sua
+          vida através da organização da estrutura digital.
         </p>
 
         <Subhead>Statement completo</Subhead>
         <Prose>
-          Para o empreendedor digital que sente que está ficando pra trás na
-          IA, a Strutura é <strong>o lugar calmo onde a IA finalmente faz
-          sentido</strong> — não pelo hype, mas porque ele vê, passo a passo,
-          alguém construindo de verdade e traduzindo o que parece complexo em
-          algo que dá pra implementar hoje. Sem trend, sem promessa mágica,
-          honesto sobre o que a IA <em>não</em> faz. Ele sai entendendo — e
-          para de ter medo do futuro.
+          Para o empreendedor no digital, que carrega vida e negócio no mesmo
+          sistema, a Strutura organiza a estrutura digital que segura os dois.
+          <strong> Organizar é o veículo; controle é o destino</strong>:
+          controle sobre a resposta às coisas, não sobre os eventos. O que a
+          marca entrega não é uma vida sem imprevisto; é um sistema que devolve
+          a resposta certa quando o imprevisto chega.
         </Prose>
 
         <Callout title="O teste de tudo">
           <strong>
-            Isso tira medo e vira implementação, ou é só barulho?
+            Isso devolve controle através de estrutura, ou é só ferramenta nova
+            fazendo barulho?
           </strong>{" "}
           Se é barulho, não é a Strutura.
         </Callout>

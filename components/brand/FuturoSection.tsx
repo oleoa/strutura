@@ -3,29 +3,30 @@ import { Container, DotList, Section } from "./ui";
 export default function FuturoSection() {
   return (
     <Container>
-      <Section id="futuro" num="11." title="Futuro" meta="O horizonte — sem ruptura">
+      <Section id="futuro" num="12." title="Futuro" meta="O horizonte, sem ruptura">
         <div className="max-w-[740px]">
           <DotList
             items={[
               <>
-                Ser <strong>referência em IA aplicada a negócios no
-                Brasil</strong>.
+                Ser <strong>a referência em uso da IA para organizar a vida e
+                o negócio do empreendedor no digital no Brasil</strong>.
               </>,
               <>
                 Sair gradualmente do projeto/horas conforme educação e SaaS
-                compõem — <strong>sem ruptura</strong>.
+                compõem: <strong>sem ruptura</strong>.
               </>,
               <>
                 <strong>Comunidade paga como destino</strong> (Skool, 12–18
                 meses, dinheiro paciente).
               </>,
               <>
-                Produtos como prova hoje, marca própria talvez amanhã —
-                optionalidade guardada.
+                Produtos como prova hoje, marca própria talvez amanhã;
+                opcionalidade guardada.
               </>,
               <>
-                <strong>Lead magnet:</strong> placeholder; quando existir, vai
-                primeiro na página de links.
+                <strong>Lead magnet:</strong> placeholder; quando existir, o
+                destino será definido (a página de links foi apagada; o site
+                não captura email).
               </>,
               <>
                 <strong>Rosto na câmera:</strong> introdução gradual, sem

@@ -5,15 +5,15 @@ export default function DsNatureza() {
     <Container>
       <Section
         id="ds-natureza"
-        num="10.8"
+        num="11.8"
         title="Imagem de natureza"
-        meta="A peça pesada — decisão em aberto"
+        meta="A peça pesada · decisão em aberto"
         sub
       >
         <p className="mb-5 max-w-[740px] text-[14.5px] leading-[1.75] text-ink-soft [&_strong]:font-semibold [&_strong]:text-ink">
           Nas referências, a foto/IA de natureza é o que carrega o clima
-          (floresta, campo, luz, alvorada). É o elemento mais caro do sistema
-          — e o que decide se o{" "}
+          (floresta, campo, luz, alvorada). É o elemento mais caro do sistema,
+          e o que decide se o{" "}
           <strong>pipeline de geração consegue montar a peça sozinho</strong>:
           se cada post exige imagem nova, o pipeline precisa gerar imagem,
           não só compor texto. Por isso o sistema funciona em{" "}
@@ -29,7 +29,7 @@ export default function DsNatureza() {
             </div>
             <div className="px-5.5 py-4.5">
               <h4 className="mb-1 text-[13px] font-semibold text-ink">
-                Sem foto — gradiente quente + grão
+                Sem foto · gradiente quente + grão
               </h4>
               <p className="text-[12.5px] leading-[1.6] text-ink-soft [&_code]:rounded-[3px] [&_code]:bg-ink/[0.07] [&_code]:px-1 [&_code]:py-px [&_code]:font-mono [&_code]:text-[11px]">
                 O que os mockups usam. Barato, renderiza fácil (só CSS: glow
@@ -51,7 +51,7 @@ export default function DsNatureza() {
                 Com foto/IA de natureza por cima
               </h4>
               <p className="text-[12.5px] leading-[1.6] text-ink-soft">
-                Aprofunda o clima — paisagem real ou gerada (campo, floresta,
+                Aprofunda o clima: paisagem real ou gerada (campo, floresta,
                 alvorada) atrás do texto, com o mesmo grão por cima.{" "}
                 <strong className="font-semibold text-ink">
                   A foto eleva, não sustenta.

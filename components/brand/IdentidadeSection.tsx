@@ -13,7 +13,7 @@ export default function IdentidadeSection() {
     <Container>
       <Section
         id="identidade"
-        num="09."
+        num="10."
         title="Identidade visível"
         meta="Instagram · assinatura · óculos"
       >
@@ -26,11 +26,33 @@ export default function IdentidadeSection() {
               categoria.
             </p>
           </Card>
-          <Card label="Display name" title="Leo Abreu · IA para empreendedores">
+          <Card label="Display name" title="Leo Abreu · Organização com IA">
             <p>
-              Bio: L1 <em>Descomplicando IA para empreendedores</em> · L2{" "}
-              <em>A IA jogando do seu lado · não contra você</em> · L3{" "}
-              <em>Entenda como ⤵</em>
+              Carrega a <strong>categoria</strong> que o handle só insinua no
+              &ldquo;.ia&rdquo;: organização com IA, nessa ordem (sistema
+              primeiro, ferramenta depois). Strutura segue fora; o domínio e o
+              contexto dos posts fazem esse trabalho.
+            </p>
+          </Card>
+        </div>
+        <div className="mt-4 max-w-[740px]">
+          <Card label="Bio · fonte de verdade">
+            <p className="font-serif text-[17px] leading-[1.5] text-ink [font-variation-settings:'opsz'_40]">
+              Controle sobre a vida e negócio
+              <br />
+              Mostrando meus sistemas
+              <br />
+              Para empreendedores no digital
+              <br />
+              Aprenda como ⤵
+            </p>
+            <p className="mt-3.5">
+              Quatro linhas, uma escada: <strong>o destino</strong> (controle,
+              o único destino que a marca nomeia) · <strong>a prova</strong>{" "}
+              (mostrar o próprio sistema, o modelo da seção 05: o conteúdo
+              ensina a construir) · <strong>para quem</strong> ·{" "}
+              <strong>a porta</strong> pro link. A seta é apontamento, não
+              enfeite; é a única figura permitida ali.
             </p>
           </Card>
         </div>
@@ -38,7 +60,7 @@ export default function IdentidadeSection() {
           <DotList
             items={[
               <>
-                <strong>Strutura deliberadamente FORA da bio</strong> — o
+                <strong>Strutura deliberadamente FORA da bio</strong>: o
                 contexto dos posts e o domínio strutura.ai contextualizam
                 sem gastar espaço de bio.
               </>,
@@ -53,15 +75,21 @@ export default function IdentidadeSection() {
                 em todos os posts.
               </>,
               <>
+                <strong>Assinatura não é tagline:</strong> a tagline
+                (&ldquo;Não é disciplina. É strutura.&rdquo;, seção 04) é frase
+                de marca e vive nas superfícies do site; a assinatura é crédito
+                de peça. As duas nunca dividem o mesmo bloco.
+              </>,
+              <>
                 <strong>Regra de handle:</strong> se um handle limpo estiver
-                tomado, ADICIONA (sobrenome, ponto) — nunca mutila vogais;
+                tomado, ADICIONA (sobrenome, ponto): nunca mutila vogais;
                 handle comprimido lê como growth-hacker.
               </>,
             ]}
           />
         </div>
 
-        <Subhead>Dispositivo pessoal — os óculos</Subhead>
+        <Subhead>Dispositivo pessoal · os óculos</Subhead>
         <Prose>
           Aviador de lente <strong>ÂMBAR</strong> (Ray-Ban Aviator, tint
           âmbar/laranja fixo, não fotocromático; nunca o verde/G-15
@@ -70,10 +98,10 @@ export default function IdentidadeSection() {
         <div className="mt-4 grid gap-4 sm:grid-cols-2">
           <Card label="Motivo 01">
             <p>
-              Lente translúcida <strong>mantém os olhos visíveis</strong> —
-              contato visual é o mecanismo de venda do professor que desarma o
-              medo; lente escura/espelhada esconde os olhos e cria distância =
-              sinal de guru.
+              Lente translúcida <strong>mantém os olhos visíveis</strong>:
+              contato visual é o mecanismo do professor; lente
+              escura/espelhada esconde os olhos e cria distância = sinal de
+              guru.
             </p>
           </Card>
           <Card label="Motivo 02">

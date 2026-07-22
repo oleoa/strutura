@@ -5,9 +5,9 @@ export default function DsDoDont() {
     <Container>
       <Section
         id="ds-do-dont"
-        num="10.10"
+        num="11.10"
         title="Do / Don't"
-        meta="Guard-rails — em dúvida, volte aqui"
+        meta="Guard-rails: em dúvida, volte aqui"
         sub
       >
         <div className="grid gap-4 sm:grid-cols-2">
@@ -19,7 +19,7 @@ export default function DsDoDont() {
               dotClassName="bg-campo-verde"
               items={[
                 <>
-                  <strong>Claro e texturizado</strong> — grão sempre presente,
+                  <strong>Claro e texturizado</strong>: grão sempre presente,
                   em toda peça.
                 </>,
                 <>
@@ -27,11 +27,11 @@ export default function DsDoDont() {
                   pra ênfase de uma palavra, na cor de acento do clima.
                 </>,
                 <>
-                  <strong>Mostarda queimado como corte seco</strong> — o
+                  <strong>Mostarda queimado como corte seco</strong>: o
                   acento corta, não grita.
                 </>,
                 <>
-                  <strong>Furniture editorial com função</strong> — índice
+                  <strong>Furniture editorial com função</strong>: índice
                   numérico só em sequência real.
                 </>,
                 <>
@@ -49,19 +49,19 @@ export default function DsDoDont() {
               dotClassName="bg-danger"
               items={[
                 <>
-                  <strong>Limpo/liso sem textura</strong> — é o calmo
+                  <strong>Limpo/liso sem textura</strong>: é o calmo
                   genérico, o espaço mais lotado da internet.
                 </>,
                 <>
-                  <strong>Palavra motivacional/vibe</strong> — &ldquo;simplicity
+                  <strong>Palavra motivacional/vibe</strong>: &ldquo;simplicity
                   is the purest form…&rdquo;, frases de efeito vazias.
                 </>,
                 <>
-                  <strong>Escuro como default</strong> — afasta o não-técnico,
-                  o Diego.
+                  <strong>Escuro como default</strong>: afasta o não-técnico,
+                  o empreendedor no digital.
                 </>,
                 <>
-                  <strong>Bege sem o mostarda</strong> — perde o único sinal
+                  <strong>Bege sem o mostarda</strong>: perde o único sinal
                   ownable.
                 </>,
                 <>
@@ -69,7 +69,7 @@ export default function DsDoDont() {
                   ensino.
                 </>,
                 <>
-                  <strong>Bosque frequente demais</strong> — vira barulho,
+                  <strong>Bosque frequente demais</strong>: vira barulho,
                   perde o contraste.
                 </>,
               ]}

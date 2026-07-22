@@ -7,7 +7,6 @@ const SECTIONS = [
   { label: "A Strutura", href: "/#a-strutura" },
   { label: "Produtos", href: "/#produtos" },
   { label: "Quem sou eu", href: "/#quem-sou-eu" },
-  { label: "Comunidade", href: "/#comunidade" },
   { label: "Contato", href: "/#contato" },
 ];
 
@@ -42,12 +41,9 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-12 px-6 py-14 sm:flex-row sm:justify-between md:px-10">
         {/* Marca */}
         <div className="flex max-w-sm flex-col gap-4">
-          <span className="font-serif text-2xl tracking-tight text-bone">
-            Strutura
-          </span>
-          <p className="text-sm leading-relaxed text-bone/75">
-            A Strutura é a empresa onde Leonardo Abreu constrói os próprios
-            produtos — com método, e com a IA no lugar certo.
+          <p className="font-serif text-2xl leading-[1.15] tracking-tight text-bone sm:text-3xl">
+            Não é disciplina.
+            <br />É <span className="italic text-mustard-bosque">strutura</span>.
           </p>
           <div className="mt-1 flex gap-2.5">
             {SOCIALS.map((s) => (

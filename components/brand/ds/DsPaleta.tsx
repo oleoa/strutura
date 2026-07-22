@@ -36,7 +36,7 @@ function SwatchGrid({ swatches }: { swatches: Swatch[] }) {
           key={s.token}
           className="overflow-hidden rounded-[4px] border border-ink/10 bg-bone"
         >
-          {/* Swatches sem grão de propósito — fidelidade do hex */}
+          {/* Swatches sem grão de propósito: fidelidade do hex */}
           <div
             className="h-[78px] border-b border-ink/10"
             style={{ background: s.hex }}
@@ -64,14 +64,14 @@ export default function DsPaleta() {
     <Container>
       <Section
         id="ds-paleta"
-        num="10.4"
+        num="11.4"
         title="Paleta"
         meta="Tokens como CSS custom properties em :root"
         sub
       >
         <p className="mb-7 max-w-[740px] text-[14.5px] leading-[1.75] text-ink-soft">
           Três grupos: os dois climas e o acento compartilhado. Os swatches
-          abaixo são renderizados sem grão de propósito — aqui vale a
+          abaixo são renderizados sem grão de propósito: aqui vale a
           fidelidade do hex; o grão entra na peça, não no token.
         </p>
 
@@ -81,10 +81,10 @@ export default function DsPaleta() {
         <Subhead>Bosque (escuro / acento)</Subhead>
         <SwatchGrid swatches={BOSQUE} />
 
-        <Subhead>Acento compartilhado — o mostarda envelhecido</Subhead>
+        <Subhead>Acento compartilhado · o mostarda envelhecido</Subhead>
         <p className="mb-4 max-w-[740px] text-[14.5px] leading-[1.75] text-ink-soft [&_code]:rounded-[3px] [&_code]:bg-ink/[0.07] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs [&_code]:text-ink">
           O mostarda{" "}
-          <strong className="font-semibold text-ink">não sai</strong> — é o
+          <strong className="font-semibold text-ink">não sai</strong>: é o
           único sinal ownable de hoje. Mas{" "}
           <strong className="font-semibold text-ink">envelhece</strong>: sai
           do <code>#C99A2E</code> puro (amarelo-startup) pra um
@@ -95,7 +95,7 @@ export default function DsPaleta() {
         <Callout title="Nota de transição">
           Onde o sistema antigo usava <code>#C99A2E</code>, o novo usa{" "}
           <code>#C98A2B</code> (sobre escuro) ou <code>#A9741F</code> (sobre
-          claro), conforme o clima. É <strong>evolução, não ruptura</strong> —
+          claro), conforme o clima. É <strong>evolução, não ruptura</strong>:
           o sinal continua sendo mostarda; só perdeu o brilho de startup.
         </Callout>
       </Section>

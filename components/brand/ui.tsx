@@ -1,6 +1,6 @@
 import type { ReactNode } from "react";
 
-/* Primitivos compartilhados da página /brand — a doc viva da marca.
+/* Primitivos compartilhados da página /brand: a doc viva da marca.
    Reproduzem a furniture editorial do Nature Warm (eyebrow, selo,
    assinatura, section header numerado, callout). */
 
@@ -178,7 +178,7 @@ export function Card({
   );
 }
 
-/* Lista com bullet mostarda — usada em specs, modos, regras */
+/* Lista com bullet mostarda: usada em specs, modos, regras */
 export function DotList({
   items,
   dotClassName = "bg-mustard",

@@ -5,11 +5,11 @@ export default function ProdutosSection() {
     <Container>
       <Section
         id="produtos"
-        num="06."
+        num="07."
         title="Produtos"
         meta="Pharos · renda-ponte"
       >
-        <Subhead>Strutura Pharos — flagship SaaS</Subhead>
+        <Subhead>Strutura Pharos · flagship SaaS</Subhead>
         <Prose>
           Gestão de leads de WhatsApp + Instagram. Hook:{" "}
           <em className="font-serif text-base italic text-mustard-ink">
@@ -33,7 +33,7 @@ export default function ProdutosSection() {
                 lock-in.
               </>,
               <>
-                Alvo: negócios que fecham vendas no WhatsApp — clínicas,
+                Alvo: negócios que fecham vendas no WhatsApp: clínicas,
                 imobiliárias, infoprodutores, agências, lojas high-ticket,
                 consultorias; equipes de 1–30.
               </>,
@@ -45,12 +45,12 @@ export default function ProdutosSection() {
           />
         </div>
         <Callout title="Ponto de arquitetura-dogma">
-          O Pharos <strong>recusa deliberadamente o auto-reply</strong> — lê,
+          O Pharos <strong>recusa deliberadamente o auto-reply</strong>: lê,
           organiza, relembra o contexto e diz o próximo passo, mas para antes
           de responder.
         </Callout>
 
-        <Subhead>Renda-ponte — soluções sob medida</Subhead>
+        <Subhead>Renda-ponte · soluções sob medida</Subhead>
         <Prose>
           Sites institucionais e landing pages, lojas online (Stripe/Pix/
           checkout próprio), formulários inteligentes e captação de leads,
@@ -62,7 +62,7 @@ export default function ProdutosSection() {
 
         <Callout title="Regra: produtos são prova, não pauta">
           No Instagram aparecem como &ldquo;uma solução que já fiz pro meu
-          próprio negócio&rdquo; — <strong>nunca como tema ou pitch.</strong>
+          próprio negócio&rdquo;, <strong>nunca como tema ou pitch.</strong>
         </Callout>
       </Section>
     </Container>

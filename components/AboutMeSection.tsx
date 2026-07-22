@@ -36,13 +36,14 @@ export default function AboutMeSection() {
 
             <div className="mt-8 flex max-w-xl flex-col gap-4 text-lg leading-relaxed text-ink-soft">
               <p>
-                Meu nome é Leonardo Abreu. Construo sozinho tudo o que a
-                Strutura publica — produto, código e método.
+                Meu nome é Leonardo Abreu. Eu empreendo sozinho: a vida e o
+                negócio rodam no mesmo sistema, que eu construí e mantenho
+                todos os dias.
               </p>
               <p>
-                A Strutura é o meu maior projeto. É onde eu construo os meus
-                próprios produtos, como o Pharos, que eu uso todos os dias no
-                meu próprio negócio.
+                A Strutura é onde esse sistema vira produto. O Pharos nasceu
+                assim: um pedaço da minha estrutura que eu uso no meu próprio
+                negócio e decidi abrir.
               </p>
               <p>
                 O processo fica público no{" "}

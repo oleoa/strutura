@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import BrandHeader from "@/components/brand/BrandHeader";
 import AncoraSection from "@/components/brand/AncoraSection";
 import DogmaSection from "@/components/brand/DogmaSection";
+import MetodoSection from "@/components/brand/MetodoSection";
 import MarcaSection from "@/components/brand/MarcaSection";
 import ModeloSection from "@/components/brand/ModeloSection";
 import AvatarSection from "@/components/brand/AvatarSection";
@@ -23,10 +24,10 @@ import FuturoSection from "@/components/brand/FuturoSection";
 import { Assinatura, Container } from "@/components/brand/ui";
 
 export const metadata: Metadata = {
-  title: "Brand — source of truth",
+  title: "Brand · source of truth",
   description:
     "A source of truth completa da marca Strutura: identidade estratégica e design system Nature Warm v3.",
-  // Referência interna publicada — não é conteúdo pra indexar.
+  // Referência interna publicada; não é conteúdo pra indexar.
   robots: {
     index: false,
     follow: false,
@@ -40,6 +41,7 @@ export default function BrandPage() {
       <BrandHeader />
       <AncoraSection />
       <DogmaSection />
+      <MetodoSection />
       <MarcaSection />
       <ModeloSection />
       <AvatarSection />

@@ -32,12 +32,12 @@ const jetBrainsMono = JetBrains_Mono({
 const siteUrl = "https://strutura.ai";
 
 const siteDescription =
-  "A Strutura é a empresa onde Leonardo Abreu constrói os próprios produtos, como o Pharos, com método e com a IA no lugar certo.";
+  "Sistema primeiro, ferramenta depois: a Strutura é onde eu construo o sistema que organiza minha vida e meu negócio. O que eu crio para mim vira produto, como o Pharos.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Strutura — A IA no lugar certo",
+    default: "Não é disciplina. É strutura.",
     template: "%s | Strutura",
   },
   description: siteDescription,
@@ -55,23 +55,22 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: siteUrl,
     siteName: "Strutura",
-    title: "Strutura — A IA no lugar certo",
-    description:
-      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes. Construído com método, usado todos os dias.",
+    title: "Não é disciplina. É strutura.",
+    description: siteDescription,
     images: [
       {
         url: "/banner.png",
         width: 1584,
         height: 396,
-        alt: "Strutura — A IA no lugar certo",
+        alt: "Strutura · Não é disciplina, é strutura",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Strutura — A IA no lugar certo",
+    title: "Não é disciplina. É strutura.",
     description:
-      "Os produtos de Leonardo Abreu: o Pharos organiza leads e clientes.",
+      "Controle vem de estrutura. Eu construo o sistema e produtizo pedaços dele, como o Pharos.",
     images: ["/banner.png"],
   },
   verification: {

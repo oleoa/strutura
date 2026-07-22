@@ -4,7 +4,7 @@ import { Callout, Container, Section } from "../ui";
 /* As quatro peças 4:5 do design.html §09, renderizadas ao vivo (não são
    prints): capa e slide de cada clima, com grão, furniture e copy real das
    âncoras. Tipografia fluida via container queries (cqw), como nas peças
-   originais — mesmo padrão do StudioPieces (componente hoje sem uso; o
+   originais: mesmo padrão do StudioPieces (componente hoje sem uso; o
    Studio foi arquivado em jul/2026). */
 
 function PieceLabel({ title, code }: { title: string; code: string }) {
@@ -77,7 +77,7 @@ function CampoCapa() {
 const CAMPO_STEPS = [
   {
     title: "A IA lê, organiza e aponta.",
-    body: "Volume, triagem, resumo. Isso ela faz melhor que você — e de madrugada.",
+    body: "Volume, triagem, resumo. Isso ela faz melhor que você, e de madrugada.",
   },
   {
     title: "A IA não decide.",
@@ -174,7 +174,7 @@ function BosqueCapa() {
 const BOSQUE_STEPS = [
   {
     title: "Processo bagunçado + IA = bagunça mais rápida.",
-    body: "A ferramenta acelera o que existe — inclusive o erro.",
+    body: "A ferramenta acelera o que existe, inclusive o erro.",
   },
   {
     title: "Desenha o passo a passo no papel primeiro.",
@@ -182,7 +182,7 @@ const BOSQUE_STEPS = [
   },
   {
     title: "Automatiza só o que já funciona sem você.",
-    body: "O resto é decisão — e decisão fica com a cabeça, não com o braço.",
+    body: "O resto é decisão; e decisão fica com a cabeça, não com o braço.",
   },
 ];
 
@@ -243,7 +243,7 @@ export default function DsExemplos() {
     <Container>
       <Section
         id="ds-exemplos"
-        num="10.9"
+        num="11.9"
         title="Exemplos ao vivo"
         meta="HTML real, 4:5 (1080 × 1350) · nível 1 de fidelidade"
         sub
@@ -288,10 +288,10 @@ export default function DsExemplos() {
         </div>
 
         <Callout title="Pensar o mosaico, não só a peça">
-          O perfil mostra grid em 4:5 — a peça vive ao lado das vizinhas.{" "}
+          O perfil mostra grid em 4:5: a peça vive ao lado das vizinhas.{" "}
           <strong>Variar dentro do clima</strong> (título grande, luz
           deslocada, mais/menos texto) pra o feed não virar &ldquo;mesmo
-          template 9×&rdquo;. O Bosque pontual (10.3) é a outra metade dessa
+          template 9×&rdquo;. O Bosque pontual (11.3) é a outra metade dessa
           variação.
         </Callout>
       </Section>

@@ -3,15 +3,16 @@ import { Assinatura, Container, Eyebrow, Selo } from "./ui";
 const TOC = [
   { id: "ancora", num: "01", label: "A âncora" },
   { id: "dogma", num: "02", label: "O dogma" },
-  { id: "marca", num: "03", label: "Quem é a marca" },
-  { id: "modelo", num: "04", label: "Modelo de negócio" },
-  { id: "avatar", num: "05", label: "Para quem" },
-  { id: "produtos", num: "06", label: "Produtos" },
-  { id: "voz", num: "07", label: "Tom de voz" },
-  { id: "pilares", num: "08", label: "Pilares & conteúdo" },
-  { id: "identidade", num: "09", label: "Identidade visível" },
-  { id: "design", num: "10", label: "Design system" },
-  { id: "futuro", num: "11", label: "Futuro" },
+  { id: "metodo", num: "03", label: "O método" },
+  { id: "marca", num: "04", label: "Quem é a marca" },
+  { id: "modelo", num: "05", label: "Modelo de negócio" },
+  { id: "avatar", num: "06", label: "Para quem" },
+  { id: "produtos", num: "07", label: "Produtos" },
+  { id: "voz", num: "08", label: "Tom de voz" },
+  { id: "pilares", num: "09", label: "Pilares & conteúdo" },
+  { id: "identidade", num: "10", label: "Identidade visível" },
+  { id: "design", num: "11", label: "Design system" },
+  { id: "futuro", num: "12", label: "Futuro" },
 ];
 
 const TOC_DS = [
@@ -36,13 +37,13 @@ export default function BrandHeader() {
           <Selo>Julho 2026</Selo>
         </div>
         <h1 className="mb-5 max-w-[15ch] font-serif text-[clamp(44px,7vw,72px)] font-normal leading-[1.02] tracking-[-0.02em] [font-variation-settings:'opsz'_144]">
-          A marca <em className="italic text-mustard">inteira</em>
+          Strutura
         </h1>
         <p className="max-w-[620px] text-base leading-[1.7] text-ink-soft [&_strong]:font-semibold [&_strong]:text-ink">
           A source of truth completa da Strutura num lugar só:
-          <strong> identidade estratégica</strong> (âncora, dogma, avatar,
-          modelo, voz) e o <strong>design system Nature Warm v3</strong>{" "}
-          (Campo e Bosque). Documento de trabalho — quem abre aqui decide,
+          <strong> identidade estratégica</strong> (missão, dogma, método,
+          público, modelo, voz) e o <strong>design system Nature Warm v3</strong>{" "}
+          (Campo e Bosque). Documento de trabalho: quem abre aqui decide,
           escreve e desenha qualquer peça sem adivinhar nada.
         </p>
         <div className="mt-9 border-t border-ink/10 pt-5">
@@ -50,7 +51,7 @@ export default function BrandHeader() {
         </div>
       </header>
 
-      {/* Sumário — âncoras de trabalho */}
+      {/* Sumário: âncoras de trabalho */}
       <nav
         aria-label="Sumário"
         className="mb-16 rounded-[4px] border border-ink/10 bg-bone/65 px-6 py-5 sm:px-7"
@@ -74,7 +75,7 @@ export default function BrandHeader() {
         </div>
         <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 border-t border-ink/10 pt-3">
           <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
-            Dentro do 10
+            Dentro do 11
           </span>
           {TOC_DS.map((item) => (
             <a

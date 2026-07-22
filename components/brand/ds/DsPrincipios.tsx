@@ -5,7 +5,7 @@ export default function DsPrincipios() {
     <Container>
       <Section
         id="ds-principios"
-        num="10.2"
+        num="11.2"
         title="Princípios"
         meta="Dogma → forma. O design obedece a estes cinco."
         sub
@@ -23,7 +23,7 @@ export default function DsPrincipios() {
           </Card>
           <Card label="Princípio 02" title={<>&ldquo;Calma é <em>método</em>&rdquo;</>}>
             <p>
-              Respiro e ritmo — mas calma ≠ vazio (esse foi o erro do sistema
+              Respiro e ritmo, mas calma ≠ vazio (esse foi o erro do sistema
               antigo). O alvo é <strong>densidade com fôlego</strong>:
               conteúdo denso, hierarquia clara, espaço que trabalha.
             </p>
@@ -35,7 +35,7 @@ export default function DsPrincipios() {
             <p>
               Textura, grão, imperfeição honesta. O oposto do
               gradiente-startup limpo. A peça pode parecer papel, filme,
-              oficina — nunca pitch deck.
+              oficina; nunca pitch deck.
             </p>
           </Card>
           <Card
@@ -55,9 +55,9 @@ export default function DsPrincipios() {
             title={<>&ldquo;Natureza como <em>device</em>&rdquo;</>}
           >
             <p>
-              Paisagem entra como prova do ambiente calmo — o oposto do
-              escritório caótico que o Diego vive. Nunca como wallpaper
-              motivacional.
+              Paisagem entra como prova do ambiente calmo: o oposto do
+              escritório caótico que o empreendedor no digital vive. Nunca como
+              wallpaper motivacional.
             </p>
           </Card>
         </div>

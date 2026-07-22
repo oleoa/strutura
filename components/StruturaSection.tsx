@@ -2,22 +2,10 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import SectionHeader from "@/components/SectionHeader";
 import { INSTAGRAM_HANDLE, INSTAGRAM_URL } from "@/lib/site";
 
-const FACTS: React.ReactNode[] = [
-  "Fundada e construída por Leonardo Abreu.",
-  "O Pharos no ar, construído e usado dentro de casa.",
-  "Tudo roda primeiro dentro de casa: o Pharos organiza os contatos da própria Strutura.",
-  <>
-    O processo é público, no{" "}
-    <a
-      href={INSTAGRAM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="text-mustard-ink underline decoration-mustard-border underline-offset-4 transition-colors hover:decoration-mustard-ink"
-    >
-      {INSTAGRAM_HANDLE}
-    </a>
-    .
-  </>,
+const STEPS = [
+  "Entender os processos da vida e do negócio.",
+  "Criar e manter um sistema que segura esses processos.",
+  "Usar as ferramentas que temos ao nosso dispor, como a IA, dentro do sistema, do jeito mais eficaz.",
 ];
 
 export default function StruturaSection() {
@@ -31,8 +19,8 @@ export default function StruturaSection() {
               eyebrow="A empresa"
               title={
                 <>
-                  A Strutura constrói a própria{" "}
-                  <span className="italic text-mustard">estrutura</span>.
+                  Organizar é o veículo. O destino é o{" "}
+                  <span className="italic text-mustard">controle</span>.
                 </>
               }
             />
@@ -41,10 +29,17 @@ export default function StruturaSection() {
 
         <div className="md:col-span-6 md:col-start-7">
           <RevealOnScroll delay={0.1}>
-            <ul className="flex flex-col">
-              {FACTS.map((fact, i) => (
+            <p className="text-lg leading-relaxed text-ink-soft">
+              A minha missão com a Strutura: trazer controle sobre a vida
+              através da organização da estrutura digital. Pra quem empreende
+              sozinho e carrega o negócio e a vida no mesmo sistema, na mesma
+              cabeça.
+            </p>
+
+            <ul className="mt-8 flex flex-col">
+              {STEPS.map((step, i) => (
                 <li
-                  key={i}
+                  key={step}
                   className="flex items-baseline gap-4 border-t border-border py-5 text-lg leading-relaxed text-ink-soft last:border-b"
                 >
                   <span
@@ -53,10 +48,24 @@ export default function StruturaSection() {
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span>{fact}</span>
+                  <span>{step}</span>
                 </li>
               ))}
             </ul>
+
+            <p className="mt-6 text-lg leading-relaxed text-ink-soft">
+              Sistema primeiro, ferramenta depois. Crio e uso para mim, e mostro
+              o processo no{" "}
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-mustard-ink underline decoration-mustard-border underline-offset-4 transition-colors hover:decoration-mustard-ink"
+              >
+                {INSTAGRAM_HANDLE}
+              </a>
+              .
+            </p>
           </RevealOnScroll>
         </div>
       </div>

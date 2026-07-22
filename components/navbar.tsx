@@ -8,6 +8,11 @@ import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { WHATSAPP_URL } from "@/lib/site";
+import { scrollToSection } from "@/lib/scroll";
+
+// Seções com superfície Bosque (escura): a pílula veste o clima de quem passa
+// por baixo dela.
+const BOSQUE_SECTIONS = ["inicio", "produtos"];
 
 const NAV_LINKS = [
   { id: "a-strutura", label: "A Strutura" },
@@ -16,34 +21,38 @@ const NAV_LINKS = [
   { id: "contato", label: "Contato" },
 ];
 
-function scrollToSection(id: string) {
-  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-}
-
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [pastHero, setPastHero] = useState(false);
+  const [overBosque, setOverBosque] = useState(true);
   const pathname = usePathname();
   const isHome = pathname === "/";
 
   useEffect(() => {
+    // Linha de prova no centro vertical da pílula (pt-3 + metade de h-14).
+    const PROBE = 40;
     const onScroll = () => {
       setScrolled(window.scrollY > 16);
-      // Mede o hero de verdade — min-h-svh é um mínimo, não a altura exata.
-      const hero = document.getElementById("inicio");
-      const heroHeight = hero?.offsetHeight ?? window.innerHeight;
-      setPastHero(window.scrollY > heroHeight - 120);
+      setOverBosque(
+        BOSQUE_SECTIONS.some((id) => {
+          const rect = document.getElementById(id)?.getBoundingClientRect();
+          return !!rect && rect.top <= PROBE && rect.bottom >= PROBE;
+        }),
+      );
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   if (pathname.startsWith("/brand")) return null;
 
-  // Sobre o hero Bosque a pílula veste o clima escuro; no Campo, o claro.
-  const dark = isHome && !pastHero;
+  // Sobre superfície Bosque a pílula veste o clima escuro; no Campo, o claro.
+  const dark = isHome && overBosque;
 
   function handleNav(id: string) {
     setIsOpen(false);
