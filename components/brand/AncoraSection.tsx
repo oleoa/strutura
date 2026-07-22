@@ -25,6 +25,20 @@ export default function AncoraSection() {
           a resposta certa quando o imprevisto chega.
         </Prose>
 
+        <Subhead>A lacuna que eu ocupo</Subhead>
+        <Prose>
+          <strong>
+            Criadores de organização não usam IA para seu potencial máximo e
+            criadores de IA não usam com missão.
+          </strong>{" "}
+          Eu crio a estrutura que conecta tudo, uso IA como ferramenta para
+          alcançar uma vida mais calma, organizada, produtiva e que alcança
+          mais. Ensino como uso as ferramentas que temos à nossa disposição
+          para o melhor proveito: não exagerando e deixando tudo para elas,
+          mas poupando nosso tempo e nos dando melhor visibilidade e controle
+          sobre a vida.
+        </Prose>
+
         <Callout title="O teste de tudo">
           <strong>
             Isso devolve controle através de estrutura, ou é só ferramenta nova

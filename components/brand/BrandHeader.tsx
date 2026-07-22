@@ -1,12 +1,12 @@
-import { Assinatura, Container, Eyebrow, Selo } from "./ui";
+import { Container, Eyebrow, Selo } from "./ui";
 
 const TOC = [
-  { id: "ancora", num: "01", label: "A âncora" },
-  { id: "dogma", num: "02", label: "O dogma" },
-  { id: "metodo", num: "03", label: "O método" },
-  { id: "marca", num: "04", label: "Quem é a marca" },
+  { id: "leonardo", num: "01", label: "Leonardo Abreu" },
+  { id: "missao", num: "02", label: "Missão e posicionamento" },
+  { id: "dogma", num: "03", label: "O dogma" },
+  { id: "metodo", num: "04", label: "O método" },
   { id: "modelo", num: "05", label: "Modelo de negócio" },
-  { id: "avatar", num: "06", label: "Para quem" },
+  { id: "avatar", num: "06", label: "Avatar" },
   { id: "produtos", num: "07", label: "Produtos" },
   { id: "voz", num: "08", label: "Tom de voz" },
   { id: "pilares", num: "09", label: "Pilares & conteúdo" },
@@ -15,40 +15,24 @@ const TOC = [
   { id: "futuro", num: "12", label: "Futuro" },
 ];
 
-const TOC_DS = [
-  { id: "ds-statement", label: "Statement" },
-  { id: "ds-principios", label: "Princípios" },
-  { id: "ds-climas", label: "Os dois climas" },
-  { id: "ds-paleta", label: "Paleta" },
-  { id: "ds-tipografia", label: "Tipografia" },
-  { id: "ds-textura", label: "Textura & furniture" },
-  { id: "ds-capa-slide", label: "Capa vs. slide" },
-  { id: "ds-natureza", label: "Imagem de natureza" },
-  { id: "ds-exemplos", label: "Exemplos ao vivo" },
-  { id: "ds-do-dont", label: "Do / Don't" },
-];
-
 export default function BrandHeader() {
   return (
     <Container>
       <header className="grain-campo grain-soft mb-10 overflow-hidden rounded-[4px] border border-ink/16 bg-[radial-gradient(120%_90%_at_50%_-20%,#e4d2a8_0%,rgba(228,210,168,0)_55%)] bg-bone px-6 pb-7 pt-8 sm:px-11 sm:pb-11 sm:pt-12">
         <div className="mb-10 flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline sm:gap-4">
-          <Eyebrow>Strutura · Brand book · Design system e render da marca</Eyebrow>
-          <Selo>leo.md v1 · jul 2026</Selo>
+          <Eyebrow>Strutura · Brand book · Fonte de verdade</Eyebrow>
+          <Selo>Julho 2026</Selo>
         </div>
         <h1 className="mb-5 max-w-[15ch] font-serif text-[clamp(44px,7vw,72px)] font-normal leading-[1.02] tracking-[-0.02em] [font-variation-settings:'opsz'_144]">
-          Strutura
+          Leo Abreu @ Strutura
         </h1>
         <p className="max-w-[620px] text-base leading-[1.7] text-ink-soft [&_strong]:font-semibold [&_strong]:text-ink">
-          A source of truth completa da Strutura num lugar só:
+          A fonte da verdade do Leonardo Abreu e da Strutura num lugar só:
           <strong> identidade estratégica</strong> (missão, dogma, método,
           público, modelo, voz) e o <strong>design system Nature Warm v3</strong>{" "}
           (Campo e Bosque). Documento de trabalho: quem abre aqui decide,
           escreve e desenha qualquer peça sem adivinhar nada.
         </p>
-        <div className="mt-9 border-t border-ink/10 pt-5">
-          <Assinatura />
-        </div>
       </header>
 
       {/* Sumário: âncoras de trabalho */}
@@ -69,20 +53,6 @@ export default function BrandHeader() {
               <span className="inline-block w-6 font-serif text-[12px] italic text-mustard-ink">
                 {item.num}
               </span>
-              {item.label}
-            </a>
-          ))}
-        </div>
-        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 border-t border-ink/10 pt-3">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.18em] text-ink-muted">
-            Dentro do 11
-          </span>
-          {TOC_DS.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className="text-xs text-ink-soft transition-colors hover:text-mustard-ink"
-            >
               {item.label}
             </a>
           ))}

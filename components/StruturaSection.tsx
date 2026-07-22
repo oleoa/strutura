@@ -30,7 +30,7 @@ export default function StruturaSection() {
         <div className="md:col-span-6 md:col-start-7">
           <RevealOnScroll delay={0.1}>
             <p className="text-lg leading-relaxed text-ink-soft">
-              A minha missão com a Strutura: trazer controle sobre a vida
+              A minha missão com a Strutura: trazer controle sobre sua vida
               através da organização da estrutura digital. Pra quem empreende
               sozinho e carrega o negócio e a vida no mesmo sistema, na mesma
               cabeça.

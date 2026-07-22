@@ -15,7 +15,7 @@ export default function IdentidadeSection() {
         id="identidade"
         num="10."
         title="Identidade visível"
-        meta="Instagram · assinatura · óculos"
+        meta="Instagram · tagline · assinatura · óculos"
       >
         <Subhead>Instagram</Subhead>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -76,9 +76,9 @@ export default function IdentidadeSection() {
               </>,
               <>
                 <strong>Assinatura não é tagline:</strong> a tagline
-                (&ldquo;Não é disciplina. É strutura.&rdquo;, seção 04) é frase
-                de marca e vive nas superfícies do site; a assinatura é crédito
-                de peça. As duas nunca dividem o mesmo bloco.
+                (&ldquo;Não é disciplina. É strutura.&rdquo;, logo abaixo) é
+                frase de marca e vive nas superfícies do site; a assinatura é
+                crédito de peça. As duas nunca dividem o mesmo bloco.
               </>,
               <>
                 <strong>Regra de handle:</strong> se um handle limpo estiver
@@ -88,6 +88,47 @@ export default function IdentidadeSection() {
             ]}
           />
         </div>
+
+        <Subhead>Tagline</Subhead>
+        <p className="max-w-[740px] font-serif text-[30px] font-medium leading-[1.15] tracking-[-0.01em] [font-variation-settings:'opsz'_60] sm:text-[38px]">
+          Não é disciplina.
+          <br />É <em className="italic text-mustard">strutura</em>.
+        </p>
+        <Prose className="mt-5">
+          O dogma condensado: o diagnóstico (não é caráter) e a solução
+          (sistema) em cinco palavras, com o nome da marca dentro. É a única
+          tagline da casa.
+        </Prose>
+        <Callout title="Regras da tagline">
+          <DotList
+            items={[
+              <>
+                <strong>Grafia canônica com o trocadilho:</strong> sempre{" "}
+                <code>strutura</code> (minúsculo, sem o &ldquo;e&rdquo;), em
+                toda superfície, inclusive metadata. Nunca{" "}
+                <em>&ldquo;é estrutura&rdquo;</em>.
+              </>,
+              <>
+                O <strong>ponto final depois de &ldquo;disciplina&rdquo;</strong>{" "}
+                é parte da frase: são duas sentenças, nunca uma vírgula.
+              </>,
+              <>
+                A ênfase cai <strong>sempre na segunda palavra</strong>: itálico
+                na mostarda do clima (<code>#C98A2B</code> no Bosque,{" "}
+                <code>#A9741F</code> no Campo).
+              </>,
+              <>
+                É <strong>tagline, não assinatura</strong>: a assinatura de
+                posts segue &ldquo;Leo Abreu · Strutura&rdquo; (acima). As
+                duas nunca aparecem no mesmo bloco.
+              </>,
+              <>
+                <strong>Onde vive hoje:</strong> hero da home, bloco de marca do
+                footer, metadata (title/OG/Twitter) e página 404.
+              </>,
+            ]}
+          />
+        </Callout>
 
         <Subhead>Dispositivo pessoal · os óculos</Subhead>
         <Prose>

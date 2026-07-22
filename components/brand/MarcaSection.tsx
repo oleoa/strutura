@@ -29,6 +29,16 @@ export default function MarcaSection() {
           .
         </Prose>
 
+        <Subhead>Quem eu sou, nas minhas palavras</Subhead>
+        <Prose>
+          <em>
+            &ldquo;Gosto de tecnologia, produtividade e trabalhar de maneira
+            inteligente. Entendo que a IA é uma ferramenta que pode ser usada
+            bem ou mal: cabe a cada pessoa saber como usar e cabe a mim
+            mostrar como eu uso.&rdquo;
+          </em>
+        </Prose>
+
         <div className="mt-7 grid gap-4 sm:grid-cols-2">
           <Card label="Marca-mãe" title={<>A cara é <em>dele</em></>}>
             <p>

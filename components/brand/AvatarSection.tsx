@@ -6,7 +6,7 @@ export default function AvatarSection() {
       <Section
         id="avatar"
         num="06."
-        title="Para quem"
+        title="Avatar"
         meta="Bruno · o empreendedor no digital"
       >
         <Subhead>Persona: Bruno, 31, empreendedor no digital</Subhead>

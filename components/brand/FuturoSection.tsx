@@ -13,15 +13,16 @@ export default function FuturoSection() {
               </>,
               <>
                 Sair gradualmente do projeto/horas conforme educação e SaaS
-                compõem: <strong>sem ruptura</strong>.
+                compõem: <strong>sem ruptura</strong>, o serviço por projeto
+                sai de cena quando os produtos sustentam.
               </>,
               <>
-                <strong>Comunidade paga como destino</strong> (Skool, 12–18
-                meses, dinheiro paciente).
+                <strong>Comunidade paga como destino</strong>: dinheiro
+                paciente ao lado da renda de curto prazo.
               </>,
               <>
-                Produtos como prova hoje, marca própria talvez amanhã;
-                opcionalidade guardada.
+                Produtos como <strong>prova e entrada de dinheiro</strong>{" "}
+                hoje, marca própria talvez amanhã; opcionalidade guardada.
               </>,
               <>
                 <strong>Lead magnet:</strong> placeholder; quando existir, o

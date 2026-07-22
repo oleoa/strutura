@@ -11,17 +11,6 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  async headers() {
-    return [
-      // leo.md é referência publicada, não conteúdo pra indexar (igual à /brand).
-      {
-        source: "/leo.md",
-        headers: [
-          { key: "X-Robots-Tag", value: "noindex, nofollow" },
-        ],
-      },
-    ];
-  },
 };
 
 export default nextConfig;

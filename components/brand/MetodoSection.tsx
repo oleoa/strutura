@@ -5,7 +5,7 @@ export default function MetodoSection() {
     <Container>
       <Section
         id="metodo"
-        num="03."
+        num="04."
         title="O método"
         meta="Três degraus · sistema primeiro, ferramenta depois"
       >
@@ -42,7 +42,7 @@ export default function MetodoSection() {
               Com o sistema de pé, as ferramentas entram no lugar certo, do
               jeito mais eficaz. A IA inclusive:{" "}
               <strong>braço dentro do sistema, nunca cabeça</strong> (seção
-              02).
+              03).
             </p>
           </Card>
         </div>

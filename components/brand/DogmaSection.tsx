@@ -1,4 +1,4 @@
-/* Seção 02: o dogma. A seção de maior peso da página: clima Bosque
+/* Seção 03: o dogma. A seção de maior peso da página: clima Bosque
    (o "susto visual" deliberado, a única superfície escura do documento). */
 
 export default function DogmaSection() {
@@ -8,7 +8,7 @@ export default function DogmaSection() {
         <div className="mx-auto w-full max-w-[1080px] px-5 sm:px-8">
           <div className="mb-5 flex flex-wrap items-baseline gap-x-4 gap-y-1 border-b border-bone/20 pb-3">
             <span className="font-serif text-sm font-medium italic text-mustard-bosque">
-              02.
+              03.
             </span>
             <h2 className="font-serif text-[26px] font-medium tracking-[-0.01em] text-bone sm:text-3xl [font-variation-settings:'opsz'_60]">
               O dogma
@@ -19,7 +19,8 @@ export default function DogmaSection() {
           </div>
 
           <p className="mb-8 mt-8 max-w-[20ch] font-serif text-[clamp(40px,6vw,64px)] font-[350] leading-[1.06] tracking-[-0.015em] text-bone [font-variation-settings:'opsz'_144]">
-            Caos não é falta de disciplina. É falta de{" "}
+            Caos não é falta de disciplina.
+            <br />É falta de{" "}
             <em className="italic text-gold-light">sistema.</em>
           </p>
 
@@ -40,6 +41,15 @@ export default function DogmaSection() {
               em armazená-las. O sistema existe pra segurar as informações, e
               as emoções que elas carregam, e devolver à cabeça só o que ela
               faz bem: <strong>decidir</strong>.
+            </p>
+            <p>
+              O outro lado é emocional: podemos ficar super-estimulados e
+              ansiosos quando temos grandes ambições ou quando estamos passando
+              por grandes problemas.{" "}
+              <strong>
+                Escrever sobre como nos sentimos e o que podemos fazer alivia
+                muito esse peso e nos dá direção.
+              </strong>
             </p>
           </div>
 
@@ -84,11 +94,22 @@ export default function DogmaSection() {
             O papel da IA dentro do sistema: braço,{" "}
             <em className="italic">nunca cabeça</em>
           </h3>
+          <p className="mb-1.5 text-[10px] font-semibold uppercase tracking-[0.2em] text-mustard-bosque">
+            Sub-dogma
+          </p>
+          <p className="mb-5 max-w-[26ch] font-serif text-[clamp(22px,3.2vw,30px)] font-[350] leading-[1.22] tracking-[-0.01em] text-bone [font-variation-settings:'opsz'_96]">
+            Um bom uso da IA ajuda na{" "}
+            <em className="italic text-gold-light">organização</em>, e uma boa
+            organização melhora o uso da{" "}
+            <em className="italic text-gold-light">IA</em>.
+          </p>
           <p className="mb-5 max-w-[740px] text-[14.5px] leading-[1.75] text-bone/[0.82] [&_strong]:font-semibold [&_strong]:text-bone">
             Dentro do sistema, a IA executa a função e recua na autoria. Vai
             até o fim do trabalho chato e para na porta do humano:{" "}
-            <strong>devolve a decisão a quem decide</strong>. A linha nunca é{" "}
-            <em className="italic">quanto</em> automatizar; é{" "}
+            <strong>devolve a decisão a quem decide</strong>. É sempre possível
+            entregar a decisão para a IA e deixar ela decidir, mas deixa de ser
+            seu trabalho, sua arte e deixa de estar ao seu controle. A linha
+            nunca é <em className="italic">quanto</em> automatizar; é{" "}
             <em className="italic">o quê</em>.
           </p>
           <div className="grid gap-4 sm:grid-cols-2">
