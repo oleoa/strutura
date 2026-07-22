@@ -17,7 +17,7 @@ const TOC = [
 
 const TOC_DS = [
   { id: "ds-statement", label: "Statement" },
-  { id: "ds-principios", label: "Prinípios" },
+  { id: "ds-principios", label: "Princípios" },
   { id: "ds-climas", label: "Os dois climas" },
   { id: "ds-paleta", label: "Paleta" },
   { id: "ds-tipografia", label: "Tipografia" },

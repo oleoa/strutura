@@ -26,7 +26,7 @@ import { Assinatura, Container } from "@/components/brand/ui";
 export const metadata: Metadata = {
   title: "Brand · source of truth",
   description:
-    "A source of truth completa da marca Strutura: identidade estratégica e design system Nature Warm v3.",
+    "O brand book da Strutura: design system Nature Warm e render da marca. A identidade vive no leo.md.",
   // Referência interna publicada; não é conteúdo pra indexar.
   robots: {
     index: false,
@@ -63,8 +63,8 @@ export default function BrandPage() {
       <Container>
         <footer className="flex flex-wrap justify-between gap-4 border-t border-ink/16 pt-6 text-xs text-ink-muted">
           <span>
-            Brand book · Nature Warm v3 (substitui o design.html) · fonte de
-            verdade da marca
+            Brand book · Nature Warm v3 (substitui o design.html) · design
+            system e render da marca · identidade no leo.md
           </span>
           <Assinatura />
         </footer>
