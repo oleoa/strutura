@@ -17,7 +17,7 @@ const TOC = [
 
 const TOC_DS = [
   { id: "ds-statement", label: "Statement" },
-  { id: "ds-principios", label: "Princípios" },
+  { id: "ds-principios", label: "Prinípios" },
   { id: "ds-climas", label: "Os dois climas" },
   { id: "ds-paleta", label: "Paleta" },
   { id: "ds-tipografia", label: "Tipografia" },
@@ -33,8 +33,8 @@ export default function BrandHeader() {
     <Container>
       <header className="grain-campo grain-soft mb-10 overflow-hidden rounded-[4px] border border-ink/16 bg-[radial-gradient(120%_90%_at_50%_-20%,#e4d2a8_0%,rgba(228,210,168,0)_55%)] bg-bone px-6 pb-7 pt-8 sm:px-11 sm:pb-11 sm:pt-12">
         <div className="mb-10 flex flex-col justify-between gap-2 sm:flex-row sm:items-baseline sm:gap-4">
-          <Eyebrow>Strutura · Brand book · Fonte de verdade</Eyebrow>
-          <Selo>Julho 2026</Selo>
+          <Eyebrow>Strutura · Brand book · Design system e render da marca</Eyebrow>
+          <Selo>leo.md v1 · jul 2026</Selo>
         </div>
         <h1 className="mb-5 max-w-[15ch] font-serif text-[clamp(44px,7vw,72px)] font-normal leading-[1.02] tracking-[-0.02em] [font-variation-settings:'opsz'_144]">
           Strutura
